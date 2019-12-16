@@ -1,0 +1,39 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+// FontAwesome
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+// Variables
+@import 'variables';
+
+.card.card-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 170px;
+}
+
+.management-table-list {
+    table tr {
+        .td-actions {
+            text-align: right;
+            width: 100px;
+        }
+    }
+}
+.sidebar {
+    li.active a:last-child {
+        i, svg {
+            color: white !important;
+        }
+    }
+    .nav svg {
+        font-size: 24px;
+        float: left;
+        margin-right: 15px;
+        line-height: 30px;
+        width: 30px;
+        text-align: center;
+        color: #a9afbb;
+    }
+}
