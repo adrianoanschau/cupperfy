@@ -1,12 +1,16 @@
 <div class="card">
-    @isset($header)
+    @if(isset($title))
         <div class="card-header card-header-primary">
-            {{ $header }}
+            <h4 class="card-title">{{ $title }}</h4>
+            @isset($category)
+                <p class="card-category">{{ $category }}</p>
+            @endisset
         </div>
-    @endisset
-    @isset($body)
+    @endif
+    @if(isset($body) || isset($slot))
         <div class="card-body">
-            {{ $body }}
+            {{ isset($body) ? $body : null }}
+            {{ $slot }}
         </div>
     @endisset
     @isset($footer)

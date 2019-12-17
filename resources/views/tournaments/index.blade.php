@@ -14,8 +14,8 @@
                         'helptext' => __('Here you can manage tournaments'),
                         'collection' => $collection->resource,
                         'ifEmpty' => __('No have tournaments'),
-                        'columns' => '|Status|Name',
-                        'itemComponent' => 'tournaments.list-item-row'
+                        'headComponent' => 'tournaments.list-head',
+                        'itemRowComponent' => 'tournaments.list-item-row',
                     ])
                     @slot('options')
                         <a href="{{ route('tournaments.create') }}" class="btn btn-sm btn-primary">{{ __('Add tournament') }}</a>

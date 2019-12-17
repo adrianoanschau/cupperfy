@@ -45,6 +45,12 @@ class TournamentsController extends Controller
         return view('tournaments.edit', compact('tournament'));
     }
 
+    public function config($id)
+    {
+        $tournament = $this->service->get($id);
+        return view('tournaments.config', compact('tournament'));
+    }
+
     public function update(TournamentUpdate $request, $id)
     {
         $this->service->update($request->all(), $id);

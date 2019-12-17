@@ -16,6 +16,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('tournaments', 'TournamentsController')
         ->except(['show']);
+    Route::get('tournaments/{tournament}/config', 'TournamentsController@config')
+        ->name('tournaments.config');
 
     Route::resource('user', 'UserController', ['except' => ['show']]);
     Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
