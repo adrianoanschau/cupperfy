@@ -20,6 +20,19 @@ try {
  */
 
 window.axios = require('axios');
+axios.interceptors.request.use(async (config) => {
+    console.log({ config });
+    return config;
+});
+axios.interceptors.response.use((response) => {
+    if (response.data) {
+        return response.data
+    }
+    return response;
+}, (error) => {
+    console.error(error);
+    return Promise.reject(error);
+});
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 

@@ -24,8 +24,7 @@ class TournamentsController extends Controller
 
     public function index()
     {
-        $collection = $this->service->list();
-        return view('tournaments.index', compact('collection'));
+        return view('tournaments.index');
     }
 
     public function create()
@@ -43,6 +42,12 @@ class TournamentsController extends Controller
     {
         $tournament = $this->service->get($id);
         return view('tournaments.edit', compact('tournament'));
+    }
+
+    public function config($id)
+    {
+        $tournament = $this->service->get($id);
+        return view('tournaments.config', compact('tournament'));
     }
 
     public function update(TournamentUpdate $request, $id)

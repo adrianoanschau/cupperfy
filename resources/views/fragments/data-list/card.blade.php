@@ -1,10 +1,7 @@
-@component('templates.card')
-    @slot('header')
-        <h4 class="card-title ">{{ $title }}</h4>
-        @isset($helptext)
-            <p class="card-category">{{ $helptext }}</p>
-        @endisset
-    @endslot
+@component('templates.card', [
+    'title' => $title,
+    'category' => $helptext
+])
 
     @slot('body')
         <div class="row">
@@ -13,26 +10,21 @@
             </div>
         </div>
         <div class="table-responsive management-table-list">
-            @if(isset($collection))
+            @if(isset($collection) && isset($itemRowComponent))
                 <table class="table">
-                    @if(!$collection->isEmpty())
+                    @if(!$collection->isEmpty() && isset($headComponent))
                         <thead class="text-primary">
-                        <tr>
-                            @foreach(explode('|', $columns) as $column)
-                                <th>{{ $column }}</th>
-                            @endforeach
-                        </tr>
+                            @component($headComponent)
+                            @endcomponent
                         </thead>
                     @endif
                     <tbody>
                     @forelse($collection as $item)
-                        <tr>
-                            @component($itemComponent, [ 'item' => $item ])
-                            @endcomponent
-                        </tr>
+                        @component($itemRowComponent, [ 'item' => $item ])
+                        @endcomponent
                     @empty
                         <tr>
-                            <td colspan="3" class="text-center">{{ isset($ifEmpty) ? $ifEmpty : null }}</td>
+                            <td class="text-center">{{ isset($ifEmpty) ? $ifEmpty : null }}</td>
                         </tr>
                     @endforelse
                     </tbody>

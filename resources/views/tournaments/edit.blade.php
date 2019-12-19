@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-12">
                     @component('fragments.forms.card', [
-                            'action' => route('tournaments.update', $tournament),
+                            'route' => route('tournaments.update', $tournament),
                             'method' => 'put',
                             'title' => __('Edit Tournament')
                         ])
@@ -22,6 +22,18 @@
                                 'required' => true
                             ])
                         @endcomponent
+
+                    @endcomponent
+
+                    @component('fragments.forms.card', [
+                            'route' => route('tournaments.destroy', $tournament),
+                            'method' => 'delete',
+                            'title' => __('Delete Tournament'),
+                            'action' => [
+                                'label' => 'Delete the Tournament',
+                                'class' => 'btn-danger'
+                            ]
+                        ])
                     @endcomponent
                 </div>
             </div>

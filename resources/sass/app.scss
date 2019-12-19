@@ -6,6 +6,22 @@
 // Variables
 @import 'variables';
 
+* {
+    box-sizing: border-box;
+}
+
+input {
+    width: 100%;
+}
+
+.form-group label {
+    top: -16px !important;
+}
+
+.card {
+    margin-bottom: 50px !important;
+}
+
 .card.card-stats {
     display: flex;
     flex-direction: column;
@@ -17,7 +33,10 @@
     table tr {
         .td-actions {
             text-align: right;
-            width: 100px;
+            width: 60px;
+        }
+        &:hover {
+            background-color: lighten($purple, 35);
         }
     }
 }
@@ -36,4 +55,8 @@
         text-align: center;
         color: #a9afbb;
     }
+}
+
+.nav-link.active {
+    background-color: $orange !important;
 }

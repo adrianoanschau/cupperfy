@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-12">
                     @component('fragments.forms.card', [
-                            'action' => route('tournaments.store'),
+                            'route' => route('tournaments.store'),
                             'method' => 'post',
                             'title' => __('Add Tournament')
                         ])
