@@ -4,7 +4,7 @@
 
     @component('templates.card', [
             'title' => $title,
-            'category' => $helptext
+            'category' => isset($category) ? $category : null
         ])
 
         @slot('body')

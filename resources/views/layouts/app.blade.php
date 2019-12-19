@@ -33,6 +33,9 @@
         </div>
 
         <!-- APP -->
+        <script>
+            window._translations = {!! cache('translations') !!};
+        </script>
         <script src="{{ asset('js/app.js') }}"></script>
 
         <!--   Core JS Files   -->

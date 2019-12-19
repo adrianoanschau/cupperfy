@@ -10,6 +10,14 @@
     box-sizing: border-box;
 }
 
+input {
+    width: 100%;
+}
+
+.form-group label {
+    top: -16px !important;
+}
+
 .card {
     margin-bottom: 50px !important;
 }

@@ -50,7 +50,7 @@
         </div>
       </li>
       <li class="nav-item{{ $activePage == 'tournaments-management' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('tournaments.index') }}">
+        <a class="nav-link" href="{{ route('tournaments') }}">
           <i class="fas fa-trophy text-primary"></i>
             <p>{{ __('Tournaments') }}</p>
         </a>

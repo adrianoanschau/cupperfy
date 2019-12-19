@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'previous' => '&laquo; Previous',
-    'next' => 'Next &raquo;',
-    'total' => 'Total: :total registers'
+    'previous' => '&laquo; Anterior',
+    'next' => 'Próximo &raquo;',
+    'total' => 'Total: :total resultados'
 
 ];

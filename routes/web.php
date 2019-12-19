@@ -14,10 +14,13 @@ Route::group(['middleware' => 'auth'], function () {
 		return view('pages.notifications');
 	})->name('notifications');
 
-    Route::resource('tournaments', 'TournamentsController')
-        ->except(['show']);
-    Route::get('tournaments/{tournament}/config', 'TournamentsController@config')
-        ->name('tournaments.config');
+    Route::get('tournaments', function () {
+        return view('tournaments.index');
+    })->name('tournaments');
+
+    Route::get('tournaments/{tournament}/config', function ($tournament) {
+        return view('tournaments.config', compact('tournament'));
+    })->name('tournaments.config');
 
     Route::resource('user', 'UserController', ['except' => ['show']]);
     Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);

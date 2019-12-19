@@ -1,0 +1,31 @@
+{
+    "You have not registers": "Não há registros para exibir",
+    "Prepare": "Preparar",
+    "Name": "Nome",
+    "Status": "Situação",
+    "Save changes": "Salvar alterações",
+    "Create": "Criar",
+    "Edit": "Editar",
+    "Close": "Fechar",
+    "Delete": "Remover",
+    "Back to list": "Voltar para a lista",
+
+    "Dashboard": "Dados gerais",
+    "Stages": "Fases",
+    "Competitors": "Competidores",
+    "Calendar": "Calendário",
+    "Statistics": "Estatísticas",
+
+    "Tournament": "Campeonato",
+    "Tournaments": "Campeonatos",
+    "Tournament Management": "Administração de Campeonatos",
+    "Here you can manage tournaments": "Aqui você pode administrar os campeonatos",
+    "Add tournament": "Criar campeonato",
+    "In preparation": "Em preparação",
+    "Open for subscriptions": "Inscrições abertas",
+    "In progress": "Em andamento",
+    "Finalized": "Finalizada",
+    "Publish": "Publicar",
+    "Start": "Iniciar",
+    "Finish": "Encerrar"
+}
