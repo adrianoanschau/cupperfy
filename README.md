@@ -9,7 +9,7 @@ Monorepo da plataforma de gestão de competições.
 ```
 Leaguefy/
 ├── apps/
-│   └── web/                 # @leaguefy/web — Next.js (a scaffoldar)
+│   └── web/                 # @leaguefy/web — Next.js App Router + Tailwind v4 + shadcn
 ├── packages/
 │   └── config-typescript/   # configs compartilhadas
 ├── supabase/                # CLI local (migrations, config.toml, seed)
@@ -40,7 +40,9 @@ Next.js (App Router) em `apps/web` + Supabase local (`supabase/`) + RPCs de brac
 yarn install
 yarn supabase:start     # Docker via Supabase CLI
 yarn supabase:status
-yarn dev                # apps/web (após scaffold Next.js)
+yarn dev                # apps/web — Next.js
+yarn lint
+yarn format
 ```
 
 Ambiente local: [docs/07-ambiente-local.md](./docs/07-ambiente-local.md).

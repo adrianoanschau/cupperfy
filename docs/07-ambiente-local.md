@@ -42,10 +42,13 @@ Containers: `docker ps --filter "name=supabase"`
 ## App web
 
 ```bash
-yarn dev    # → workspace @leaguefy/web (após scaffold Next.js)
+yarn dev       # Next.js em apps/web
+yarn lint
+yarn format
 ```
 
-Env do app: `apps/web/.env.local` (template na raiz: `.env.example`).
+Stack do app: App Router · Tailwind v4 · shadcn/ui · ESLint estilo Airbnb + Prettier.  
+Env: `apps/web/.env.local` (template na raiz: `.env.example`).
 
 ## Arquivos relevantes
 
