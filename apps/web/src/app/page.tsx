@@ -38,6 +38,14 @@ export default function Home() {
               className="text-white hover:bg-white/10 hover:text-white"
               asChild
             >
+              <Link href="/apoiadores">Apoiar</Link>
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-white hover:bg-white/10 hover:text-white"
+              asChild
+            >
               <a href="#alfa">Participar</a>
             </Button>
             <ThemeToggle className="border-white/20 bg-white/10 text-white hover:bg-white/15 hover:text-white" />
@@ -164,6 +172,9 @@ export default function Home() {
             league<span className="text-primary">fy</span>
           </p>
           <nav className="text-muted-foreground flex flex-wrap gap-4 text-sm">
+            <Link href="/apoiadores" className="hover:text-foreground">
+              Apoiar
+            </Link>
             <Link href="/design-system" className="hover:text-foreground">
               Design system
             </Link>

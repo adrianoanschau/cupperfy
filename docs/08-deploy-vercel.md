@@ -35,6 +35,10 @@ Definir no dashboard Vercel (*Settings → Environment Variables*):
 | `GOOGLE_GENERATIVE_AI_API_KEY` | Production + Preview | Key Gemini (AI Studio) — só servidor |
 | `NEXT_PUBLIC_WHATSAPP_URL` | Production + Preview | Ex.: `https://wa.me/adrianoanschau` |
 | `NEXT_PUBLIC_TELEGRAM_URL` | Production + Preview | Ex.: `https://t.me/adrianoanschau` |
+| `NEXT_PUBLIC_SUPPORT_EMAIL` | Production + Preview | E-mail de parcerias (`/apoiadores`) |
+| `NEXT_PUBLIC_PIX_PAYLOAD` | Production + Preview | PIX “copia e cola” (QR em `/apoiadores`) |
+| `NEXT_PUBLIC_PIX_KEY_LABEL` | Production + Preview | Chave legível (opcional) |
+| `NEXT_PUBLIC_PIX_BENEFICIARY` | Production + Preview | Nome exibido no PIX (opcional) |
 
 Template local: [`.env.example`](../.env.example). Não commitar `.env.production` / `.env.local`.
 
