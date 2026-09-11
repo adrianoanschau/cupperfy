@@ -44,7 +44,8 @@ Definir no dashboard Vercel (*Settings → Environment Variables*):
 | `ADMIN_PASSWORD` | Production | Senha do `/admin` |
 | `ADMIN_SESSION_SECRET` | Production | Segredo cookie admin (≥32 chars) |
 | `RESEND_API_KEY` | Production | Envio de convites por e-mail |
-| `EMAIL_FROM` | Production | Remetente verificado no Resend |
+| `EMAIL_FROM` | Production | Remetente verificado no Resend (não use Gmail) |
+| `EMAIL_REPLY_TO` | Production | Reply-To (default: `contato.leaguefy@gmail.com`) |
 | `NEXT_PUBLIC_APP_URL` | Production + Preview | Origem absoluta dos links |
 
 Template local: [`.env.example`](../.env.example). Não commitar `.env.production` / `.env.local`.

@@ -9,8 +9,18 @@ export type SendEmailInput = {
 
 export type SendEmailResult = { ok: true; id?: string } | { ok: false; error: string };
 
+const DEFAULT_REPLY_TO = 'contato.leaguefy@gmail.com';
+
 function getFromAddress(): string | null {
   return process.env.EMAIL_FROM?.trim() || null;
+}
+
+function getReplyToAddress(): string {
+  return (
+    process.env.EMAIL_REPLY_TO?.trim() ||
+    process.env.NEXT_PUBLIC_SUPPORT_EMAIL?.trim() ||
+    DEFAULT_REPLY_TO
+  );
 }
 
 /** SMTP local (Mailpit) ou qualquer SMTP — prioridade sobre Resend. */
@@ -19,6 +29,7 @@ async function sendViaSmtp(input: SendEmailInput): Promise<SendEmailResult | nul
   if (!host) return null;
 
   const from = getFromAddress() || 'Leaguefy <noreply@leaguefy.local>';
+  const replyTo = getReplyToAddress();
   const port = Number(process.env.SMTP_PORT || '54325');
   const secure = process.env.SMTP_SECURE === 'true';
   const user = process.env.SMTP_USER?.trim();
@@ -35,6 +46,7 @@ async function sendViaSmtp(input: SendEmailInput): Promise<SendEmailResult | nul
 
     const info = await transport.sendMail({
       from,
+      replyTo,
       to: input.to,
       subject: input.subject,
       text: input.text,
@@ -54,6 +66,7 @@ async function sendViaSmtp(input: SendEmailInput): Promise<SendEmailResult | nul
 async function sendViaResend(input: SendEmailInput): Promise<SendEmailResult> {
   const apiKey = process.env.RESEND_API_KEY?.trim();
   const from = getFromAddress();
+  const replyTo = getReplyToAddress();
 
   if (!apiKey) {
     return {
@@ -77,6 +90,7 @@ async function sendViaResend(input: SendEmailInput): Promise<SendEmailResult> {
     },
     body: JSON.stringify({
       from,
+      reply_to: replyTo,
       to: [input.to],
       subject: input.subject,
       html: input.html,
@@ -103,6 +117,7 @@ async function sendViaResend(input: SendEmailInput): Promise<SendEmailResult> {
 /**
  * Local: SMTP → Mailpit (`SMTP_HOST=127.0.0.1`, `SMTP_PORT=54325`).
  * Produção: Resend (`RESEND_API_KEY`).
+ * Reply-To: `EMAIL_REPLY_TO` → `NEXT_PUBLIC_SUPPORT_EMAIL` → contato.leaguefy@gmail.com
  */
 export async function sendEmail(input: SendEmailInput): Promise<SendEmailResult> {
   const smtpResult = await sendViaSmtp(input);

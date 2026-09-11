@@ -116,13 +116,14 @@ E-mail:
 
 - **Local:** Mailpit do Supabase (`SMTP_HOST=127.0.0.1`, `SMTP_PORT=54325`) — inbox em http://127.0.0.1:54324  
   (precisa `smtp_port = 54325` em `supabase/config.toml` e `yarn supabase:start`)
-- **Produção:** Resend (`RESEND_API_KEY` + `EMAIL_FROM` com domínio verificado)
+- **Produção:** Resend (`RESEND_API_KEY` + `EMAIL_FROM` verificado; Reply-To via `EMAIL_REPLY_TO`)
 
 ```bash
 # local
 SMTP_HOST=127.0.0.1
 SMTP_PORT=54325
 EMAIL_FROM=Leaguefy <noreply@leaguefy.local>
+EMAIL_REPLY_TO=contato.leaguefy@gmail.com
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 ```
 
