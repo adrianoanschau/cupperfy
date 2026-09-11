@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
+import { SiteFooter } from '@/components/site-footer';
+import { SiteHeader } from '@/components/site-header';
 import { CopyButton } from '@/components/support/copy-button';
-import { ThemeToggle } from '@/components/theme-toggle';
 import { Button } from '@/components/ui/button';
 import { getPixConfig, getSupportContacts } from '@/lib/support/config';
 import { createPixQrDataUrl } from '@/lib/support/pix-qr';
@@ -26,6 +26,14 @@ export default async function ApoiadoresPage() {
 
   return (
     <div className="bg-background flex flex-1 flex-col">
+      <SiteHeader
+        brandAsLink
+        links={[
+          { href: '#doar', label: 'Doar' },
+          { href: '#parcerias', label: 'Parcerias' },
+        ]}
+      />
+
       <section className="relative flex min-h-[100svh] flex-col overflow-hidden">
         <div
           aria-hidden
@@ -35,31 +43,6 @@ export default async function ApoiadoresPage() {
           aria-hidden
           className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg_xmlns=%22http://www.w3.org/2000/svg%22_width=%2240%22_height=%2240%22_viewBox=%220_0_40_40%22%3E%3Cg_fill=%22%23fff%22_fill-opacity=%220.03%22%3E%3Cpath_d=%22M0_0h1v40H0V0zm39_0h1v40h-1V0z%22/%3E%3C/g%3E%3C/svg%3E')]"
         />
-
-        <header className="lf-glass-nav relative z-10 mx-4 mt-4 flex items-center justify-between rounded-2xl px-4 py-3 md:mx-8 md:px-6">
-          <Link href="/" className="font-heading text-xl font-bold tracking-tight text-white">
-            league<span className="text-primary">fy</span>
-          </Link>
-          <div className="flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-white hover:bg-white/10 hover:text-white"
-              asChild
-            >
-              <a href="#doar">Doar</a>
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-white hover:bg-white/10 hover:text-white"
-              asChild
-            >
-              <a href="#parcerias">Parcerias</a>
-            </Button>
-            <ThemeToggle className="border-white/20 bg-white/10 text-white hover:bg-white/15 hover:text-white" />
-          </div>
-        </header>
 
         <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-1 flex-col justify-end px-4 pt-12 pb-10 md:px-8 md:pb-16">
           <div className="lf-glass-hero lf-fade-up max-w-3xl space-y-6 rounded-3xl p-6 md:p-10">
@@ -219,21 +202,12 @@ export default async function ApoiadoresPage() {
         </div>
       </section>
 
-      <footer className="lf-glass border-border mt-auto border-0 border-t px-6 py-8 md:px-10">
-        <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-4">
-          <p className="font-heading text-foreground text-sm font-bold tracking-tight">
-            league<span className="text-primary">fy</span>
-          </p>
-          <nav className="text-muted-foreground flex flex-wrap gap-4 text-sm">
-            <Link href="/" className="hover:text-foreground">
-              Início
-            </Link>
-            <Link href="/#alfa" className="hover:text-foreground">
-              Alfa
-            </Link>
-          </nav>
-        </div>
-      </footer>
+      <SiteFooter
+        links={[
+          { href: '/', label: 'Início' },
+          { href: '/#alfa', label: 'Alfa' },
+        ]}
+      />
     </div>
   );
 }

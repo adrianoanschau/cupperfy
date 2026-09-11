@@ -35,10 +35,17 @@ Definir no dashboard Vercel (*Settings → Environment Variables*):
 | `GOOGLE_GENERATIVE_AI_API_KEY` | Production + Preview | Key Gemini (AI Studio) — só servidor |
 | `NEXT_PUBLIC_WHATSAPP_URL` | Production + Preview | Ex.: `https://wa.me/adrianoanschau` |
 | `NEXT_PUBLIC_TELEGRAM_URL` | Production + Preview | Ex.: `https://t.me/adrianoanschau` |
+| `NEXT_PUBLIC_YOUTUBE_URL` | Production + Preview | Opcional — default `https://www.youtube.com/@Leaguefy` |
+| `NEXT_PUBLIC_INSTAGRAM_URL` | Production + Preview | Opcional — default `https://www.instagram.com/leaguefy.oficial/` |
 | `NEXT_PUBLIC_SUPPORT_EMAIL` | Production + Preview | E-mail de parcerias (`/apoiadores`) |
 | `NEXT_PUBLIC_PIX_PAYLOAD` | Production + Preview | PIX “copia e cola” (QR em `/apoiadores`) |
 | `NEXT_PUBLIC_PIX_KEY_LABEL` | Production + Preview | Chave legível (opcional) |
 | `NEXT_PUBLIC_PIX_BENEFICIARY` | Production + Preview | Nome exibido no PIX (opcional) |
+| `ADMIN_PASSWORD` | Production | Senha do `/admin` |
+| `ADMIN_SESSION_SECRET` | Production | Segredo cookie admin (≥32 chars) |
+| `RESEND_API_KEY` | Production | Envio de convites por e-mail |
+| `EMAIL_FROM` | Production | Remetente verificado no Resend |
+| `NEXT_PUBLIC_APP_URL` | Production + Preview | Origem absoluta dos links |
 
 Template local: [`.env.example`](../.env.example). Não commitar `.env.production` / `.env.local`.
 

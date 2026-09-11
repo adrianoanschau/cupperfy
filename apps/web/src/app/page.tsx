@@ -1,13 +1,20 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
-import { AlphaWaitlistForm } from '@/components/landing/alpha-waitlist-form';
-import { ThemeToggle } from '@/components/theme-toggle';
+import { AlphaWaitlistForm } from '@/components/landing/alpha-waitlist-form';import { SocialFollowSection } from '@/components/landing/social-follow-section';
+import { SiteFooter } from '@/components/site-footer';
+import { SiteHeader } from '@/components/site-header';
 import { Button } from '@/components/ui/button';
 
 export default function Home() {
   return (
     <div className="bg-background flex flex-1 flex-col">
+      <SiteHeader
+        links={[
+          { href: '/apoiadores', label: 'Apoiar' },
+          { href: '#alfa', label: 'Participar' },
+        ]}
+      />
+
       {/* —— Hero (uma composição) —— */}
       <section className="relative flex min-h-[100svh] flex-col overflow-hidden">
         <Image
@@ -26,31 +33,6 @@ export default function Home() {
           aria-hidden
           className="from-ink-950 to-ink-950/40 absolute inset-0 bg-gradient-to-t via-transparent"
         />
-
-        <header className="lf-glass-nav relative z-10 mx-4 mt-4 flex items-center justify-between rounded-2xl px-4 py-3 md:mx-8 md:px-6">
-          <p className="font-heading text-xl font-bold tracking-tight text-white">
-            league<span className="text-primary">fy</span>
-          </p>
-          <div className="flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-white hover:bg-white/10 hover:text-white"
-              asChild
-            >
-              <Link href="/apoiadores">Apoiar</Link>
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-white hover:bg-white/10 hover:text-white"
-              asChild
-            >
-              <a href="#alfa">Participar</a>
-            </Button>
-            <ThemeToggle className="border-white/20 bg-white/10 text-white hover:bg-white/15 hover:text-white" />
-          </div>
-        </header>
 
         <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-1 flex-col justify-end px-4 pt-12 pb-10 md:px-8 md:pb-16">
           <div className="lf-glass-hero lf-fade-up max-w-3xl space-y-6 rounded-3xl p-6 md:p-10">
@@ -241,27 +223,17 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="lf-glass border-border mt-auto border-0 border-t px-6 py-8 md:px-10">
-        <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-4">
-          <p className="font-heading text-foreground text-sm font-bold tracking-tight">
-            league<span className="text-primary">fy</span>
-          </p>
-          <nav className="text-muted-foreground flex flex-wrap gap-4 text-sm">
-            <Link href="/apoiadores" className="hover:text-foreground">
-              Apoiar
-            </Link>
-            <Link href="/design-system" className="hover:text-foreground">
-              Design system
-            </Link>
-            <a href="#torneio" className="hover:text-foreground">
-              Torneio
-            </a>
-            <a href="#alfa" className="hover:text-foreground">
-              Alfa
-            </a>
-          </nav>
-        </div>
-      </footer>
+      <SocialFollowSection />
+
+      <SiteFooter
+        links={[
+          { href: '/apoiadores', label: 'Apoiar' },
+          { href: '/design-system', label: 'Design system' },
+          { href: '#torneio', label: 'Torneio' },
+          { href: '#alfa', label: 'Alfa' },
+          { href: '#redes', label: 'Redes' },
+        ]}
+      />
     </div>
   );
 }

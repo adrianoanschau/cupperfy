@@ -1,6 +1,8 @@
 export type ContactLinks = {
   whatsappUrl: string;
   telegramUrl: string;
+  youtubeUrl: string;
+  instagramUrl: string;
 };
 
 export type CannedFaqEntry = {
@@ -78,6 +80,22 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
     keywords: ['falar', 'humano', 'whatsapp', 'telegram', 'suporte', 'contato'],
     answer: (contacts) =>
       `Pode falar direto com a gente:\n• WhatsApp: ${contacts.whatsappUrl}\n• Telegram: ${contacts.telegramUrl}\nConta o contexto da dúvida que respondemos por lá.`,
+  },
+  {
+    id: 'social-networks',
+    question: 'Quais são as redes da Leaguefy?',
+    aliases: [
+      'instagram',
+      'youtube',
+      'redes sociais',
+      'rede social',
+      'tem instagram',
+      'tem youtube',
+      'canal no youtube',
+    ],
+    keywords: ['instagram', 'youtube', 'rede', 'redes', 'social'],
+    answer: (contacts) =>
+      `Redes oficiais:\n• Instagram: ${contacts.instagramUrl} (@leaguefy.oficial)\n• YouTube: ${contacts.youtubeUrl} (@Leaguefy)\nPara dúvidas rápidas, WhatsApp e Telegram também estão no chat.`,
   },
   {
     id: 'is-paid',

@@ -1,0 +1,51 @@
+export function buildCheckinInviteEmail(input: { name: string | null; checkinUrl: string }) {
+  const greeting = input.name?.trim() ? `Olá, ${input.name.trim()}!` : 'Olá!';
+  const subject = 'Leaguefy · confirme sua disponibilidade no torneio alfa';
+
+  const text = `${greeting}
+
+Você está na lista do teste alfa da Leaguefy.
+Confirme em quais janelas você pode jogar o torneio x1:
+
+${input.checkinUrl}
+
+Este link é pessoal e já identifica você.
+Se não esperava este e-mail, ignore.
+
+— Equipe Leaguefy
+`;
+
+  const html = `<!doctype html>
+<html lang="pt-BR">
+  <body style="margin:0;padding:0;background:#111;color:#f5f5f5;font-family:Manrope,Helvetica,Arial,sans-serif;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#111;padding:32px 16px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" style="max-width:520px;background:#1a1512;border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:28px;">
+            <tr>
+              <td>
+                <p style="margin:0 0 8px;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#f97316;font-weight:700;">Leaguefy · alfa</p>
+                <h1 style="margin:0 0 16px;font-size:24px;line-height:1.2;color:#fff;">Confirme sua disponibilidade</h1>
+                <p style="margin:0 0 16px;font-size:16px;line-height:1.5;color:rgba(255,255,255,0.78);">${greeting}</p>
+                <p style="margin:0 0 24px;font-size:16px;line-height:1.5;color:rgba(255,255,255,0.78);">
+                  Escolha as janelas em que você consegue participar do torneio x1 de teste. O link é pessoal e já vem com seus dados.
+                </p>
+                <p style="margin:0 0 28px;">
+                  <a href="${input.checkinUrl}" style="display:inline-block;background:#f97316;color:#111;text-decoration:none;font-weight:700;padding:12px 18px;border-radius:12px;">
+                    Abrir check-in
+                  </a>
+                </p>
+                <p style="margin:0;font-size:12px;line-height:1.5;color:rgba(255,255,255,0.45);word-break:break-all;">
+                  Se o botão não funcionar: ${input.checkinUrl}
+                </p>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
+
+  return { subject, text, html };
+}

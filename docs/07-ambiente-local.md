@@ -74,6 +74,7 @@ Em `apps/web/.env.local`:
 GOOGLE_GENERATIVE_AI_API_KEY=…   # AI Studio
 NEXT_PUBLIC_WHATSAPP_URL=https://wa.me/adrianoanschau
 NEXT_PUBLIC_TELEGRAM_URL=https://t.me/adrianoanschau
+# Opcionais (já há default): YouTube @Leaguefy, Instagram @leaguefy.oficial
 ```
 
 Sem a key do Gemini o endpoint responde 503.
@@ -100,6 +101,32 @@ returning token, email;
 4. Confira respostas em `alpha_checkins` (várias linhas por pessoa, uma por horário)
 
 `/checkin` sem token só orienta a usar o link pessoal. Reenvio no mesmo link substitui a disponibilidade.
+
+### Admin (`/admin`)
+
+Área protegida por senha (cookie assinado).
+
+1. Em `apps/web/.env.local`:
+   - `ADMIN_PASSWORD=…`
+   - `ADMIN_SESSION_SECRET=…` (mín. 32 caracteres)
+2. Abra `/admin/login` → lista em `/admin/interessados`
+3. Gere/copie o link `/checkin/<token>` por interessado, ou use **Enviar por e-mail**
+
+E-mail:
+
+- **Local:** Mailpit do Supabase (`SMTP_HOST=127.0.0.1`, `SMTP_PORT=54325`) — inbox em http://127.0.0.1:54324  
+  (precisa `smtp_port = 54325` em `supabase/config.toml` e `yarn supabase:start`)
+- **Produção:** Resend (`RESEND_API_KEY` + `EMAIL_FROM` com domínio verificado)
+
+```bash
+# local
+SMTP_HOST=127.0.0.1
+SMTP_PORT=54325
+EMAIL_FROM=Leaguefy <noreply@leaguefy.local>
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+```
+
+Também no Vercel (Production): as mesmas vars + `SUPABASE_SERVICE_ROLE_KEY`.
 
 ## Arquivos relevantes
 
