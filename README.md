@@ -2,6 +2,8 @@
 
 **Fonte da verdade:** este `README.md` + a série numerada em [`docs/`](./docs/) (`01`–`06`). Qualquer conteúdo fora dela é histórico ou auxiliar.
 
+Relatórios de cada etapa: [`reports/`](./reports/).
+
 ## Índice
 
 | # | Documento | Conteúdo |
@@ -13,6 +15,7 @@
 | 04 | [Autenticação e RLS](./docs/04-autenticacao-e-rls.md) | Matriz MVP, helpers, policies, testes negativos |
 | 05 | [Roadmap](./docs/05-roadmap.md) | Freeze Fase 1 + Fases 2–3 |
 | 06 | [Desafios técnicos](./docs/06-desafios-tecnicos.md) | Riscos + checklist pré-código |
+| — | [Relatórios](./reports/README.md) | Histórico do que foi feito por etapa |
 
 ### Auxiliares
 
@@ -54,5 +57,6 @@ Checklist: [06-desafios-tecnicos.md](./docs/06-desafios-tecnicos.md#checklist-pr
 ## Convenção de manutenção
 
 - Edite sempre este `README.md` (raiz) e os arquivos `docs/0N-*.md`.
+- Ao fechar uma etapa de trabalho, adicione um relatório em `reports/` (ver [convenção](./reports/README.md)).
 - O diagrama ER canônico do MVP vive em [02-modelagem-de-dados.md](./docs/02-modelagem-de-dados.md) (Mermaid).
 - Não reintroduza um documento monolítico paralelo.
