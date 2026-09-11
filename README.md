@@ -14,7 +14,7 @@ Leaguefy/
 ├── packages/
 │   └── config-typescript/   # configs compartilhadas
 ├── supabase/                # CLI local (migrations, config.toml, seed)
-├── docs/                    # arquitetura 01–08
+├── docs/                    # arquitetura 01–09
 ├── reports/                 # histórico por etapa
 ├── docker-compose.yml       # rede local + nota do stack via CLI
 ├── vercel.json              # build/install do monorepo na Vercel
@@ -62,6 +62,7 @@ Deploy (Vercel + Action): [docs/08-deploy-vercel.md](./docs/08-deploy-vercel.md)
 | 06 | [Desafios técnicos](./docs/06-desafios-tecnicos.md) | Riscos + checklist |
 | 07 | [Ambiente local](./docs/07-ambiente-local.md) | Supabase + Docker + monorepo |
 | 08 | [Deploy Vercel](./docs/08-deploy-vercel.md) | Vercel + GitHub Action (`main`) |
+| 09 | [Design system](./docs/09-design-system.md) | Identidade laranja/preto, tipografia, tokens |
 | — | [Relatórios](./reports/README.md) | O que foi feito por etapa |
 
 ## Convenção

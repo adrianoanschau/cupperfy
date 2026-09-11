@@ -1,29 +1,49 @@
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Manrope, Oxanium } from 'next/font/google';
+
+import { ThemeProvider } from '@/components/theme-provider';
 
 import type { Metadata } from 'next';
-/* Resolve via Node (funciona no monorepo/Vercel); @import no CSS quebra com package exports. */
+/* Resolve via Node (monorepo/Vercel); @import no CSS quebra com package exports. */
 import 'shadcn/tailwind.css';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const fontDisplay = Oxanium({
+  variable: '--font-display',
   subsets: ['latin'],
+  weight: ['500', '600', '700'],
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const fontBody = Manrope({
+  variable: '--font-body',
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
 });
 
 export const metadata: Metadata = {
-  title: 'Leaguefy',
+  title: {
+    default: 'Leaguefy',
+    template: '%s · Leaguefy',
+  },
   description: 'Plataforma de gestão de competições — MVP x1 futebol e-sports',
 };
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col">{children}</body>
+    <html
+      lang="pt-BR"
+      suppressHydrationWarning
+      className={`${fontDisplay.variable} ${fontBody.variable} h-full`}
+    >
+      <body className="flex min-h-full flex-col">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

@@ -919,6 +919,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:^8.70.0"
     class-variance-authority: "npm:^0.7.1"
     clsx: "npm:^2.1.1"
+    cn: "npm:^0.2.6"
     eslint: "npm:^9"
     eslint-config-next: "npm:16.3.4"
     eslint-config-prettier: "npm:^10.1.8"
@@ -930,6 +931,7 @@ __metadata:
     eslint-plugin-react-hooks: "npm:^7.1.1"
     lucide-react: "npm:^1.44.0"
     next: "npm:16.3.4"
+    next-themes: "npm:^0.4.6"
     prettier: "npm:^3.9.6"
     prettier-plugin-tailwindcss: "npm:^0.8.1"
     radix-ui: "npm:^1.6.7"
@@ -3547,7 +3549,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cn@npm:^0.2.4":
+"cn@npm:^0.2.4, cn@npm:^0.2.6":
   version: 0.2.6
   resolution: "cn@npm:0.2.6"
   bin:
@@ -6191,6 +6193,16 @@ __metadata:
   dependencies:
     content-type: "npm:^2.1.0"
   checksum: 10c0/656fa57de02f1a0c4c09f9e17eb78e8182547c07093e810ff8f16249b6ae31f2c546a3d457905e94f3276b25f0e2741ea1a3bc3912192932ed7e493adfea535e
+  languageName: node
+  linkType: hard
+
+"next-themes@npm:^0.4.6":
+  version: 0.4.6
+  resolution: "next-themes@npm:0.4.6"
+  peerDependencies:
+    react: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
+    react-dom: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
+  checksum: 10c0/83590c11d359ce7e4ced14f6ea9dd7a691d5ce6843fe2dc520fc27e29ae1c535118478d03e7f172609c41b1ef1b8da6b8dd2d2acd6cd79cac1abbdbd5b99f2c4
   languageName: node
   linkType: hard
 
