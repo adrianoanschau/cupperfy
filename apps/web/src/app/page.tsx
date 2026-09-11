@@ -75,7 +75,7 @@ export default function Home() {
                 className="border-white/25 bg-white/5 text-white backdrop-blur-sm hover:bg-white/12 hover:text-white"
                 asChild
               >
-                <a href="#como-funciona">Como funciona</a>
+                <a href="#torneio">Como será o torneio</a>
               </Button>
             </div>
           </div>
@@ -148,6 +148,81 @@ export default function Home() {
         </div>
       </section>
 
+      {/* —— Torneio do alfa —— */}
+      <section
+        id="torneio"
+        className="border-border relative scroll-mt-8 overflow-hidden border-b px-6 py-20 md:px-10"
+      >
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_75%_65%_at_50%_100%,var(--brand-200),transparent_55%)] dark:bg-[radial-gradient(ellipse_75%_65%_at_50%_100%,var(--brand-800),transparent_55%)]"
+        />
+        <div className="relative mx-auto flex w-full max-w-5xl flex-col gap-10">
+          <div className="max-w-2xl space-y-4">
+            <h2 className="font-heading text-foreground text-3xl font-bold md:text-4xl">
+              O torneio do teste alfa
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Plano base do primeiro campeonato na plataforma. Números e detalhes podem ser
+              levemente ajustados conforme a lista de interesse e a disponibilidade de quem
+              confirmar presença.
+            </p>
+          </div>
+
+          <dl className="lf-glass grid gap-8 rounded-3xl p-8 md:grid-cols-2 md:p-10">
+            <div className="space-y-2">
+              <dt className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
+                Modalidade
+              </dt>
+              <dd className="text-foreground text-lg font-medium">Futebol e-sports · x1</dd>
+              <p className="text-muted-foreground text-sm">
+                Confrontos jogador vs jogador. Inscrição individual — sem times neste alfa.
+              </p>
+            </div>
+            <div className="space-y-2">
+              <dt className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
+                Formato
+              </dt>
+              <dd className="text-foreground text-lg font-medium">Eliminação simples</dd>
+              <p className="text-muted-foreground text-sm">
+                Chave até a final. Perdeu, está fora. Placares e avanço na própria Leaguefy.
+              </p>
+            </div>
+            <div className="space-y-2">
+              <dt className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
+                Tamanho da chave
+              </dt>
+              <dd className="text-foreground text-lg font-medium">8 jogadores (padrão)</dd>
+              <p className="text-muted-foreground text-sm">
+                Também consideramos 4 ou 16 se a lista e a agenda pedirem um ajuste leve.
+              </p>
+            </div>
+            <div className="space-y-2">
+              <dt className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
+                Partidas
+              </dt>
+              <dd className="text-foreground text-lg font-medium">Melhor de 1 · seeding manual</dd>
+              <p className="text-muted-foreground text-sm">
+                Cada confronto decide em um jogo. A ordem na chave é definida pela organização.
+              </p>
+            </div>
+          </dl>
+
+          <p className="text-muted-foreground max-w-3xl text-sm leading-relaxed md:text-base">
+            <span className="text-foreground font-medium">Importante:</span> o desenho acima é a
+            referência do alfa, não um contrato rígido. Se houver mais (ou menos) interessados
+            disponíveis na janela do evento, podemos recalibrar o tamanho da chave, horários ou
+            ondas de convite — sempre avisando quem estiver na lista.
+          </p>
+
+          <div>
+            <Button size="lg" asChild>
+              <a href="#alfa">Entrar na lista do alfa</a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* —— CTA / waitlist —— */}
       <section id="alfa" className="relative scroll-mt-8 overflow-hidden px-6 py-20 md:px-10">
         <div
@@ -178,6 +253,9 @@ export default function Home() {
             <Link href="/design-system" className="hover:text-foreground">
               Design system
             </Link>
+            <a href="#torneio" className="hover:text-foreground">
+              Torneio
+            </a>
             <a href="#alfa" className="hover:text-foreground">
               Alfa
             </a>

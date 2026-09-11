@@ -41,7 +41,7 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
     ],
     keywords: ['torneio', 'x1', 'chave', 'eliminacao'],
     answer: () =>
-      'O torneio de lançamento é x1 (jogador vs jogador) em futebol e-sports, com eliminação simples. A inscrição é individual — sem time. A chave (em geral ~8 jogadores no primeiro evento) avança até a final com placares lançados na plataforma.',
+      'O torneio do alfa é x1 de futebol e-sports, eliminação simples, inscrição individual (sem time). O padrão é chave de 8 jogadores (também 4 ou 16 se precisar). Melhor de 1, seeding manual. Esses números podem ser levemente ajustados conforme a lista e a disponibilidade dos interessados.',
   },
   {
     id: 'how-join-alpha',
