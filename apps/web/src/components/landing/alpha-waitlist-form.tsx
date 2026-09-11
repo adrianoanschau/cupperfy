@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from 'react';
 
+import { joinAlphaWaitlist } from '@/app/actions/alpha-waitlist';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -12,16 +13,23 @@ export function AlphaWaitlistForm() {
   const [status, setStatus] = useState<Status>('idle');
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
+  const [error, setError] = useState<string | null>(null);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!email.trim()) return;
 
+    setError(null);
     setStatus('submitting');
-    // Persistência real (API / Supabase) entra depois — por agora confirma o interesse na UI.
-    await new Promise((resolve) => {
-      setTimeout(resolve, 600);
-    });
+
+    const result = await joinAlphaWaitlist({ email, name });
+
+    if (!result.ok) {
+      setError(result.error);
+      setStatus('idle');
+      return;
+    }
+
     setStatus('done');
   }
 
@@ -49,6 +57,7 @@ export function AlphaWaitlistForm() {
             placeholder="Como te chamamos"
             value={name}
             onChange={(event) => setName(event.target.value)}
+            disabled={status === 'submitting'}
           />
         </div>
         <div className="space-y-2">
@@ -62,9 +71,15 @@ export function AlphaWaitlistForm() {
             placeholder="voce@email.com"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
+            disabled={status === 'submitting'}
           />
         </div>
       </div>
+      {error ? (
+        <p className="text-destructive text-sm" role="alert">
+          {error}
+        </p>
+      ) : null}
       <div className="flex flex-wrap items-center gap-4">
         <Button type="submit" size="lg" disabled={status === 'submitting'}>
           {status === 'submitting' ? 'Enviando…' : 'Quero participar do alfa'}

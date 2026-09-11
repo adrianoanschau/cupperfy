@@ -48,7 +48,18 @@ yarn format
 ```
 
 Stack do app: App Router · Tailwind v4 · shadcn/ui · ESLint estilo Airbnb + Prettier.  
-Env: `apps/web/.env.local` (template na raiz: `.env.example`).
+Env: `apps/web/.env.local` (template na raiz: `.env.example`).  
+Copie `API_URL` → `NEXT_PUBLIC_SUPABASE_URL` e `ANON_KEY` → `NEXT_PUBLIC_SUPABASE_ANON_KEY` do `yarn supabase:status`.
+
+### Lista de interesse (alfa)
+
+Registros vão para a tabela `public.alpha_waitlist` (migration em `supabase/migrations/`).
+
+1. Aplique migrations: `yarn supabase:reset` (ou `supabase db reset`)
+2. Envie o form na landing (`#alfa`)
+3. Confira no Studio: http://127.0.0.1:54323 → Table Editor → `alpha_waitlist`
+
+RLS: anon pode **inserir**; leitura pública bloqueada (veja no Studio com role `postgres` / service).
 
 ## Arquivos relevantes
 
