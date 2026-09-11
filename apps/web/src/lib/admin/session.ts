@@ -97,8 +97,8 @@ export async function verifyAdminPassword(password: string): Promise<boolean> {
 
   const encoder = new TextEncoder();
   const [leftBuffer, rightBuffer] = await Promise.all([
-    crypto.subtle.digest('SHA-256', encoder.encode(`leaguefy-admin:${password}`)),
-    crypto.subtle.digest('SHA-256', encoder.encode(`leaguefy-admin:${expected}`)),
+    crypto.subtle.digest('SHA-256', encoder.encode(`cupperfy-admin:${password}`)),
+    crypto.subtle.digest('SHA-256', encoder.encode(`cupperfy-admin:${expected}`)),
   ]);
 
   return timingSafeEqualBytes(new Uint8Array(leftBuffer), new Uint8Array(rightBuffer));

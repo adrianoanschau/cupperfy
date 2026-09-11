@@ -17,7 +17,7 @@ type SiteHeaderProps = {
 export function SiteHeader({ brandAsLink = false, links }: SiteHeaderProps) {
   const brand = (
     <>
-      league<span className="text-primary">fy</span>
+      cupper<span className="text-primary">fy</span>
     </>
   );
 

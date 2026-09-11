@@ -1,11 +1,11 @@
 # 001 — Arquitetura e documentação
 
 **Data:** 2026-09-11  
-**Commit:** `6ec38f7` — *Document architecture for Leaguefy MVP launch.*
+**Commit:** `6ec38f7` — *Document architecture for Cupperfy MVP launch.*
 
 ## Objetivo
 
-Fechar a documentação de arquitetura do Leaguefy antes de escrever código, com escopo alinhado ao torneio de lançamento.
+Fechar a documentação de arquitetura do Cupperfy antes de escrever código, com escopo alinhado ao torneio de lançamento.
 
 ## O que foi feito
 

@@ -50,7 +50,7 @@ export default function DesignSystemPage() {
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div className="space-y-2">
           <p className="font-heading text-primary text-sm font-semibold tracking-[0.2em] uppercase">
-            Leaguefy
+            Cupperfy
           </p>
           <h1 className="font-heading text-4xl font-bold">Design system</h1>
           <p className="text-muted-foreground max-w-xl">

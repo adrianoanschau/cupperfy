@@ -5,8 +5,8 @@
 ## Layout do monorepo
 
 ```
-apps/web                 → @leaguefy/web (Next.js)
-packages/*               → libs compartilhadas (@leaguefy/*)
+apps/web                 → @cupperfy/web (Next.js)
+packages/*               → libs compartilhadas (@cupperfy/*)
 supabase/                → CLI (fica na raiz — convenção do Supabase)
 docs/ · reports/         → documentação e histórico
 ```
@@ -74,7 +74,7 @@ Em `apps/web/.env.local`:
 GOOGLE_GENERATIVE_AI_API_KEY=…   # AI Studio
 NEXT_PUBLIC_WHATSAPP_URL=https://wa.me/adrianoanschau
 NEXT_PUBLIC_TELEGRAM_URL=https://t.me/adrianoanschau
-# Opcionais (já há default): YouTube @Leaguefy, Instagram @leaguefy.oficial
+# Opcionais (já há default): YouTube @Cupperfy, Instagram @cupperfy.oficial
 ```
 
 Sem a key do Gemini o endpoint responde 503.
@@ -122,8 +122,8 @@ E-mail:
 # local
 SMTP_HOST=127.0.0.1
 SMTP_PORT=54325
-EMAIL_FROM=Leaguefy <noreply@leaguefy.local>
-EMAIL_REPLY_TO=contato.leaguefy@gmail.com
+EMAIL_FROM=Cupperfy <noreply@cupperfy.local>
+EMAIL_REPLY_TO=contato.cupperfy@gmail.com
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 ```
 
@@ -139,6 +139,6 @@ Também no Vercel (Production): as mesmas vars + `SUPABASE_SERVICE_ROLE_KEY`.
 | `packages/` | Código compartilhado |
 | `supabase/config.toml` | Portas do stack local |
 | `supabase/migrations/` | SQL versionado |
-| `docker-compose.yml` | Rede `leaguefy_dev`; stack Supabase via CLI |
+| `docker-compose.yml` | Rede `cupperfy_dev`; stack Supabase via CLI |
 
 O compose da raiz não redefine Postgres/Auth — evita divergir do CLI. Serve para serviços extras na mesma rede depois.

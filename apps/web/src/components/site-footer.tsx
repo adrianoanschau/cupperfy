@@ -19,7 +19,7 @@ export function SiteFooter({ links }: SiteFooterProps) {
     <footer className="lf-glass border-border mt-auto border-0 border-t px-6 py-8 md:px-10">
       <div className="mx-auto flex w-full max-w-5xl flex-wrap items-center justify-between gap-4">
         <p className="font-heading text-foreground text-sm font-bold tracking-tight">
-          league<span className="text-primary">fy</span>
+          cupper<span className="text-primary">fy</span>
         </p>
         <nav className="text-muted-foreground flex flex-wrap items-center gap-4 text-sm">
           {links.map((link) =>
@@ -38,7 +38,7 @@ export function SiteFooter({ links }: SiteFooterProps) {
             target="_blank"
             rel="noreferrer"
             className="hover:text-foreground inline-flex"
-            aria-label="Instagram Leaguefy"
+            aria-label="Instagram Cupperfy"
           >
             <InstagramIcon className="size-5" />
           </a>
@@ -47,7 +47,7 @@ export function SiteFooter({ links }: SiteFooterProps) {
             target="_blank"
             rel="noreferrer"
             className="hover:text-foreground inline-flex"
-            aria-label="YouTube Leaguefy"
+            aria-label="YouTube Cupperfy"
           >
             <YoutubeIcon className="size-5" />
           </a>

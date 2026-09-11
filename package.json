@@ -1,17 +1,17 @@
 {
-  "name": "leaguefy",
+  "name": "cupperfy",
   "private": true,
-  "description": "Monorepo Leaguefy — plataforma de gestão de competições (MVP x1 futebol e-sports)",
+  "description": "Monorepo Cupperfy — plataforma de gestão de competições (MVP x1 futebol e-sports)",
   "packageManager": "yarn@4.18.0",
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {
-    "dev": "yarn workspace @leaguefy/web dev",
-    "build": "yarn workspace @leaguefy/web build",
-    "lint": "yarn workspace @leaguefy/web lint",
-    "format": "yarn workspace @leaguefy/web format",
+    "dev": "yarn workspace @cupperfy/web dev",
+    "build": "yarn workspace @cupperfy/web build",
+    "lint": "yarn workspace @cupperfy/web lint",
+    "format": "yarn workspace @cupperfy/web format",
     "supabase:start": "supabase start",
     "supabase:stop": "supabase stop",
     "supabase:status": "supabase status",

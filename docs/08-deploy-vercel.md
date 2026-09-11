@@ -6,16 +6,16 @@
 
 | Peça | Papel |
 |---|---|
-| App | `@leaguefy/web` (`apps/web`) — Next.js |
+| App | `@cupperfy/web` (`apps/web`) — Next.js |
 | Host | [Vercel](https://vercel.com) |
 | CI produção | GitHub Action [deploy-production.yml](../.github/workflows/deploy-production.yml) em push na `main` |
 | Preview (PRs) | Integração Git da Vercel (recomendado) |
 
-Monorepo Yarn: install na **raiz**; build via `yarn workspace @leaguefy/web build` (`vercel.json`).
+Monorepo Yarn: install na **raiz**; build via `yarn workspace @cupperfy/web build` (`vercel.json`).
 
 ## Configuração do projeto na Vercel
 
-1. Importar o repo `adrianoanschau/leaguefy`.
+1. Importar o repo GitHub atual (`adrianoanschau/leaguefy` — o produto agora é Cupperfy; o remote ainda não foi renomeado).
 2. **Root Directory:** `apps/web`  
    (em *Settings → General → Root Directory*).  
    Deixe habilitado incluir arquivos fora do root (workspaces / `yarn.lock` na raiz).
@@ -35,8 +35,8 @@ Definir no dashboard Vercel (*Settings → Environment Variables*):
 | `GOOGLE_GENERATIVE_AI_API_KEY` | Production + Preview | Key Gemini (AI Studio) — só servidor |
 | `NEXT_PUBLIC_WHATSAPP_URL` | Production + Preview | Ex.: `https://wa.me/adrianoanschau` |
 | `NEXT_PUBLIC_TELEGRAM_URL` | Production + Preview | Ex.: `https://t.me/adrianoanschau` |
-| `NEXT_PUBLIC_YOUTUBE_URL` | Production + Preview | Opcional — default `https://www.youtube.com/@Leaguefy` |
-| `NEXT_PUBLIC_INSTAGRAM_URL` | Production + Preview | Opcional — default `https://www.instagram.com/leaguefy.oficial/` |
+| `NEXT_PUBLIC_YOUTUBE_URL` | Production + Preview | Opcional — default `https://www.youtube.com/@Cupperfy` |
+| `NEXT_PUBLIC_INSTAGRAM_URL` | Production + Preview | Opcional — default `https://www.instagram.com/cupperfy.oficial/` |
 | `NEXT_PUBLIC_SUPPORT_EMAIL` | Production + Preview | E-mail de parcerias (`/apoiadores`) |
 | `NEXT_PUBLIC_PIX_PAYLOAD` | Production + Preview | PIX “copia e cola” (QR em `/apoiadores`) |
 | `NEXT_PUBLIC_PIX_KEY_LABEL` | Production + Preview | Chave legível (opcional) |
@@ -45,7 +45,7 @@ Definir no dashboard Vercel (*Settings → Environment Variables*):
 | `ADMIN_SESSION_SECRET` | Production | Segredo cookie admin (≥32 chars) |
 | `RESEND_API_KEY` | Production | Envio de convites por e-mail |
 | `EMAIL_FROM` | Production | Remetente verificado no Resend (não use Gmail) |
-| `EMAIL_REPLY_TO` | Production | Reply-To (default: `contato.leaguefy@gmail.com`) |
+| `EMAIL_REPLY_TO` | Production | Reply-To (default: `contato.cupperfy@gmail.com`) |
 | `NEXT_PUBLIC_APP_URL` | Production + Preview | Origem absoluta dos links |
 
 Template local: [`.env.example`](../.env.example). Não commitar `.env.production` / `.env.local`.
@@ -96,7 +96,7 @@ Preview de PR pode continuar na integração Git.
 - [ ] Secrets `VERCEL_*` no GitHub
 - [ ] Push na `main` dispara o workflow (aba Actions)
 - [ ] Evitado double-deploy production
-- [ ] URL de produção abre a home Leaguefy
+- [ ] URL de produção abre a home Cupperfy
 
 ## Comandos úteis
 

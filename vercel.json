@@ -2,5 +2,5 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "nextjs",
   "installCommand": "yarn install",
-  "buildCommand": "yarn workspace @leaguefy/web build"
+  "buildCommand": "yarn workspace @cupperfy/web build"
 }

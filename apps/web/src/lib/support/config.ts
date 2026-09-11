@@ -24,7 +24,7 @@ export function getPixConfig(): PixConfig {
   const payload = process.env.NEXT_PUBLIC_PIX_PAYLOAD?.trim() || null;
   const keyLabel = process.env.NEXT_PUBLIC_PIX_KEY_LABEL?.trim() || null;
   const beneficiary =
-    process.env.NEXT_PUBLIC_PIX_BENEFICIARY?.trim() || 'Leaguefy / Adriano Anschau';
+    process.env.NEXT_PUBLIC_PIX_BENEFICIARY?.trim() || 'Cupperfy / Adriano Anschau';
 
   return { payload, keyLabel, beneficiary };
 }

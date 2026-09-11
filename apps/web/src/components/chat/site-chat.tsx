@@ -112,13 +112,13 @@ export function SiteChat() {
     <div className="pointer-events-none fixed right-4 bottom-4 z-50 flex flex-col items-end gap-3 md:right-6 md:bottom-6">
       {open ? (
         <section
-          aria-label="Assistente Leaguefy"
+          aria-label="Assistente Cupperfy"
           className="lf-glass-strong pointer-events-auto flex h-[min(32rem,calc(100svh-6rem))] w-[min(24rem,calc(100vw-2rem))] flex-col overflow-hidden rounded-3xl shadow-lg"
         >
           <header className="border-border flex items-start justify-between gap-3 border-b px-4 py-3">
             <div>
               <p className="font-heading text-foreground text-sm font-semibold">
-                Assistente league<span className="text-primary">fy</span>
+                Assistente cupper<span className="text-primary">fy</span>
               </p>
               <p className="text-muted-foreground text-xs">
                 {busy ? `${statusLabel}…` : 'Alfa · FAQ · torneio x1'}
@@ -139,7 +139,7 @@ export function SiteChat() {
             {messages.length === 0 && !busy ? (
               <div className="space-y-4">
                 <p className="text-muted-foreground text-sm">
-                  Pergunte sobre o alfa, o que é a Leaguefy ou como funciona o torneio x1. Ou
+                  Pergunte sobre o alfa, o que é a Cupperfy ou como funciona o torneio x1. Ou
                   escolha uma pergunta:
                 </p>
                 <ul className="space-y-2">

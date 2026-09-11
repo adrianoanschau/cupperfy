@@ -1,4 +1,4 @@
-# @leaguefy/web
+# @cupperfy/web
 
 Next.js 16 (App Router) · Tailwind CSS v4 · shadcn/ui · ESLint (estilo Airbnb) · Prettier
 
@@ -11,7 +11,7 @@ yarn lint
 yarn format
 ```
 
-Ou no workspace: `yarn workspace @leaguefy/web <script>`.
+Ou no workspace: `yarn workspace @cupperfy/web <script>`.
 
 ## Padronização
 

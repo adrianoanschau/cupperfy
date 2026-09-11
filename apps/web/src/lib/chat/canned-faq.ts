@@ -25,12 +25,19 @@ function normalize(text: string): string {
 
 export const CANNED_FAQ: CannedFaqEntry[] = [
   {
-    id: 'what-is-leaguefy',
-    question: 'O que é a Leaguefy?',
-    aliases: ['o que e a leaguefy', 'o que e leaguefy', 'me fala da leaguefy', 'sobre a leaguefy'],
-    keywords: ['o que e', 'leaguefy', 'plataforma'],
+    id: 'what-is-cupperfy',
+    question: 'O que é a Cupperfy?',
+    aliases: [
+      'o que e a cupperfy',
+      'o que e cupperfy',
+      'me fala da cupperfy',
+      'sobre a cupperfy',
+      'o que e a leaguefy',
+      'o que e leaguefy',
+    ],
+    keywords: ['o que e', 'cupperfy', 'plataforma'],
     answer: () =>
-      'A Leaguefy é uma plataforma para criar e organizar competições — inscrição, chaveamento, resultados e perfil de jogador no mesmo lugar. O lançamento começa pelo alfa de um torneio x1 de futebol e-sports. Rede social e transferências ficam para depois.',
+      'A Cupperfy é uma plataforma para criar e organizar competições — inscrição, chaveamento, resultados e perfil de jogador no mesmo lugar. O lançamento começa pelo alfa de um torneio x1 de futebol e-sports. Rede social e transferências ficam para depois.',
   },
   {
     id: 'how-x1-works',
@@ -83,7 +90,7 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
   },
   {
     id: 'social-networks',
-    question: 'Quais são as redes da Leaguefy?',
+    question: 'Quais são as redes da Cupperfy?',
     aliases: [
       'instagram',
       'youtube',
@@ -95,7 +102,7 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
     ],
     keywords: ['instagram', 'youtube', 'rede', 'redes', 'social'],
     answer: (contacts) =>
-      `Redes oficiais:\n• Instagram: ${contacts.instagramUrl} (@leaguefy.oficial)\n• YouTube: ${contacts.youtubeUrl} (@Leaguefy)\nPara dúvidas rápidas, WhatsApp e Telegram também estão no chat.`,
+      `Redes oficiais:\n• Instagram: ${contacts.instagramUrl} (@cupperfy.oficial)\n• YouTube: ${contacts.youtubeUrl} (@Cupperfy)\nPara dúvidas rápidas, WhatsApp e Telegram também estão no chat.`,
   },
   {
     id: 'is-paid',
@@ -108,7 +115,7 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
 ];
 
 export const SUGGESTED_QUESTIONS = CANNED_FAQ.filter((entry) =>
-  ['what-is-leaguefy', 'how-x1-works', 'how-join-alpha', 'need-team', 'talk-to-human'].includes(
+  ['what-is-cupperfy', 'how-x1-works', 'how-join-alpha', 'need-team', 'talk-to-human'].includes(
     entry.id,
   ),
 ).map((entry) => entry.question);

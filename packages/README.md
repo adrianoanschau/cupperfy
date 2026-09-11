@@ -1,6 +1,6 @@
 # packages/
 
-Pacotes compartilhados do monorepo (`@leaguefy/*`).
+Pacotes compartilhados do monorepo (`@cupperfy/*`).
 
 | Pacote | Status |
 |---|---|

@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Check-in do torneio alfa',
-  description: 'Use o link pessoal enviado pelo time Leaguefy para confirmar sua disponibilidade.',
+  description: 'Use o link pessoal enviado pelo time Cupperfy para confirmar sua disponibilidade.',
   robots: { index: false, follow: false },
 };
 
@@ -27,7 +27,7 @@ export default function CheckinIndexPage() {
 
         <header className="lf-glass-nav relative z-10 mx-auto flex w-full max-w-3xl items-center justify-between rounded-2xl px-4 py-3 md:px-6">
           <Link href="/" className="font-heading text-foreground text-xl font-bold tracking-tight">
-            league<span className="text-primary">fy</span>
+            cupper<span className="text-primary">fy</span>
           </Link>
           <div className="flex items-center gap-2">
             <Button variant="ghost" size="sm" asChild>

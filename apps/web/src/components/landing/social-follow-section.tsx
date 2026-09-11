@@ -29,7 +29,7 @@ export function SocialFollowSection() {
               target="_blank"
               rel="noreferrer"
               className="text-foreground hover:text-primary focus-visible:ring-ring inline-flex size-16 items-center justify-center rounded-2xl transition-colors focus-visible:ring-2 focus-visible:outline-none"
-              aria-label="Seguir Leaguefy no Instagram"
+              aria-label="Seguir Cupperfy no Instagram"
             >
               <InstagramIcon className="size-10" />
             </a>
@@ -40,7 +40,7 @@ export function SocialFollowSection() {
               target="_blank"
               rel="noreferrer"
               className="text-foreground hover:text-primary focus-visible:ring-ring inline-flex size-16 items-center justify-center rounded-2xl transition-colors focus-visible:ring-2 focus-visible:outline-none"
-              aria-label="Seguir Leaguefy no YouTube"
+              aria-label="Seguir Cupperfy no YouTube"
             >
               <YoutubeIcon className="size-10" />
             </a>

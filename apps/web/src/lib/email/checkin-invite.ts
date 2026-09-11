@@ -1,10 +1,10 @@
 export function buildCheckinInviteEmail(input: { name: string | null; checkinUrl: string }) {
   const greeting = input.name?.trim() ? `Olá, ${input.name.trim()}!` : 'Olá!';
-  const subject = 'Leaguefy · confirme sua disponibilidade no torneio alfa';
+  const subject = 'Cupperfy · confirme sua disponibilidade no torneio alfa';
 
   const text = `${greeting}
 
-Você está na lista do teste alfa da Leaguefy.
+Você está na lista do teste alfa da Cupperfy.
 Confirme em quais janelas você pode jogar o torneio x1:
 
 ${input.checkinUrl}
@@ -12,7 +12,7 @@ ${input.checkinUrl}
 Este link é pessoal e já identifica você.
 Se não esperava este e-mail, ignore.
 
-— Equipe Leaguefy
+— Equipe Cupperfy
 `;
 
   const html = `<!doctype html>
@@ -24,7 +24,7 @@ Se não esperava este e-mail, ignore.
           <table role="presentation" width="100%" style="max-width:520px;background:#1a1512;border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:28px;">
             <tr>
               <td>
-                <p style="margin:0 0 8px;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#f97316;font-weight:700;">Leaguefy · alfa</p>
+                <p style="margin:0 0 8px;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#f97316;font-weight:700;">Cupperfy · alfa</p>
                 <h1 style="margin:0 0 16px;font-size:24px;line-height:1.2;color:#fff;">Confirme sua disponibilidade</h1>
                 <p style="margin:0 0 16px;font-size:16px;line-height:1.5;color:rgba(255,255,255,0.78);">${greeting}</p>
                 <p style="margin:0 0 24px;font-size:16px;line-height:1.5;color:rgba(255,255,255,0.78);">

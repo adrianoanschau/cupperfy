@@ -1,4 +1,4 @@
-# Desenvolvimento local — Leaguefy
+# Desenvolvimento local — Cupperfy
 #
 # O stack Supabase (Postgres, Auth, Storage, Realtime, Studio, Kong, etc.)
 # é orquestrado pelo Supabase CLI, que usa Docker Compose por baixo.
@@ -14,9 +14,9 @@
 # (ex.: mailcatcher adicional, adminer). Por enquanto só declara a rede
 # compartilhada para futuros serviços se conectarem ao stack local.
 
-name: leaguefy
+name: cupperfy
 
 networks:
   default:
-    name: leaguefy_dev
+    name: cupperfy_dev
     driver: bridge

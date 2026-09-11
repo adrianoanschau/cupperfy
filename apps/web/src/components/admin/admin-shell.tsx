@@ -16,7 +16,7 @@ export function AdminShell({ title, children }: { title: string; children: React
               href="/admin/interessados"
               className="font-heading text-lg font-bold tracking-tight"
             >
-              league<span className="text-primary">fy</span>
+              cupper<span className="text-primary">fy</span>
               <span className="text-muted-foreground font-sans text-sm font-normal"> · admin</span>
             </Link>
             <p className="text-muted-foreground text-sm">{title}</p>

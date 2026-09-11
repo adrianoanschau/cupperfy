@@ -12,7 +12,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Apoiadores',
   description:
-    'Apoie a Leaguefy com PIX ou fale sobre parcerias e investimento no alfa de competições e-sports.',
+    'Apoie a Cupperfy com PIX ou fale sobre parcerias e investimento no alfa de competições e-sports.',
 };
 
 export default async function ApoiadoresPage() {
@@ -21,7 +21,7 @@ export default async function ApoiadoresPage() {
   const qrDataUrl = pix.payload ? await createPixQrDataUrl(pix.payload) : null;
 
   const partnershipMail = contacts.email
-    ? `mailto:${contacts.email}?subject=${encodeURIComponent('Parceria / investimento Leaguefy')}`
+    ? `mailto:${contacts.email}?subject=${encodeURIComponent('Parceria / investimento Cupperfy')}`
     : null;
 
   return (
@@ -47,7 +47,7 @@ export default async function ApoiadoresPage() {
         <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-1 flex-col justify-end px-4 pt-12 pb-10 md:px-8 md:pb-16">
           <div className="lf-glass-hero lf-fade-up max-w-3xl space-y-6 rounded-3xl p-6 md:p-10">
             <p className="lf-brand-mark font-heading text-primary text-sm font-semibold tracking-[0.2em] uppercase">
-              Leaguefy
+              Cupperfy
             </p>
             <h1 className="font-heading text-4xl leading-[1.05] font-bold text-white md:text-6xl">
               Apoie quem está construindo a arena.
@@ -97,7 +97,7 @@ export default async function ApoiadoresPage() {
                 <div className="mx-auto rounded-2xl bg-white p-4">
                   <Image
                     src={qrDataUrl}
-                    alt="QR Code PIX para doação Leaguefy"
+                    alt="QR Code PIX para doação Cupperfy"
                     width={280}
                     height={280}
                     unoptimized

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
-import { AlphaWaitlistForm } from '@/components/landing/alpha-waitlist-form';import { SocialFollowSection } from '@/components/landing/social-follow-section';
+import { AlphaWaitlistForm } from '@/components/landing/alpha-waitlist-form';
+import { SocialFollowSection } from '@/components/landing/social-follow-section';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { Button } from '@/components/ui/button';
@@ -37,7 +38,7 @@ export default function Home() {
         <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-1 flex-col justify-end px-4 pt-12 pb-10 md:px-8 md:pb-16">
           <div className="lf-glass-hero lf-fade-up max-w-3xl space-y-6 rounded-3xl p-6 md:p-10">
             <p className="lf-brand-mark font-heading text-primary text-sm font-semibold tracking-[0.2em] uppercase">
-              Leaguefy
+              Cupperfy
             </p>
             <h1 className="font-heading text-4xl leading-[1.05] font-bold text-white md:text-6xl lg:text-7xl">
               Entre no teste alfa e ajude a moldar a arena.
@@ -75,7 +76,7 @@ export default function Home() {
             Um lugar para competir de ponta a ponta.
           </h2>
           <p className="text-muted-foreground max-w-prose text-lg">
-            Leaguefy reúne inscrição, chaveamento, resultados e perfil de jogador. O alfa valida o
+            Cupperfy reúne inscrição, chaveamento, resultados e perfil de jogador. O alfa valida o
             fluxo real do lançamento: um torneio x1, eliminação simples, com você dentro da
             experiência.
           </p>
@@ -167,7 +168,7 @@ export default function Home() {
               </dt>
               <dd className="text-foreground text-lg font-medium">Eliminação simples</dd>
               <p className="text-muted-foreground text-sm">
-                Chave até a final. Perdeu, está fora. Placares e avanço na própria Leaguefy.
+                Chave até a final. Perdeu, está fora. Placares e avanço na própria Cupperfy.
               </p>
             </div>
             <div className="space-y-2">

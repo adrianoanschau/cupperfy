@@ -1,4 +1,4 @@
-# Leaguefy
+# Cupperfy
 
 Monorepo da plataforma de gestão de competições.
 
@@ -7,10 +7,10 @@ Monorepo da plataforma de gestão de competições.
 ## Estrutura
 
 ```
-Leaguefy/
+Cupperfy/
 ├── .github/workflows/       # CI — deploy production (Vercel)
 ├── apps/
-│   └── web/                 # @leaguefy/web — Next.js App Router + Tailwind v4 + shadcn
+│   └── web/                 # @cupperfy/web — Next.js App Router + Tailwind v4 + shadcn
 ├── packages/
 │   └── config-typescript/   # configs compartilhadas
 ├── supabase/                # CLI local (migrations, config.toml, seed)

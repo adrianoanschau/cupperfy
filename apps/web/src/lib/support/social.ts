@@ -7,9 +7,9 @@ export type BrandSocialLinks = {
 export function getBrandSocialLinks(): BrandSocialLinks {
   return {
     youtubeUrl:
-      process.env.NEXT_PUBLIC_YOUTUBE_URL?.trim() || 'https://www.youtube.com/@Leaguefy',
+      process.env.NEXT_PUBLIC_YOUTUBE_URL?.trim() || 'https://www.youtube.com/@Cupperfy',
     instagramUrl:
       process.env.NEXT_PUBLIC_INSTAGRAM_URL?.trim() ||
-      'https://www.instagram.com/leaguefy.oficial/',
+      'https://www.instagram.com/cupperfy.oficial/',
   };
 }

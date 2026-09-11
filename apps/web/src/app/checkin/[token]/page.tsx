@@ -15,7 +15,7 @@ type CheckinTokenPageProps = {
 
 export const metadata: Metadata = {
   title: 'Check-in do torneio alfa',
-  description: 'Confirme as janelas em que você pode jogar o x1 de teste da Leaguefy.',
+  description: 'Confirme as janelas em que você pode jogar o x1 de teste da Cupperfy.',
   robots: { index: false, follow: false },
 };
 
@@ -44,7 +44,7 @@ export default async function CheckinTokenPage({ params }: CheckinTokenPageProps
 
         <header className="lf-glass-nav relative z-10 mx-auto flex w-full max-w-3xl items-center justify-between rounded-2xl px-4 py-3 md:px-6">
           <Link href="/" className="font-heading text-foreground text-xl font-bold tracking-tight">
-            league<span className="text-primary">fy</span>
+            cupper<span className="text-primary">fy</span>
           </Link>
           <div className="flex items-center gap-2">
             <Button variant="ghost" size="sm" asChild>
@@ -56,7 +56,7 @@ export default async function CheckinTokenPage({ params }: CheckinTokenPageProps
 
         <div className="lf-glass-strong relative z-10 mx-auto mt-10 w-full max-w-3xl rounded-3xl p-6 md:mt-14 md:p-10">
           <p className="font-heading text-primary text-sm font-semibold tracking-[0.2em] uppercase">
-            Leaguefy · alfa
+            Cupperfy · alfa
           </p>
           <h1 className="font-heading text-foreground mt-3 text-3xl font-bold md:text-4xl">
             {CHECKIN_EVENT.title}

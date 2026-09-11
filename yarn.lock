@@ -979,15 +979,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@leaguefy/config-typescript@workspace:packages/config-typescript":
+"@cupperfy/config-typescript@workspace:packages/config-typescript":
   version: 0.0.0-use.local
-  resolution: "@leaguefy/config-typescript@workspace:packages/config-typescript"
+  resolution: "@cupperfy/config-typescript@workspace:packages/config-typescript"
   languageName: unknown
   linkType: soft
 
-"@leaguefy/web@workspace:apps/web":
+"@cupperfy/web@workspace:apps/web":
   version: 0.0.0-use.local
-  resolution: "@leaguefy/web@workspace:apps/web"
+  resolution: "@cupperfy/web@workspace:apps/web"
   dependencies:
     "@ai-sdk/google": "npm:^4.0.67"
     "@ai-sdk/react": "npm:^4.0.100"
@@ -6134,9 +6134,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"leaguefy@workspace:.":
+"cupperfy@workspace:.":
   version: 0.0.0-use.local
-  resolution: "leaguefy@workspace:."
+  resolution: "cupperfy@workspace:."
   dependencies:
     supabase: "npm:^2.76.15"
   languageName: unknown

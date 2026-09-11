@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
-  Leaguefy — design tokens
+  Cupperfy — design tokens
   Institucional: laranja (ação/competição) + preto (estrutura/contraste).
   Escala em OKLCH para variação previsível de tonalidade.
 */

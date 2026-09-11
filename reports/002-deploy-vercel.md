@@ -4,11 +4,11 @@
 
 ## Objetivo
 
-Preparar o monorepo para publicação do `@leaguefy/web` na Vercel, com deploy automático de production em push na `main`.
+Preparar o monorepo para publicação do `@cupperfy/web` na Vercel, com deploy automático de production em push na `main`.
 
 ## O que foi feito
 
-- `vercel.json` na raiz (`yarn install` + `yarn workspace @leaguefy/web build`)
+- `vercel.json` na raiz (`yarn install` + `yarn workspace @cupperfy/web build`)
 - Workflow `.github/workflows/deploy-production.yml` (pull → build → deploy `--prebuilt --prod`)
 - Doc [`docs/08-deploy-vercel.md`](../docs/08-deploy-vercel.md): Root Directory, env vars, secrets, anti double-deploy
 - README / índice / `.gitignore` (`.vercel`) atualizados

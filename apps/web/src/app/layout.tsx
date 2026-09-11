@@ -22,11 +22,11 @@ const fontBody = Manrope({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Leaguefy',
-    template: '%s · Leaguefy',
+    default: 'Cupperfy',
+    template: '%s · Cupperfy',
   },
   description:
-    'Entre no teste alfa da Leaguefy — plataforma de competições começando pelo x1 de futebol e-sports.',
+    'Entre no teste alfa da Cupperfy — plataforma de competições começando pelo x1 de futebol e-sports.',
 };
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {

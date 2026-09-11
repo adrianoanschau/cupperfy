@@ -74,7 +74,7 @@ O vidro precisa de **fundo com textura/foto/gradiente** atrás — em seções c
 
 ## Princípios de composição
 
-1. **Marca primeiro** em superfícies promocionais — o nome Leaguefy como sinal hero.
+1. **Marca primeiro** em superfícies promocionais — o nome Cupperfy como sinal hero.
 2. **Uma composição** no primeiro viewport (não dashboard).
 3. **Laranja com parcimônia** — CTAs e destaques; preto/ink para estrutura.
 4. **Vidro com propósito** — sobre foto/atmosfera; não em fundo chapado.
