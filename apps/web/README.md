@@ -1,5 +1,33 @@
 # @leaguefy/web
 
-App Next.js do monorepo. Scaffold ainda não criado — próximo passo após o stack Supabase local.
+Next.js 16 (App Router) · Tailwind CSS v4 · shadcn/ui · ESLint (estilo Airbnb) · Prettier
 
-Vars de ambiente (quando existir o app): `.env.local` nesta pasta (ver `.env.example` na raiz).
+## Comandos (pela raiz do monorepo)
+
+```bash
+yarn dev           # next dev
+yarn build
+yarn lint
+yarn format
+```
+
+Ou no workspace: `yarn workspace @leaguefy/web <script>`.
+
+## Padronização
+
+| Tool | Config |
+|---|---|
+| Prettier | `.prettierrc.json` — singleQuote, trailingComma all, printWidth 100 + plugin Tailwind |
+| ESLint | `eslint.config.mjs` — `eslint-config-next` + regras estilo Airbnb + `prettier/prettier` |
+
+> `eslint-config-airbnb` clássico não é estável com ESLint 9 + flat config do Next 16. As convenções Airbnb estão espelhadas nas regras + Prettier.
+
+## shadcn/ui
+
+- `components.json` · componentes em `src/components/ui/`
+- Util `cn` em `src/lib/utils.ts`
+- Adicionar: `yarn dlx shadcn@latest add <component>` (em `apps/web`)
+
+## Env
+
+Use `.env.local` nesta pasta (já ignorado pelo git). Template na raiz: `.env.example`.
