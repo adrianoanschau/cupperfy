@@ -1,0 +1,22 @@
+# Desenvolvimento local — Leaguefy
+#
+# O stack Supabase (Postgres, Auth, Storage, Realtime, Studio, Kong, etc.)
+# é orquestrado pelo Supabase CLI, que usa Docker Compose por baixo.
+#
+#   yarn supabase:start    # sobe o stack (1ª vez baixa as imagens)
+#   yarn supabase:status   # URLs e chaves locais
+#   yarn supabase:stop     # derruba
+#
+# Containers ativos depois do start:
+#   docker ps --filter "name=supabase"
+#
+# Este compose fica reservado para serviços extras do monorepo
+# (ex.: mailcatcher adicional, adminer). Por enquanto só declara a rede
+# compartilhada para futuros serviços se conectarem ao stack local.
+
+name: leaguefy
+
+networks:
+  default:
+    name: leaguefy_dev
+    driver: bridge

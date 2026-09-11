@@ -1,0 +1,2 @@
+-- Seed local (opcional). Rodado em `supabase db reset`.
+-- MVP: sports.slug = futebol-esports — será adicionado com as migrations do ER.
