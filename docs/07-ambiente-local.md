@@ -78,6 +78,29 @@ NEXT_PUBLIC_TELEGRAM_URL=https://t.me/adrianoanschau
 
 Sem a key do Gemini o endpoint responde 503.
 
+### Check-in de agenda (`/checkin/<token>`)
+
+Link **pessoal** com token. Nome e e-mail vêm do convite (somente leitura). Dá para marcar **várias** janelas.
+
+1. Edite slots em `apps/web/src/lib/checkin/slots.ts`
+2. Migrations: `alpha_checkins` + `alpha_checkin_invites` (`yarn supabase db push --local`)
+3. Crie um convite (Studio SQL ou psql):
+
+```sql
+insert into public.alpha_checkin_invites (token, email, name)
+values (
+  encode(gen_random_bytes(24), 'hex'),
+  'pessoa@email.com',
+  'Nome da Pessoa'
+)
+returning token, email;
+-- link: /checkin/<token>
+```
+
+4. Confira respostas em `alpha_checkins` (várias linhas por pessoa, uma por horário)
+
+`/checkin` sem token só orienta a usar o link pessoal. Reenvio no mesmo link substitui a disponibilidade.
+
 ## Arquivos relevantes
 
 | Path | Papel |
