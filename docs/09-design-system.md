@@ -9,8 +9,8 @@
 |---|---|
 | Institucional | **Laranja** (ação / competição) + **preto** (estrutura / contraste) |
 | Modo | Claro por sistema; toggle Claro / Escuro / Sistema (`next-themes`) |
-| Tom | Esportivo / e-sports — energia sem “glow” nem roxo genérico |
-| UI | shadcn/ui + tokens CSS (OKLCH) |
+| Tom | Esportivo / e-sports + **glassmorphism** (vidro fosco sobre atmosfera) |
+| UI | shadcn/ui + tokens CSS (OKLCH) + utilitários `lf-glass*` |
 
 ## Tipografia
 
@@ -50,6 +50,21 @@ Ajuste fino: edite só as variáveis `--brand-*` / `--ink-*`; os semânticos aco
 <h1 className="font-heading">Título</h1>
 ```
 
+## Glassmorphism
+
+Utilitários em `globals.css` (tokens `--glass-*` light/dark):
+
+| Classe | Uso |
+|---|---|
+| `lf-glass` | Painéis / passos / footer |
+| `lf-glass-strong` | Formulários e menus flutuantes |
+| `lf-glass-hero` | Bloco de conteúdo sobre foto do hero |
+| `lf-glass-nav` | Barra de navegação no hero |
+
+Receita: fill translúcido + `backdrop-filter: blur` + borda clara fina + highlight interno 1px (sem multi-shadow).
+
+O vidro precisa de **fundo com textura/foto/gradiente** atrás — em seções claras use radial brand suave.
+
 ## Modo escuro
 
 - Estratégia: classe `.dark` no `<html>` via `next-themes` (`attribute="class"`).
@@ -57,16 +72,19 @@ Ajuste fino: edite só as variáveis `--brand-*` / `--ink-*`; os semânticos aco
 - Toggle: `ThemeToggle` (Claro / Escuro / Sistema) no header.
 - Tokens dark: bloco `.dark { … }` em `globals.css`.
 
+## Princípios de composição
+
 1. **Marca primeiro** em superfícies promocionais — o nome Leaguefy como sinal hero.
 2. **Uma composição** no primeiro viewport (não dashboard).
 3. **Laranja com parcimônia** — CTAs e destaques; preto/ink para estrutura.
-4. **Sem** roxo default, cream+terracotta, glow multi-camada.
+4. **Vidro com propósito** — sobre foto/atmosfera; não em fundo chapado.
+5. **Sem** roxo default, cream+terracotta, glow multi-camada.
 
 ## Arquivos
 
 | Path | Papel |
 |---|---|
-| `apps/web/src/app/globals.css` | Tokens + tema light/dark |
+| `apps/web/src/app/globals.css` | Tokens + tema light/dark + `lf-glass*` |
 | `apps/web/src/app/layout.tsx` | Fontes |
 | `apps/web/src/app/design-system/page.tsx` | Catálogo visual |
 | `apps/web/components.json` | shadcn (CSS variables) |

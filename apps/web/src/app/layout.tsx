@@ -24,7 +24,8 @@ export const metadata: Metadata = {
     default: 'Leaguefy',
     template: '%s · Leaguefy',
   },
-  description: 'Plataforma de gestão de competições — MVP x1 futebol e-sports',
+  description:
+    'Entre no teste alfa da Leaguefy — plataforma de competições começando pelo x1 de futebol e-sports.',
 };
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {

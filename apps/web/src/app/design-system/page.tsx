@@ -124,6 +124,30 @@ export default function DesignSystemPage() {
       </section>
 
       <section className="space-y-4">
+        <h2 className="font-heading text-2xl">Glassmorphism</h2>
+        <div className="border-border relative overflow-hidden rounded-3xl border">
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_30%_20%,var(--brand-300),transparent_55%),radial-gradient(ellipse_60%_50%_at_80%_80%,var(--brand-500),transparent_50%)] dark:bg-[radial-gradient(ellipse_80%_70%_at_30%_20%,var(--brand-800),transparent_55%),radial-gradient(ellipse_60%_50%_at_80%_80%,var(--brand-600),transparent_50%)]"
+          />
+          <div className="relative grid gap-4 p-6 md:grid-cols-3">
+            <div className="lf-glass rounded-2xl p-5">
+              <p className="font-heading font-semibold">lf-glass</p>
+              <p className="text-muted-foreground mt-1 text-sm">Painéis e passos</p>
+            </div>
+            <div className="lf-glass-strong rounded-2xl p-5">
+              <p className="font-heading font-semibold">lf-glass-strong</p>
+              <p className="text-muted-foreground mt-1 text-sm">Forms e menus</p>
+            </div>
+            <div className="lf-glass-hero rounded-2xl p-5 text-white">
+              <p className="font-heading font-semibold">lf-glass-hero</p>
+              <p className="mt-1 text-sm text-white/70">Sobre foto / arena</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="space-y-4">
         <h2 className="font-heading text-2xl">Botões</h2>
         <div className="flex flex-wrap gap-3">
           <Button type="button">Primary</Button>
