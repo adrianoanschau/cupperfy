@@ -32,6 +32,9 @@ Definir no dashboard Vercel (*Settings → Environment Variables*):
 | `NEXT_PUBLIC_SUPABASE_URL` | Production + Preview | URL do projeto Supabase (cloud) |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Production + Preview | anon key |
 | `SUPABASE_SERVICE_ROLE_KEY` | Production (+ Preview se precisar) | **Só servidor** — nunca `NEXT_PUBLIC_` |
+| `GOOGLE_GENERATIVE_AI_API_KEY` | Production + Preview | Key Gemini (AI Studio) — só servidor |
+| `NEXT_PUBLIC_WHATSAPP_URL` | Production + Preview | Ex.: `https://wa.me/adrianoanschau` |
+| `NEXT_PUBLIC_TELEGRAM_URL` | Production + Preview | Ex.: `https://t.me/adrianoanschau` |
 
 Template local: [`.env.example`](../.env.example). Não commitar `.env.production` / `.env.local`.
 

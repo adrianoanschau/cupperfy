@@ -61,6 +61,23 @@ Registros vão para a tabela `public.alpha_waitlist` (migration em `supabase/mig
 
 RLS: anon pode **inserir**; leitura pública bloqueada (veja no Studio com role `postgres` / service).
 
+### Chat (Gemini)
+
+Widget flutuante (`SiteChat`) → `POST /api/chat`.
+
+- FAQ básico: respostas prontas em `src/lib/chat/canned-faq.ts` (sem chamar Gemini).
+- Demais perguntas: `@ai-sdk/google` (`gemini-3.5-flash-lite`).
+
+Em `apps/web/.env.local`:
+
+```bash
+GOOGLE_GENERATIVE_AI_API_KEY=…   # AI Studio
+NEXT_PUBLIC_WHATSAPP_URL=https://wa.me/adrianoanschau
+NEXT_PUBLIC_TELEGRAM_URL=https://t.me/adrianoanschau
+```
+
+Sem a key do Gemini o endpoint responde 503.
+
 ## Arquivos relevantes
 
 | Path | Papel |

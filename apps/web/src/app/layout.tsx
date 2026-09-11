@@ -1,5 +1,6 @@
 import { Manrope, Oxanium } from 'next/font/google';
 
+import { SiteChat } from '@/components/chat/site-chat';
 import { ThemeProvider } from '@/components/theme-provider';
 
 import type { Metadata } from 'next';
@@ -43,6 +44,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
           disableTransitionOnChange
         >
           {children}
+          <SiteChat />
         </ThemeProvider>
       </body>
     </html>
