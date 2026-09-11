@@ -18,3 +18,4 @@ Não substitui a documentação de arquitetura em [`docs/`](../docs/) — os rel
 | # | Relatório | Etapa |
 |---|---|---|
 | 001 | [Arquitetura e documentação](./001-arquitetura-documentacao.md) | Docs MVP (pré-código) |
+| 002 | [Deploy Vercel + GitHub Actions](./002-deploy-vercel.md) | Publish / CI production |

@@ -1,6 +1,8 @@
 import { Geist, Geist_Mono } from 'next/font/google';
 
 import type { Metadata } from 'next';
+/* Resolve via Node (funciona no monorepo/Vercel); @import no CSS quebra com package exports. */
+import 'shadcn/tailwind.css';
 import './globals.css';
 
 const geistSans = Geist({

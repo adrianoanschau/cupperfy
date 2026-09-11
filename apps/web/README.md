@@ -28,6 +28,6 @@ Ou no workspace: `yarn workspace @leaguefy/web <script>`.
 - Util `cn` em `src/lib/utils.ts`
 - Adicionar: `yarn dlx shadcn@latest add <component>` (em `apps/web`)
 
-## Env
+## Deploy
 
-Use `.env.local` nesta pasta (já ignorado pelo git). Template na raiz: `.env.example`.
+Ver [docs/08-deploy-vercel.md](../../docs/08-deploy-vercel.md). Root Directory na Vercel: `apps/web`.

@@ -1,7 +1,5 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
-/* Tailwind v4 CSS resolver não honra package exports; apontar o dist. */
-@import '../../node_modules/shadcn/dist/tailwind.css';
 
 @custom-variant dark (&:is(.dark *));
 
