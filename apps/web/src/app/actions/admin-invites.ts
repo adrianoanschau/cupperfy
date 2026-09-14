@@ -159,6 +159,7 @@ export async function sendCheckinInviteEmail(input: {
   const content = buildCheckinInviteEmail({
     name: input.name ?? null,
     checkinUrl,
+    iconUrl: `${origin}/brand/cupperfy-icon.png`,
   });
 
   const sent = await sendEmail({

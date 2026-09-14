@@ -405,6 +405,60 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cupperfy/config-typescript@workspace:packages/config-typescript":
+  version: 0.0.0-use.local
+  resolution: "@cupperfy/config-typescript@workspace:packages/config-typescript"
+  languageName: unknown
+  linkType: soft
+
+"@cupperfy/web@workspace:apps/web":
+  version: 0.0.0-use.local
+  resolution: "@cupperfy/web@workspace:apps/web"
+  dependencies:
+    "@ai-sdk/google": "npm:^4.0.67"
+    "@ai-sdk/react": "npm:^4.0.100"
+    "@supabase/supabase-js": "npm:^2.116.0"
+    "@tailwindcss/postcss": "npm:^4"
+    "@types/eslint-plugin-jsx-a11y": "npm:^6"
+    "@types/node": "npm:^20"
+    "@types/nodemailer": "npm:^8.0.1"
+    "@types/qrcode": "npm:^1.5.6"
+    "@types/react": "npm:^19"
+    "@types/react-dom": "npm:^19"
+    "@typescript-eslint/eslint-plugin": "npm:^8.70.0"
+    "@typescript-eslint/parser": "npm:^8.70.0"
+    ai: "npm:^7.0.97"
+    class-variance-authority: "npm:^0.7.1"
+    clsx: "npm:^2.1.1"
+    cn: "npm:^0.2.6"
+    eslint: "npm:^9"
+    eslint-config-next: "npm:16.3.4"
+    eslint-config-prettier: "npm:^10.1.8"
+    eslint-import-resolver-typescript: "npm:^4.4.5"
+    eslint-plugin-import: "npm:^2.32.0"
+    eslint-plugin-jsx-a11y: "npm:^6.10.2"
+    eslint-plugin-prettier: "npm:^5.5.6"
+    eslint-plugin-react: "npm:^7.37.5"
+    eslint-plugin-react-hooks: "npm:^7.1.1"
+    lucide-react: "npm:^1.44.0"
+    next: "npm:16.3.4"
+    next-themes: "npm:^0.4.6"
+    nodemailer: "npm:^10.0.3"
+    prettier: "npm:^3.9.6"
+    prettier-plugin-tailwindcss: "npm:^0.8.1"
+    qrcode: "npm:^1.5.4"
+    radix-ui: "npm:^1.6.7"
+    react: "npm:19.2.8"
+    react-dom: "npm:19.2.8"
+    shadcn: "npm:^4.21.0"
+    tailwind-merge: "npm:^3.6.0"
+    tailwindcss: "npm:^4"
+    tw-animate-css: "npm:^1.4.0"
+    typescript: "npm:^5"
+    zod: "npm:^4.6.1"
+  languageName: unknown
+  linkType: soft
+
 "@dotenvx/dotenvx@npm:^1.48.4":
   version: 1.75.1
   resolution: "@dotenvx/dotenvx@npm:1.75.1"
@@ -978,60 +1032,6 @@ __metadata:
   checksum: 10c0/4b30ec8cd56c5fd9a661f088230af01e0c1a3888d11ffb6b47639700f71225be21d1f7e168048d6d4f9449207b978a235c07c8f15c07705685d16dc06280e9d9
   languageName: node
   linkType: hard
-
-"@cupperfy/config-typescript@workspace:packages/config-typescript":
-  version: 0.0.0-use.local
-  resolution: "@cupperfy/config-typescript@workspace:packages/config-typescript"
-  languageName: unknown
-  linkType: soft
-
-"@cupperfy/web@workspace:apps/web":
-  version: 0.0.0-use.local
-  resolution: "@cupperfy/web@workspace:apps/web"
-  dependencies:
-    "@ai-sdk/google": "npm:^4.0.67"
-    "@ai-sdk/react": "npm:^4.0.100"
-    "@supabase/supabase-js": "npm:^2.116.0"
-    "@tailwindcss/postcss": "npm:^4"
-    "@types/eslint-plugin-jsx-a11y": "npm:^6"
-    "@types/node": "npm:^20"
-    "@types/nodemailer": "npm:^8.0.1"
-    "@types/qrcode": "npm:^1.5.6"
-    "@types/react": "npm:^19"
-    "@types/react-dom": "npm:^19"
-    "@typescript-eslint/eslint-plugin": "npm:^8.70.0"
-    "@typescript-eslint/parser": "npm:^8.70.0"
-    ai: "npm:^7.0.97"
-    class-variance-authority: "npm:^0.7.1"
-    clsx: "npm:^2.1.1"
-    cn: "npm:^0.2.6"
-    eslint: "npm:^9"
-    eslint-config-next: "npm:16.3.4"
-    eslint-config-prettier: "npm:^10.1.8"
-    eslint-import-resolver-typescript: "npm:^4.4.5"
-    eslint-plugin-import: "npm:^2.32.0"
-    eslint-plugin-jsx-a11y: "npm:^6.10.2"
-    eslint-plugin-prettier: "npm:^5.5.6"
-    eslint-plugin-react: "npm:^7.37.5"
-    eslint-plugin-react-hooks: "npm:^7.1.1"
-    lucide-react: "npm:^1.44.0"
-    next: "npm:16.3.4"
-    next-themes: "npm:^0.4.6"
-    nodemailer: "npm:^10.0.3"
-    prettier: "npm:^3.9.6"
-    prettier-plugin-tailwindcss: "npm:^0.8.1"
-    qrcode: "npm:^1.5.4"
-    radix-ui: "npm:^1.6.7"
-    react: "npm:19.2.8"
-    react-dom: "npm:19.2.8"
-    shadcn: "npm:^4.21.0"
-    tailwind-merge: "npm:^3.6.0"
-    tailwindcss: "npm:^4"
-    tw-animate-css: "npm:^1.4.0"
-    typescript: "npm:^5"
-    zod: "npm:^4.6.1"
-  languageName: unknown
-  linkType: soft
 
 "@modelcontextprotocol/sdk@npm:^1.26.0":
   version: 1.30.0
@@ -3955,6 +3955,14 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cupperfy@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "cupperfy@workspace:."
+  dependencies:
+    supabase: "npm:^2.76.15"
+  languageName: unknown
+  linkType: soft
+
 "damerau-levenshtein@npm:^1.0.8":
   version: 1.0.8
   resolution: "damerau-levenshtein@npm:1.0.8"
@@ -6133,14 +6141,6 @@ __metadata:
   checksum: 10c0/9ab911213c4bd8bd583c850201c17794e52cb0660d1ab6e32558aadc8324abebf6844e46f92b80a5d600d0fbba7eface2c207bfaf270a1c7fd539e4c3a880bff
   languageName: node
   linkType: hard
-
-"cupperfy@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "cupperfy@workspace:."
-  dependencies:
-    supabase: "npm:^2.76.15"
-  languageName: unknown
-  linkType: soft
 
 "levn@npm:^0.4.1":
   version: 0.4.1

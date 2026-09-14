@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { BrandIcon, BrandMark } from '@/components/brand-mark';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Button } from '@/components/ui/button';
 
@@ -49,9 +50,7 @@ export default function DesignSystemPage() {
     <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col gap-14 px-6 py-12 md:px-10">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div className="space-y-2">
-          <p className="font-heading text-primary text-sm font-semibold tracking-[0.2em] uppercase">
-            Cupperfy
-          </p>
+          <BrandMark className="text-primary text-sm font-semibold" />
           <h1 className="font-heading text-4xl font-bold">Design system</h1>
           <p className="text-muted-foreground max-w-xl">
             Tokens de marca (laranja + preto), tipografia e componentes base do shadcn. Referência
@@ -65,6 +64,26 @@ export default function DesignSystemPage() {
           <ThemeToggle />
         </div>
       </div>
+
+      <section className="space-y-4">
+        <h2 className="font-heading text-2xl">Marca</h2>
+        <div className="bg-card grid gap-6 rounded-xl border p-6 md:grid-cols-2">
+          <div className="space-y-3">
+            <p className="text-muted-foreground text-sm">Lockup (ícone + Oxanium)</p>
+            <BrandMark className="text-3xl" />
+            <BrandMark className="text-xl" />
+            <BrandMark className="text-sm" />
+          </div>
+          <div className="space-y-3">
+            <p className="text-muted-foreground text-sm">Símbolo (favicon / isolado)</p>
+            <div className="flex items-end gap-4">
+              <BrandIcon className="h-16 w-auto" alt="Cupperfy" />
+              <BrandIcon className="h-10 w-auto" alt="" />
+              <BrandIcon className="h-6 w-auto" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="space-y-4">
         <h2 className="font-heading text-2xl">Brand · orange</h2>
@@ -131,16 +150,16 @@ export default function DesignSystemPage() {
             className="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_30%_20%,var(--brand-300),transparent_55%),radial-gradient(ellipse_60%_50%_at_80%_80%,var(--brand-500),transparent_50%)] dark:bg-[radial-gradient(ellipse_80%_70%_at_30%_20%,var(--brand-800),transparent_55%),radial-gradient(ellipse_60%_50%_at_80%_80%,var(--brand-600),transparent_50%)]"
           />
           <div className="relative grid gap-4 p-6 md:grid-cols-3">
-            <div className="lf-glass rounded-2xl p-5">
-              <p className="font-heading font-semibold">lf-glass</p>
+            <div className="cf-glass rounded-2xl p-5">
+              <p className="font-heading font-semibold">cf-glass</p>
               <p className="text-muted-foreground mt-1 text-sm">Painéis e passos</p>
             </div>
-            <div className="lf-glass-strong rounded-2xl p-5">
-              <p className="font-heading font-semibold">lf-glass-strong</p>
+            <div className="cf-glass-strong rounded-2xl p-5">
+              <p className="font-heading font-semibold">cf-glass-strong</p>
               <p className="text-muted-foreground mt-1 text-sm">Forms e menus</p>
             </div>
-            <div className="lf-glass-hero rounded-2xl p-5 text-white">
-              <p className="font-heading font-semibold">lf-glass-hero</p>
+            <div className="cf-glass-hero rounded-2xl p-5 text-white">
+              <p className="font-heading font-semibold">cf-glass-hero</p>
               <p className="mt-1 text-sm text-white/70">Sobre foto / arena</p>
             </div>
           </div>

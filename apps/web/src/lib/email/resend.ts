@@ -1,5 +1,7 @@
 import nodemailer from 'nodemailer';
 
+import { OFFICIAL_EMAIL } from '@/lib/brand';
+
 export type SendEmailInput = {
   to: string;
   subject: string;
@@ -9,7 +11,7 @@ export type SendEmailInput = {
 
 export type SendEmailResult = { ok: true; id?: string } | { ok: false; error: string };
 
-const DEFAULT_REPLY_TO = 'contato.cupperfy@gmail.com';
+const DEFAULT_REPLY_TO = OFFICIAL_EMAIL;
 
 function getFromAddress(): string | null {
   return process.env.EMAIL_FROM?.trim() || null;
@@ -78,7 +80,7 @@ async function sendViaResend(input: SendEmailInput): Promise<SendEmailResult> {
   if (!from) {
     return {
       ok: false,
-      error: 'Configure EMAIL_FROM (ex.: Cupperfy <onboarding@resend.dev>).',
+      error: 'Configure EMAIL_FROM (ex.: Cupperfy <contato@cupperfy.com>).',
     };
   }
 
@@ -117,7 +119,7 @@ async function sendViaResend(input: SendEmailInput): Promise<SendEmailResult> {
 /**
  * Local: SMTP → Mailpit (`SMTP_HOST=127.0.0.1`, `SMTP_PORT=54325`).
  * Produção: Resend (`RESEND_API_KEY`).
- * Reply-To: `EMAIL_REPLY_TO` → `NEXT_PUBLIC_SUPPORT_EMAIL` → contato.cupperfy@gmail.com
+ * Reply-To: `EMAIL_REPLY_TO` → `NEXT_PUBLIC_SUPPORT_EMAIL` → contato@cupperfy.com
  */
 export async function sendEmail(input: SendEmailInput): Promise<SendEmailResult> {
   const smtpResult = await sendViaSmtp(input);

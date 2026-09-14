@@ -48,13 +48,13 @@ export default async function AdminInteressadosPage() {
       </div>
 
       {people.length === 0 ? (
-        <div className="lf-glass rounded-3xl p-8">
+        <div className="cf-glass rounded-3xl p-8">
           <p className="text-muted-foreground">
             Ainda não há registros em <code className="text-foreground">alpha_waitlist</code>.
           </p>
         </div>
       ) : (
-        <div className="lf-glass overflow-x-auto rounded-3xl">
+        <div className="cf-glass overflow-x-auto rounded-3xl">
           <table className="w-full min-w-[52rem] text-left text-sm">
             <thead className="border-border text-muted-foreground border-b">
               <tr>

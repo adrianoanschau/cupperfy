@@ -1,4 +1,8 @@
-export function buildCheckinInviteEmail(input: { name: string | null; checkinUrl: string }) {
+export function buildCheckinInviteEmail(input: {
+  name: string | null;
+  checkinUrl: string;
+  iconUrl?: string;
+}) {
   const greeting = input.name?.trim() ? `Olá, ${input.name.trim()}!` : 'Olá!';
   const subject = 'Cupperfy · confirme sua disponibilidade no torneio alfa';
 
@@ -15,6 +19,10 @@ Se não esperava este e-mail, ignore.
 — Equipe Cupperfy
 `;
 
+  const iconImg = input.iconUrl
+    ? `<img src="${input.iconUrl}" width="22" height="20" alt="" style="vertical-align:middle;margin-right:8px;" />`
+    : '';
+
   const html = `<!doctype html>
 <html lang="pt-BR">
   <body style="margin:0;padding:0;background:#111;color:#f5f5f5;font-family:Manrope,Helvetica,Arial,sans-serif;">
@@ -24,7 +32,7 @@ Se não esperava este e-mail, ignore.
           <table role="presentation" width="100%" style="max-width:520px;background:#1a1512;border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:28px;">
             <tr>
               <td>
-                <p style="margin:0 0 8px;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#f97316;font-weight:700;">Cupperfy · alfa</p>
+                <p style="margin:0 0 8px;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#f97316;font-weight:700;">${iconImg}Cupperfy · alfa</p>
                 <h1 style="margin:0 0 16px;font-size:24px;line-height:1.2;color:#fff;">Confirme sua disponibilidade</h1>
                 <p style="margin:0 0 16px;font-size:16px;line-height:1.5;color:rgba(255,255,255,0.78);">${greeting}</p>
                 <p style="margin:0 0 24px;font-size:16px;line-height:1.5;color:rgba(255,255,255,0.78);">

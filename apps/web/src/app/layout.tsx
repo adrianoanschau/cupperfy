@@ -2,6 +2,7 @@ import { Manrope, Oxanium } from 'next/font/google';
 
 import { SiteChat } from '@/components/chat/site-chat';
 import { ThemeProvider } from '@/components/theme-provider';
+import { APP_PRODUCTION_ORIGIN } from '@/lib/brand';
 
 import type { Metadata } from 'next';
 /* Resolve via Node (monorepo/Vercel); @import no CSS quebra com package exports. */
@@ -21,6 +22,7 @@ const fontBody = Manrope({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL?.trim() || APP_PRODUCTION_ORIGIN),
   title: {
     default: 'Cupperfy',
     template: '%s · Cupperfy',

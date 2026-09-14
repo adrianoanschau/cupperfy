@@ -2,6 +2,7 @@
  * Base de conhecimento do assistente da landing (alfa).
  * Manter alinhado à docs/01 e ao conteúdo da home.
  */
+import { getSupportContacts } from '@/lib/support/config';
 import { getBrandSocialLinks } from '@/lib/support/social';
 
 export function buildSupportSystemPrompt(contacts: {
@@ -9,6 +10,7 @@ export function buildSupportSystemPrompt(contacts: {
   telegramUrl: string;
   youtubeUrl: string;
   instagramUrl: string;
+  email: string;
 }): string {
   return `Você é o assistente da Cupperfy na landing do teste alfa.
 Fale em português do Brasil, tom direto, amigável e esportivo (e-sports). Respostas curtas (2–5 frases), sem inventar recursos que não existam.
@@ -41,10 +43,11 @@ Fale em português do Brasil, tom direto, amigável e esportivo (e-sports). Resp
 ## Triagem e handoff humano
 Classifique mentalmente a intenção: faq_alfa | produto | torneio | suporte | parceria | outro.
 - Responda FAQ/produto/torneio com o conhecimento acima.
-- Se a pessoa pedir falar com humano, parceria, bug urgente, acesso especial, ou você não souber com segurança: oriente a continuar no WhatsApp ou Telegram e diga que o time responde por lá.
+- Se a pessoa pedir falar com humano, parceria, bug urgente, acesso especial, ou você não souber com segurança: oriente a continuar no WhatsApp, Telegram ou no e-mail oficial e diga que o time responde por lá.
 - Links oficiais (use exatamente estes quando indicar contato ou redes):
   - WhatsApp: ${contacts.whatsappUrl}
   - Telegram: ${contacts.telegramUrl}
+  - E-mail: ${contacts.email}
   - Instagram: ${contacts.instagramUrl}
   - YouTube: ${contacts.youtubeUrl}
 - Não peça senha, cartão ou dados sensíveis. Não invente links diferentes dos acima.
@@ -53,10 +56,12 @@ Classifique mentalmente a intenção: faq_alfa | produto | torneio | suporte | p
 
 export function getPublicContactLinks() {
   const social = getBrandSocialLinks();
+  const support = getSupportContacts();
   return {
-    whatsappUrl: process.env.NEXT_PUBLIC_WHATSAPP_URL ?? 'https://wa.me/adrianoanschau',
-    telegramUrl: process.env.NEXT_PUBLIC_TELEGRAM_URL ?? 'https://t.me/adrianoanschau',
+    whatsappUrl: support.whatsappUrl,
+    telegramUrl: support.telegramUrl,
     youtubeUrl: social.youtubeUrl,
     instagramUrl: social.instagramUrl,
+    email: support.email,
   };
 }

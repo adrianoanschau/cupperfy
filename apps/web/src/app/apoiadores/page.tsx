@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import { BrandMark } from '@/components/brand-mark';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { CopyButton } from '@/components/support/copy-button';
@@ -20,9 +21,7 @@ export default async function ApoiadoresPage() {
   const contacts = getSupportContacts();
   const qrDataUrl = pix.payload ? await createPixQrDataUrl(pix.payload) : null;
 
-  const partnershipMail = contacts.email
-    ? `mailto:${contacts.email}?subject=${encodeURIComponent('Parceria / investimento Cupperfy')}`
-    : null;
+  const partnershipMail = `mailto:${contacts.email}?subject=${encodeURIComponent('Parceria / investimento Cupperfy')}`;
 
   return (
     <div className="bg-background flex flex-1 flex-col">
@@ -45,9 +44,9 @@ export default async function ApoiadoresPage() {
         />
 
         <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-1 flex-col justify-end px-4 pt-12 pb-10 md:px-8 md:pb-16">
-          <div className="lf-glass-hero lf-fade-up max-w-3xl space-y-6 rounded-3xl p-6 md:p-10">
-            <p className="lf-brand-mark font-heading text-primary text-sm font-semibold tracking-[0.2em] uppercase">
-              Cupperfy
+          <div className="cf-glass-hero cf-fade-up max-w-3xl space-y-6 rounded-3xl p-6 md:p-10">
+            <p className="cf-brand-mark">
+              <BrandMark className="text-primary text-sm font-semibold" />
             </p>
             <h1 className="font-heading text-4xl leading-[1.05] font-bold text-white md:text-6xl">
               Apoie quem está construindo a arena.
@@ -55,7 +54,7 @@ export default async function ApoiadoresPage() {
             <p className="max-w-xl text-lg text-white/80 md:text-xl">
               Doação via PIX para acelerar o alfa — ou fale conosco sobre parceria e investimento.
             </p>
-            <div className="lf-fade-up-delay-2 flex flex-wrap gap-3">
+            <div className="cf-fade-up-delay-2 flex flex-wrap gap-3">
               <Button size="lg" asChild>
                 <a href="#doar">Doar com PIX</a>
               </Button>
@@ -91,7 +90,7 @@ export default async function ApoiadoresPage() {
             </p>
           </div>
 
-          <div className="lf-glass-strong grid gap-8 rounded-3xl p-6 md:grid-cols-[auto_1fr] md:items-center md:p-10">
+          <div className="cf-glass-strong grid gap-8 rounded-3xl p-6 md:grid-cols-[auto_1fr] md:items-center md:p-10">
             {qrDataUrl && pix.payload ? (
               <>
                 <div className="mx-auto rounded-2xl bg-white p-4">
@@ -162,7 +161,7 @@ export default async function ApoiadoresPage() {
             </p>
           </div>
 
-          <ul className="lf-glass grid gap-6 rounded-3xl p-6 md:grid-cols-3 md:p-8">
+          <ul className="cf-glass grid gap-6 rounded-3xl p-6 md:grid-cols-3 md:p-8">
             <li className="space-y-3">
               <h3 className="font-heading text-foreground text-lg font-semibold">WhatsApp</h3>
               <p className="text-muted-foreground text-sm">
@@ -188,15 +187,9 @@ export default async function ApoiadoresPage() {
               <p className="text-muted-foreground text-sm">
                 Para decks, termos e conversas formais.
               </p>
-              {partnershipMail && contacts.email ? (
-                <Button variant="outline" asChild>
-                  <a href={partnershipMail}>{contacts.email}</a>
-                </Button>
-              ) : (
-                <p className="text-muted-foreground text-xs">
-                  Configure <code className="text-foreground">NEXT_PUBLIC_SUPPORT_EMAIL</code>.
-                </p>
-              )}
+              <Button variant="outline" asChild>
+                <a href={partnershipMail}>{contacts.email}</a>
+              </Button>
             </li>
           </ul>
         </div>

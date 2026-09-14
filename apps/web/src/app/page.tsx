@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import { BrandMark } from '@/components/brand-mark';
 import { AlphaWaitlistForm } from '@/components/landing/alpha-waitlist-form';
 import { SocialFollowSection } from '@/components/landing/social-follow-section';
 import { SiteFooter } from '@/components/site-footer';
@@ -24,7 +25,7 @@ export default function Home() {
           fill
           priority
           sizes="100vw"
-          className="lf-kenburns object-cover object-center"
+          className="cf-kenburns object-cover object-center"
         />
         <div
           aria-hidden
@@ -36,9 +37,9 @@ export default function Home() {
         />
 
         <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-1 flex-col justify-end px-4 pt-12 pb-10 md:px-8 md:pb-16">
-          <div className="lf-glass-hero lf-fade-up max-w-3xl space-y-6 rounded-3xl p-6 md:p-10">
-            <p className="lf-brand-mark font-heading text-primary text-sm font-semibold tracking-[0.2em] uppercase">
-              Cupperfy
+          <div className="cf-glass-hero cf-fade-up max-w-3xl space-y-6 rounded-3xl p-6 md:p-10">
+            <p className="cf-brand-mark">
+              <BrandMark className="text-primary text-sm font-semibold" />
             </p>
             <h1 className="font-heading text-4xl leading-[1.05] font-bold text-white md:text-6xl lg:text-7xl">
               Entre no teste alfa e ajude a moldar a arena.
@@ -48,7 +49,7 @@ export default function Home() {
               e-sports. Poucas vagas para quem quer jogar, organizar e opinar desde o primeiro
               round.
             </p>
-            <div className="lf-fade-up-delay-2 flex flex-wrap gap-3">
+            <div className="cf-fade-up-delay-2 flex flex-wrap gap-3">
               <Button size="lg" asChild>
                 <a href="#alfa">Quero participar do alfa</a>
               </Button>
@@ -71,7 +72,7 @@ export default function Home() {
           aria-hidden
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_80%_at_10%_20%,var(--brand-200),transparent_50%)] dark:bg-[radial-gradient(ellipse_70%_80%_at_10%_20%,var(--brand-900),transparent_55%)]"
         />
-        <div className="lf-glass relative mx-auto grid w-full max-w-5xl gap-8 rounded-3xl p-8 md:grid-cols-[1fr_1.2fr] md:items-end md:p-10">
+        <div className="cf-glass relative mx-auto grid w-full max-w-5xl gap-8 rounded-3xl p-8 md:grid-cols-[1fr_1.2fr] md:items-end md:p-10">
           <h2 className="font-heading text-foreground text-3xl font-bold md:text-4xl">
             Um lugar para competir de ponta a ponta.
           </h2>
@@ -97,7 +98,7 @@ export default function Home() {
             Três passos para entrar no alfa.
           </h2>
           <ol className="grid gap-5 md:grid-cols-3">
-            <li className="lf-glass space-y-3 rounded-2xl p-6">
+            <li className="cf-glass space-y-3 rounded-2xl p-6">
               <p className="font-heading text-primary text-4xl font-bold">01</p>
               <h3 className="font-heading text-foreground text-xl font-semibold">
                 Lista de interesse
@@ -107,7 +108,7 @@ export default function Home() {
                 ambiente.
               </p>
             </li>
-            <li className="lf-glass space-y-3 rounded-2xl p-6">
+            <li className="cf-glass space-y-3 rounded-2xl p-6">
               <p className="font-heading text-primary text-4xl font-bold">02</p>
               <h3 className="font-heading text-foreground text-xl font-semibold">
                 Convite de acesso
@@ -117,7 +118,7 @@ export default function Home() {
                 de futebol e-sports.
               </p>
             </li>
-            <li className="lf-glass space-y-3 rounded-2xl p-6">
+            <li className="cf-glass space-y-3 rounded-2xl p-6">
               <p className="font-heading text-primary text-4xl font-bold">03</p>
               <h3 className="font-heading text-foreground text-xl font-semibold">
                 Jogue e responda
@@ -152,7 +153,7 @@ export default function Home() {
             </p>
           </div>
 
-          <dl className="lf-glass grid gap-8 rounded-3xl p-8 md:grid-cols-2 md:p-10">
+          <dl className="cf-glass grid gap-8 rounded-3xl p-8 md:grid-cols-2 md:p-10">
             <div className="space-y-2">
               <dt className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
                 Modalidade
@@ -212,7 +213,7 @@ export default function Home() {
           aria-hidden
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,var(--brand-200),transparent_55%)] dark:bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,var(--brand-800),transparent_55%)]"
         />
-        <div className="lf-glass-strong relative mx-auto flex w-full max-w-2xl flex-col gap-6 rounded-3xl p-8 md:p-10">
+        <div className="cf-glass-strong relative mx-auto flex w-full max-w-2xl flex-col gap-6 rounded-3xl p-8 md:p-10">
           <h2 className="font-heading text-foreground text-3xl font-bold md:text-4xl">
             Garanta sua vaga no alfa.
           </h2>

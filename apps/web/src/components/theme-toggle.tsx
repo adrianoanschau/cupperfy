@@ -56,7 +56,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
           <MoonIcon className="absolute scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="lf-glass-strong">
+      <DropdownMenuContent align="end" className="cf-glass-strong">
         <DropdownMenuItem onClick={() => setTheme('light')}>Claro</DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme('dark')}>Escuro</DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme('system')}>Sistema</DropdownMenuItem>

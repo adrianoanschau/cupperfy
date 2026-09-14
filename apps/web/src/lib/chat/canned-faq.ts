@@ -3,6 +3,7 @@ export type ContactLinks = {
   telegramUrl: string;
   youtubeUrl: string;
   instagramUrl: string;
+  email: string;
 };
 
 export type CannedFaqEntry = {
@@ -32,6 +33,7 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
       'o que e cupperfy',
       'me fala da cupperfy',
       'sobre a cupperfy',
+      // Nome antigo: quem ainda pergunta "Leaguefy" cai na mesma resposta.
       'o que e a leaguefy',
       'o que e leaguefy',
     ],
@@ -83,10 +85,12 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
       'whatsapp',
       'telegram',
       'suporte',
+      'email',
+      'e-mail',
     ],
-    keywords: ['falar', 'humano', 'whatsapp', 'telegram', 'suporte', 'contato'],
+    keywords: ['falar', 'humano', 'whatsapp', 'telegram', 'suporte', 'contato', 'email'],
     answer: (contacts) =>
-      `Pode falar direto com a gente:\n• WhatsApp: ${contacts.whatsappUrl}\n• Telegram: ${contacts.telegramUrl}\nConta o contexto da dúvida que respondemos por lá.`,
+      `Pode falar direto com a gente:\n• WhatsApp: ${contacts.whatsappUrl}\n• Telegram: ${contacts.telegramUrl}\n• E-mail: ${contacts.email}\nConta o contexto da dúvida que respondemos por lá.`,
   },
   {
     id: 'social-networks',

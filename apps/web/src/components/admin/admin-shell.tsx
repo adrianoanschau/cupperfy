@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { logoutAdmin } from '@/app/actions/admin-auth';
+import { BrandMark } from '@/components/brand-mark';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Button } from '@/components/ui/button';
 
@@ -12,11 +13,8 @@ export function AdminShell({ title, children }: { title: string; children: React
       <header className="border-border relative z-10 border-b px-6 py-4 md:px-10">
         <div className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3">
           <div className="space-y-1">
-            <Link
-              href="/admin/interessados"
-              className="font-heading text-lg font-bold tracking-tight"
-            >
-              cupper<span className="text-primary">fy</span>
+            <Link href="/admin/interessados" className="inline-flex items-baseline gap-1">
+              <BrandMark className="text-lg" />
               <span className="text-muted-foreground font-sans text-sm font-normal"> · admin</span>
             </Link>
             <p className="text-muted-foreground text-sm">{title}</p>

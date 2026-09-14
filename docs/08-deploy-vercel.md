@@ -15,7 +15,7 @@ Monorepo Yarn: install na **raiz**; build via `yarn workspace @cupperfy/web buil
 
 ## Configuração do projeto na Vercel
 
-1. Importar o repo GitHub atual (`adrianoanschau/leaguefy` — o produto agora é Cupperfy; o remote ainda não foi renomeado).
+1. Importar o repo GitHub atual (`adrianoanschau/cupperfy`).
 2. **Root Directory:** `apps/web`  
    (em *Settings → General → Root Directory*).  
    Deixe habilitado incluir arquivos fora do root (workspaces / `yarn.lock` na raiz).
@@ -37,18 +37,27 @@ Definir no dashboard Vercel (*Settings → Environment Variables*):
 | `NEXT_PUBLIC_TELEGRAM_URL` | Production + Preview | Ex.: `https://t.me/adrianoanschau` |
 | `NEXT_PUBLIC_YOUTUBE_URL` | Production + Preview | Opcional — default `https://www.youtube.com/@Cupperfy` |
 | `NEXT_PUBLIC_INSTAGRAM_URL` | Production + Preview | Opcional — default `https://www.instagram.com/cupperfy.oficial/` |
-| `NEXT_PUBLIC_SUPPORT_EMAIL` | Production + Preview | E-mail de parcerias (`/apoiadores`) |
+| `NEXT_PUBLIC_SUPPORT_EMAIL` | Production + Preview | E-mail oficial (`contato@cupperfy.com`) — parcerias em `/apoiadores` |
 | `NEXT_PUBLIC_PIX_PAYLOAD` | Production + Preview | PIX “copia e cola” (QR em `/apoiadores`) |
 | `NEXT_PUBLIC_PIX_KEY_LABEL` | Production + Preview | Chave legível (opcional) |
 | `NEXT_PUBLIC_PIX_BENEFICIARY` | Production + Preview | Nome exibido no PIX (opcional) |
 | `ADMIN_PASSWORD` | Production | Senha do `/admin` |
 | `ADMIN_SESSION_SECRET` | Production | Segredo cookie admin (≥32 chars) |
 | `RESEND_API_KEY` | Production | Envio de convites por e-mail |
-| `EMAIL_FROM` | Production | Remetente verificado no Resend (não use Gmail) |
-| `EMAIL_REPLY_TO` | Production | Reply-To (default: `contato.cupperfy@gmail.com`) |
-| `NEXT_PUBLIC_APP_URL` | Production + Preview | Origem absoluta dos links |
+| `EMAIL_FROM` | Production | Remetente verificado no Resend (`Cupperfy <contato@cupperfy.com>`) |
+| `EMAIL_REPLY_TO` | Production | Reply-To (default: `contato@cupperfy.com`) |
+| `NEXT_PUBLIC_APP_URL` | Production + Preview | Origem absoluta: `https://cupperfy.com` |
 
 Template local: [`.env.example`](../.env.example). Não commitar `.env.production` / `.env.local`.
+
+## Domínio de produção
+
+Canônico: **https://cupperfy.com**. E-mail oficial: **contato@cupperfy.com**.
+
+1. Na Vercel: *Settings → Domains* → adicionar `cupperfy.com` e `www.cupperfy.com` (redirecionar `www` para o apex).
+2. No DNS do registrador, apontar os registros que a Vercel indicar (A/ALIAS no apex, CNAME em `www`).
+3. Env de produção: `NEXT_PUBLIC_APP_URL=https://cupperfy.com`.
+4. No Resend, verificar o domínio `cupperfy.com` para enviar de `contato@cupperfy.com` (`EMAIL_FROM`).
 
 ## GitHub Actions (deploy em `main`)
 
@@ -96,7 +105,7 @@ Preview de PR pode continuar na integração Git.
 - [ ] Secrets `VERCEL_*` no GitHub
 - [ ] Push na `main` dispara o workflow (aba Actions)
 - [ ] Evitado double-deploy production
-- [ ] URL de produção abre a home Cupperfy
+- [ ] URL de produção abre a home em https://cupperfy.com
 
 ## Comandos úteis
 

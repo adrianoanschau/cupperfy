@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
+import { BrandMark } from '@/components/brand-mark';
 import { AlphaCheckinForm } from '@/components/checkin/alpha-checkin-form';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Button } from '@/components/ui/button';
 import { getCheckinInviteByToken, getCheckinSlotIdsForInvite } from '@/lib/checkin/invites';
 import { CHECKIN_EVENT, CHECKIN_SLOTS, getOpenCheckinSlots } from '@/lib/checkin/slots';
+import { getSupportContacts } from '@/lib/support/config';
 
 import type { Metadata } from 'next';
 
@@ -29,10 +31,7 @@ export default async function CheckinTokenPage({ params }: CheckinTokenPageProps
 
   const initialSlotIds = await getCheckinSlotIdsForInvite(invite.id);
   const openSlots = getOpenCheckinSlots();
-  const contacts = {
-    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_URL ?? 'https://wa.me/adrianoanschau',
-    telegram: process.env.NEXT_PUBLIC_TELEGRAM_URL ?? 'https://t.me/adrianoanschau',
-  };
+  const contacts = getSupportContacts();
 
   return (
     <div className="bg-background flex flex-1 flex-col">
@@ -42,9 +41,9 @@ export default async function CheckinTokenPage({ params }: CheckinTokenPageProps
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_0%_0%,color-mix(in_oklch,var(--brand-400)_35%,transparent),transparent_60%)] dark:bg-[radial-gradient(ellipse_70%_50%_at_0%_0%,color-mix(in_oklch,var(--brand-800)_40%,transparent),transparent_60%)]"
         />
 
-        <header className="lf-glass-nav relative z-10 mx-auto flex w-full max-w-3xl items-center justify-between rounded-2xl px-4 py-3 md:px-6">
-          <Link href="/" className="font-heading text-foreground text-xl font-bold tracking-tight">
-            cupper<span className="text-primary">fy</span>
+        <header className="cf-glass-nav relative z-10 mx-auto flex w-full max-w-3xl items-center justify-between rounded-2xl px-4 py-3 md:px-6">
+          <Link href="/">
+            <BrandMark className="text-foreground text-xl" />
           </Link>
           <div className="flex items-center gap-2">
             <Button variant="ghost" size="sm" asChild>
@@ -54,9 +53,10 @@ export default async function CheckinTokenPage({ params }: CheckinTokenPageProps
           </div>
         </header>
 
-        <div className="lf-glass-strong relative z-10 mx-auto mt-10 w-full max-w-3xl rounded-3xl p-6 md:mt-14 md:p-10">
-          <p className="font-heading text-primary text-sm font-semibold tracking-[0.2em] uppercase">
-            Cupperfy · alfa
+        <div className="cf-glass-strong relative z-10 mx-auto mt-10 w-full max-w-3xl rounded-3xl p-6 md:mt-14 md:p-10">
+          <p className="inline-flex items-center gap-2">
+            <BrandMark className="text-primary text-sm font-semibold" />
+            <span className="text-muted-foreground text-sm">· alfa</span>
           </p>
           <h1 className="font-heading text-foreground mt-3 text-3xl font-bold md:text-4xl">
             {CHECKIN_EVENT.title}
@@ -80,7 +80,7 @@ export default async function CheckinTokenPage({ params }: CheckinTokenPageProps
         <p className="text-muted-foreground relative z-10 mx-auto mt-8 max-w-3xl text-center text-sm">
           Dúvida de horário?{' '}
           <a
-            href={contacts.whatsapp}
+            href={contacts.whatsappUrl}
             className="text-primary hover:underline"
             target="_blank"
             rel="noreferrer"
@@ -89,12 +89,16 @@ export default async function CheckinTokenPage({ params }: CheckinTokenPageProps
           </a>{' '}
           ·{' '}
           <a
-            href={contacts.telegram}
+            href={contacts.telegramUrl}
             className="text-primary hover:underline"
             target="_blank"
             rel="noreferrer"
           >
             Telegram
+          </a>{' '}
+          ·{' '}
+          <a href={`mailto:${contacts.email}`} className="text-primary hover:underline">
+            {contacts.email}
           </a>
         </p>
       </section>

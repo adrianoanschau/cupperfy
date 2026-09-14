@@ -138,7 +138,7 @@ export function AlphaCheckinForm({
               <label
                 key={slot.id}
                 className={cn(
-                  'lf-glass flex cursor-pointer gap-3 rounded-2xl px-4 py-3 transition-colors',
+                  'cf-glass flex cursor-pointer gap-3 rounded-2xl px-4 py-3 transition-colors',
                   selected && 'border-primary ring-primary/30 ring-2',
                 )}
               >

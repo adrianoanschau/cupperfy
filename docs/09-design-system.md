@@ -10,13 +10,13 @@
 | Institucional | **Laranja** (ação / competição) + **preto** (estrutura / contraste) |
 | Modo | Claro por sistema; toggle Claro / Escuro / Sistema (`next-themes`) |
 | Tom | Esportivo / e-sports + **glassmorphism** (vidro fosco sobre atmosfera) |
-| UI | shadcn/ui + tokens CSS (OKLCH) + utilitários `lf-glass*` |
+| UI | shadcn/ui + tokens CSS (OKLCH) + utilitários `cf-glass*` |
 
 ## Tipografia
 
 | Papel | Família | Uso |
 |---|---|---|
-| Display | **Oxanium** (`font-heading`) | Marca, H1–H6, placares |
+| Display | **Oxanium** (`font-heading`) | Marca (`cupperfy`), H1–H6, placares |
 | Corpo | **Manrope** (`font-sans`) | Texto, forms, navegação |
 
 Carregadas via `next/font` em `apps/web/src/app/layout.tsx`.
@@ -56,10 +56,10 @@ Utilitários em `globals.css` (tokens `--glass-*` light/dark):
 
 | Classe | Uso |
 |---|---|
-| `lf-glass` | Painéis / passos / footer |
-| `lf-glass-strong` | Formulários e menus flutuantes |
-| `lf-glass-hero` | Bloco de conteúdo sobre foto do hero |
-| `lf-glass-nav` | Barra de navegação no hero |
+| `cf-glass` | Painéis / passos / footer |
+| `cf-glass-strong` | Formulários e menus flutuantes |
+| `cf-glass-hero` | Bloco de conteúdo sobre foto do hero |
+| `cf-glass-nav` | Barra de navegação no hero |
 
 Receita: fill translúcido + `backdrop-filter: blur` + borda clara fina + highlight interno 1px (sem multi-shadow).
 
@@ -72,9 +72,21 @@ O vidro precisa de **fundo com textura/foto/gradiente** atrás — em seções c
 - Toggle: `ThemeToggle` (Claro / Escuro / Sistema) no header.
 - Tokens dark: bloco `.dark { … }` em `globals.css`.
 
+## Marca
+
+Lockup: símbolo do troféu + wordmark **cupperfy** em Oxanium (`BrandMark`). O `fy` usa `text-primary`.
+
+| Peça | Onde |
+|---|---|
+| Fonte | `design/cupperfy-icon.png` |
+| UI | `apps/web/public/brand/cupperfy-icon.png` |
+| Favicon | `apps/web/src/app/icon.png` + `favicon.ico` + `apple-icon.png` |
+
+Uso na UI: header, footer, heros, chat, admin, check-in. Ícone isolado no launcher do chat e na aba do browser.
+
 ## Princípios de composição
 
-1. **Marca primeiro** em superfícies promocionais — o nome Cupperfy como sinal hero.
+1. **Marca primeiro** em superfícies promocionais — ícone + wordmark Cupperfy como sinal hero.
 2. **Uma composição** no primeiro viewport (não dashboard).
 3. **Laranja com parcimônia** — CTAs e destaques; preto/ink para estrutura.
 4. **Vidro com propósito** — sobre foto/atmosfera; não em fundo chapado.
@@ -84,7 +96,8 @@ O vidro precisa de **fundo com textura/foto/gradiente** atrás — em seções c
 
 | Path | Papel |
 |---|---|
-| `apps/web/src/app/globals.css` | Tokens + tema light/dark + `lf-glass*` |
+| `apps/web/src/app/globals.css` | Tokens + tema light/dark + `cf-glass*` |
 | `apps/web/src/app/layout.tsx` | Fontes |
+| `apps/web/src/components/brand-mark.tsx` | Lockup + símbolo |
 | `apps/web/src/app/design-system/page.tsx` | Catálogo visual |
 | `apps/web/components.json` | shadcn (CSS variables) |

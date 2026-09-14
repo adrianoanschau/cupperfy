@@ -2,6 +2,8 @@
 
 Monorepo da plataforma de gestão de competições.
 
+Produção: [cupperfy.com](https://cupperfy.com) · contato: [contato@cupperfy.com](mailto:contato@cupperfy.com)
+
 **Documentação (fonte da verdade do desenho):** [`docs/`](./docs/) · **Relatórios de etapa:** [`reports/`](./reports/)
 
 ## Estrutura

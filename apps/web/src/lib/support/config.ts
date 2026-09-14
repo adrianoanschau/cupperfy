@@ -1,7 +1,9 @@
+import { OFFICIAL_EMAIL } from '@/lib/brand';
+
 export type SupportContacts = {
   whatsappUrl: string;
   telegramUrl: string;
-  email: string | null;
+  email: string;
 };
 
 export type PixConfig = {
@@ -16,7 +18,7 @@ export function getSupportContacts(): SupportContacts {
   return {
     whatsappUrl: process.env.NEXT_PUBLIC_WHATSAPP_URL ?? 'https://wa.me/adrianoanschau',
     telegramUrl: process.env.NEXT_PUBLIC_TELEGRAM_URL ?? 'https://t.me/adrianoanschau',
-    email: process.env.NEXT_PUBLIC_SUPPORT_EMAIL?.trim() || null,
+    email: process.env.NEXT_PUBLIC_SUPPORT_EMAIL?.trim() || OFFICIAL_EMAIL,
   };
 }
 

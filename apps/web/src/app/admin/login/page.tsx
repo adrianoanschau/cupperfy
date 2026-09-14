@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { AdminLoginForm } from '@/components/admin/admin-login-form';
+import { BrandMark } from '@/components/brand-mark';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { adminPasswordConfigured } from '@/lib/admin/session';
 
@@ -24,13 +25,13 @@ export default async function AdminLoginPage({ searchParams }: AdminLoginPagePro
     <div className="bg-background flex flex-1 flex-col">
       <section className="relative mx-auto flex w-full max-w-md flex-1 flex-col gap-8 px-6 py-10">
         <div className="flex items-center justify-between">
-          <Link href="/" className="font-heading text-xl font-bold tracking-tight">
-            cupper<span className="text-primary">fy</span>
+          <Link href="/">
+            <BrandMark className="text-xl" />
           </Link>
           <ThemeToggle />
         </div>
 
-        <div className="lf-glass-strong space-y-6 rounded-3xl p-6 md:p-8">
+        <div className="cf-glass-strong space-y-6 rounded-3xl p-6 md:p-8">
           <div className="space-y-2">
             <h1 className="font-heading text-foreground text-3xl font-bold">Acesso admin</h1>
             <p className="text-muted-foreground text-sm">
