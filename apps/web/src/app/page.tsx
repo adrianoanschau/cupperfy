@@ -2,6 +2,8 @@ import Image from 'next/image';
 
 import { BrandMark } from '@/components/brand-mark';
 import { AlphaWaitlistForm } from '@/components/landing/alpha-waitlist-form';
+import { ModalityLogoImage } from '@/components/landing/modality-logos';
+import { ModalityLogoStrip } from '@/components/landing/modality-logo-strip';
 import { SocialFollowSection } from '@/components/landing/social-follow-section';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
@@ -132,6 +134,8 @@ export default function Home() {
         </div>
       </section>
 
+      <ModalityLogoStrip />
+
       {/* —— Torneio do alfa —— */}
       <section
         id="torneio"
@@ -154,20 +158,27 @@ export default function Home() {
           </div>
 
           <ul className="grid gap-5 md:grid-cols-2">
-            <li className="cf-glass space-y-2 rounded-2xl p-6 md:p-8">
+            <li className="cf-glass space-y-3 rounded-2xl p-6 md:p-8">
               <p className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
                 Torneio 1
               </p>
-              <h3 className="font-heading text-foreground text-2xl font-bold">EA FC</h3>
+              <h3 className="sr-only">EA Sports FC</h3>
+              <div className="flex h-10 flex-wrap items-center gap-5">
+                <ModalityLogoImage id="eafc-26" />
+                <ModalityLogoImage id="eafc-27" />
+              </div>
               <p className="text-muted-foreground">
                 x1 no título da EA Sports. Inscrição individual.
               </p>
             </li>
-            <li className="cf-glass space-y-2 rounded-2xl p-6 md:p-8">
+            <li className="cf-glass space-y-3 rounded-2xl p-6 md:p-8">
               <p className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
                 Torneio 2
               </p>
-              <h3 className="font-heading text-foreground text-2xl font-bold">eFootball</h3>
+              <h3 className="sr-only">eFootball</h3>
+              <div className="flex h-10 items-center">
+                <ModalityLogoImage id="efootball" />
+              </div>
               <p className="text-muted-foreground">
                 x1 no título da Konami. Inscrição individual.
               </p>

@@ -19,6 +19,7 @@ Fale em português do Brasil, tom direto, amigável e esportivo (e-sports). Resp
 - Plataforma web para criar e organizar competições (e-sports e, no futuro, outras modalidades).
 - Reúne inscrição, chaveamento, resultados e perfil de jogador.
 - Visão de longo prazo: também rede social de perfis e mercado de transferências (Fase 2 — ainda não no alfa).
+- Modalidades **em breve** (ainda não no alfa): League of Legends, Valorant, Counter-Strike, Rocket League, Futebol 11, Futebol 7, Futsal, Vôlei, Basquete, Handebol, Tênis, Tênis de Mesa e Paddle.
 - Marca: laranja + preto; produto focado em competição.
 
 ## Torneios de lançamento / alfa

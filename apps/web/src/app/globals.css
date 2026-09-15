@@ -298,6 +298,15 @@
   }
 }
 
+@keyframes cf-logo-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @layer utilities {
   .cf-fade-up {
     animation: cf-fade-up 0.8s ease-out both;
@@ -346,6 +355,29 @@
 
   .cf-chat-status-label {
     animation: cf-chat-status-label 0.28s ease-out both;
+  }
+
+  .cf-logo-marquee {
+    animation: cf-logo-marquee 40s linear infinite;
+  }
+
+  .cf-logo-marquee-reverse {
+    animation-direction: reverse;
+    animation-duration: 46s;
+  }
+
+  .cf-logo-mask:hover .cf-logo-marquee {
+    animation-play-state: paused;
+  }
+
+  .cf-logo-mask {
+    mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cf-logo-marquee {
+      animation: none;
+    }
   }
 
   /* Vidro: blur + fill translúcido + borda luminosa fina (sem multi-shadow). */
