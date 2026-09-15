@@ -39,7 +39,7 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
     ],
     keywords: ['o que e', 'cupperfy', 'plataforma'],
     answer: () =>
-      'A Cupperfy é uma plataforma para criar e organizar competições — inscrição, chaveamento, resultados e perfil de jogador no mesmo lugar. O lançamento começa pelo alfa de dois torneios x1 de futebol e-sports: EA FC e eFootball. Rede social e transferências ficam para depois.',
+      'A Cupperfy é uma plataforma para criar e organizar competições — inscrição, chaveamento, resultados e perfil de jogador no mesmo lugar. O lançamento começa pelo alfa de dois x1: Copa Cupperfy FC (EA FC) e Copa Cupperfy eFootball. Rede social e transferências ficam para depois.',
   },
   {
     id: 'how-x1-works',
@@ -53,7 +53,7 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
     ],
     keywords: ['torneio', 'x1', 'chave', 'eliminacao'],
     answer: () =>
-      'São dois x1 de futebol e-sports: um de EA FC e outro de eFootball. Eliminação simples, inscrição individual (sem time). O padrão é chave de 8 jogadores (também 4 ou 16 se precisar). Melhor de 1, seeding manual. Toda partida precisa ir ao vivo no YouTube e ficar salva para consulta. Esses números podem ser levemente ajustados conforme a lista e a disponibilidade dos interessados.',
+      'São dois x1 de futebol e-sports: a Copa Cupperfy FC (EA FC) e a Copa Cupperfy eFootball. Eliminação simples, inscrição individual (sem time). O padrão é chave de 8 jogadores (também 4 ou 16 se precisar). Melhor de 1, seeding manual. Toda partida precisa ir ao vivo no YouTube e ficar salva para consulta. Esses números podem ser levemente ajustados conforme a lista e a disponibilidade dos interessados.',
   },
   {
     id: 'youtube-stream',
@@ -105,7 +105,25 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
     ],
     keywords: ['jogo', 'jogos', 'ea', 'fifa', 'efootball', 'pes'],
     answer: () =>
-      'O alfa abre com dois torneios x1 de futebol e-sports: um de EA FC e outro de eFootball. Você pode entrar em um deles ou nos dois.',
+      'O alfa abre com dois x1 de futebol e-sports: a Copa Cupperfy FC (EA FC) e a Copa Cupperfy eFootball. Você pode entrar em um deles ou nos dois.',
+  },
+  {
+    id: 'eafc-edition',
+    question: 'A Copa Cupperfy FC é no EA FC 26 ou no 27?',
+    aliases: [
+      'ea fc 26 ou 27',
+      'e o 26 ou o 27',
+      'vai ser o 26 ou o 27',
+      'qual versao do ea fc',
+      'qual edicao do ea fc',
+      'vai ter ea fc 26 e 27',
+      'vai ter os dois ea fc',
+      'fifa 26 ou 27',
+      'fc 26 ou fc 27',
+    ],
+    keywords: ['26', '27', 'versao', 'edicao'],
+    answer: () =>
+      'A Copa Cupperfy FC ainda não fecha se será no EA FC 26 ou no 27 — isso depende do interesse de quem entrar na lista. Se houver demanda e capacidade, dá para abrir os dois, cada um na sua chave. Não está garantido. Inscreva-se no alfa; avisamos a edição quando a onda de convite sair.',
   },
   {
     id: 'talk-to-human',

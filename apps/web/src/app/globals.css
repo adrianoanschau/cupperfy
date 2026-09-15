@@ -215,6 +215,13 @@
   html {
     @apply font-sans antialiased;
     text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   body {

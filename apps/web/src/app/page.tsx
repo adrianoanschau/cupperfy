@@ -151,31 +151,28 @@ export default function Home() {
               Os torneios do teste alfa
             </h2>
             <p className="text-muted-foreground text-lg">
-              São dois campeonatos x1 de futebol e-sports. O formato abaixo vale para os dois.
-              Números e detalhes podem ser levemente ajustados conforme a lista de interesse e quem
-              confirmar presença.
+              São dois campeonatos x1 de futebol e-sports: a Copa Cupperfy FC e a Copa Cupperfy
+              eFootball. O formato abaixo vale para os dois. Números e detalhes podem ser levemente
+              ajustados conforme a lista de interesse e quem confirmar presença.
             </p>
           </div>
 
           <ul className="grid gap-5 md:grid-cols-2">
             <li className="cf-glass space-y-3 rounded-2xl p-6 md:p-8">
-              <p className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
-                Torneio 1
-              </p>
-              <h3 className="sr-only">EA Sports FC</h3>
-              <div className="flex h-10 flex-wrap items-center gap-5">
-                <ModalityLogoImage id="eafc-26" />
-                <ModalityLogoImage id="eafc-27" />
+              <h3 className="font-heading text-foreground text-xl font-semibold md:text-2xl">
+                Copa Cupperfy FC
+              </h3>
+              <div className="flex h-10 items-center">
+                <ModalityLogoImage id="eafc" />
               </div>
               <p className="text-muted-foreground">
                 x1 no título da EA Sports. Inscrição individual.
               </p>
             </li>
             <li className="cf-glass space-y-3 rounded-2xl p-6 md:p-8">
-              <p className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
-                Torneio 2
-              </p>
-              <h3 className="sr-only">eFootball</h3>
+              <h3 className="font-heading text-foreground text-xl font-semibold md:text-2xl">
+                Copa Cupperfy eFootball
+              </h3>
               <div className="flex h-10 items-center">
                 <ModalityLogoImage id="efootball" />
               </div>

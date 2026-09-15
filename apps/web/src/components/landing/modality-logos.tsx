@@ -4,6 +4,14 @@ import { cn } from '@/lib/utils';
 
 export const CURRENT_MODALITY_LOGOS = [
   {
+    id: 'eafc',
+    label: 'EA Sports FC',
+    src: '/brand/eafc.png',
+    width: 261,
+    height: 92,
+    artwork: 'light' as const,
+  },
+  {
     id: 'eafc-26',
     label: 'EA Sports FC 26',
     src: '/brand/EAFC26.png',
@@ -80,7 +88,10 @@ export const UPCOMING_PHYSICAL_MODALITIES = [
 ] as const;
 
 export const VIRTUAL_MODALITIES = [
-  ...CURRENT_MODALITY_LOGOS.map((logo) => ({ ...logo, comingSoon: false as const })),
+  ...CURRENT_MODALITY_LOGOS.filter((logo) => logo.id !== 'eafc').map((logo) => ({
+    ...logo,
+    comingSoon: false as const,
+  })),
   ...UPCOMING_VIRTUAL_MODALITIES.map((logo) => ({ ...logo, comingSoon: true as const })),
 ];
 
