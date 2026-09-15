@@ -53,7 +53,22 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
     ],
     keywords: ['torneio', 'x1', 'chave', 'eliminacao'],
     answer: () =>
-      'São dois x1 de futebol e-sports: um de EA FC e outro de eFootball. Eliminação simples, inscrição individual (sem time). O padrão é chave de 8 jogadores (também 4 ou 16 se precisar). Melhor de 1, seeding manual. Esses números podem ser levemente ajustados conforme a lista e a disponibilidade dos interessados.',
+      'São dois x1 de futebol e-sports: um de EA FC e outro de eFootball. Eliminação simples, inscrição individual (sem time). O padrão é chave de 8 jogadores (também 4 ou 16 se precisar). Melhor de 1, seeding manual. Toda partida precisa ir ao vivo no YouTube e ficar salva para consulta. Esses números podem ser levemente ajustados conforme a lista e a disponibilidade dos interessados.',
+  },
+  {
+    id: 'youtube-stream',
+    question: 'As partidas precisam ir no YouTube?',
+    aliases: [
+      'preciso transmitir no youtube',
+      'tem que transmitir no youtube',
+      'as partidas sao transmitidas',
+      'live no youtube',
+      'vod da partida',
+      'como conferem as regras',
+    ],
+    keywords: ['transmit', 'transmissao', 'live', 'vod', 'partida'],
+    answer: () =>
+      'Sim. Toda partida precisa ser transmitida ao vivo no YouTube e permanecer salva. Assim a organização confere se as regras foram cumpridas e, se surgir dúvida depois, o vídeo é a referência. O placar oficial continua na Cupperfy. O passo a passo da live entra no convite e na área logada.',
   },
   {
     id: 'how-join-alpha',

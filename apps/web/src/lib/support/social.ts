@@ -10,6 +10,6 @@ export function getBrandSocialLinks(): BrandSocialLinks {
       process.env.NEXT_PUBLIC_YOUTUBE_URL?.trim() || 'https://www.youtube.com/@Cupperfy',
     instagramUrl:
       process.env.NEXT_PUBLIC_INSTAGRAM_URL?.trim() ||
-      'https://www.instagram.com/cupperfy.oficial/',
+      'https://www.instagram.com/cupperfy',
   };
 }

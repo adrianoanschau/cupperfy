@@ -85,6 +85,8 @@ export default function Home() {
           </p>
         </div>
       </section>
+      
+      <ModalityLogoStrip />
 
       {/* —— Como funciona —— */}
       <section
@@ -133,8 +135,6 @@ export default function Home() {
           </ol>
         </div>
       </section>
-
-      <ModalityLogoStrip />
 
       {/* —— Torneio do alfa —— */}
       <section
@@ -239,6 +239,72 @@ export default function Home() {
         </div>
       </section>
 
+      {/* —— Como a plataforma opera —— */}
+      <section
+        id="operacao"
+        className="border-border relative scroll-mt-8 overflow-hidden border-b px-6 py-20 md:px-10"
+      >
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_65%_70%_at_0%_50%,var(--brand-100),transparent_50%)] dark:bg-[radial-gradient(ellipse_65%_70%_at_0%_50%,var(--brand-950),transparent_55%)]"
+        />
+        <div className="relative mx-auto flex w-full max-w-5xl flex-col gap-12">
+          <div className="max-w-2xl space-y-4">
+            <h2 className="font-heading text-foreground text-3xl font-bold md:text-4xl">
+              Como a plataforma vai trabalhar.
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Alguns pontos já estão definidos para o alfa e para o que vem depois. A competição
+              precisa ser auditável — não só vivida na sala de jogo.
+            </p>
+          </div>
+
+          <ul className="grid gap-5 md:grid-cols-3">
+            <li className="cf-glass space-y-3 rounded-2xl p-6">
+              <p className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
+                Transmissão
+              </p>
+              <h3 className="font-heading text-foreground text-xl font-semibold">
+                Toda partida no YouTube
+              </h3>
+              <p className="text-muted-foreground">
+                Todos os confrontos precisam ser transmitidos ao vivo no YouTube. Assim a
+                organização acompanha o jogo e confere se as regras foram cumpridas — sem depender
+                só do relato de quem estava na sala.
+              </p>
+            </li>
+            <li className="cf-glass space-y-3 rounded-2xl p-6">
+              <p className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
+                Arquivo
+              </p>
+              <h3 className="font-heading text-foreground text-xl font-semibold">VOD para consulta</h3>
+              <p className="text-muted-foreground">
+                A live deve permanecer salva. Se surgir dúvida de placar, conduta ou regra, o vídeo
+                é a referência — no mesmo dia ou semanas depois.
+              </p>
+            </li>
+            <li className="cf-glass space-y-3 rounded-2xl p-6">
+              <p className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
+                Resultado
+              </p>
+              <h3 className="font-heading text-foreground text-xl font-semibold">
+                Placar oficial na Cupperfy
+              </h3>
+              <p className="text-muted-foreground">
+                O avanço na chave continua na plataforma. A transmissão prova o que aconteceu; a
+                Cupperfy registra o que vale na tabela.
+              </p>
+            </li>
+          </ul>
+
+          <p className="text-muted-foreground max-w-3xl text-sm leading-relaxed md:text-base">
+            <span className="text-foreground font-medium">Na prática:</span> o passo a passo da live
+            — canal, qualidade e onde colar o link — entra no convite e na área logada. Aqui o
+            recado é o princípio: partida sem transmissão não entra no fluxo oficial.
+          </p>
+        </div>
+      </section>
+
       {/* —— CTA / waitlist —— */}
       <section id="alfa" className="relative scroll-mt-8 overflow-hidden px-6 py-20 md:px-10">
         <div
@@ -264,6 +330,7 @@ export default function Home() {
           { href: '/apoiadores', label: 'Apoiar' },
           { href: '/design-system', label: 'Design system' },
           { href: '#torneio', label: 'Torneios' },
+          { href: '#operacao', label: 'Operação' },
           { href: '#alfa', label: 'Alfa' },
           { href: '#redes', label: 'Redes' },
         ]}

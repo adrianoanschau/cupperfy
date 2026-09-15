@@ -36,7 +36,7 @@ Definir no dashboard Vercel (*Settings → Environment Variables*):
 | `NEXT_PUBLIC_WHATSAPP_URL` | Production + Preview | Ex.: `https://wa.me/adrianoanschau` |
 | `NEXT_PUBLIC_TELEGRAM_URL` | Production + Preview | Ex.: `https://t.me/adrianoanschau` |
 | `NEXT_PUBLIC_YOUTUBE_URL` | Production + Preview | Opcional — default `https://www.youtube.com/@Cupperfy` |
-| `NEXT_PUBLIC_INSTAGRAM_URL` | Production + Preview | Opcional — default `https://www.instagram.com/cupperfy.oficial/` |
+| `NEXT_PUBLIC_INSTAGRAM_URL` | Production + Preview | Opcional — default `https://www.instagram.com/cupperfy` |
 | `NEXT_PUBLIC_SUPPORT_EMAIL` | Production + Preview | E-mail oficial (`contato@cupperfy.com`) — parcerias em `/apoiadores` |
 | `NEXT_PUBLIC_PIX_PAYLOAD` | Production + Preview | PIX “copia e cola” (QR em `/apoiadores`) |
 | `NEXT_PUBLIC_PIX_KEY_LABEL` | Production + Preview | Chave legível (opcional) |

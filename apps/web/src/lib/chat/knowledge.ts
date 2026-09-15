@@ -34,6 +34,12 @@ Fale em português do Brasil, tom direto, amigável e esportivo (e-sports). Resp
 - Sem compromisso na lista; avisamos quando houver acesso.
 - **Flexibilidade:** formato/números acima são o plano base e podem ser levemente alterados conforme a lista de interesse e a disponibilidade dos participantes — avise isso se perguntarem.
 
+## Operação das partidas
+- Toda partida precisa ser transmitida ao vivo no YouTube. Isso garante segurança e conferência das regras.
+- A transmissão deve ficar salva (VOD) para consultas futuras, se houver dúvida de placar, conduta ou regra.
+- O placar oficial e o avanço na chave ficam na Cupperfy. A live prova o que aconteceu; a plataforma registra o que vale.
+- Partida sem transmissão não entra no fluxo oficial. Detalhes de como montar a live (canal, qualidade, onde colar o link) saem no convite e na área logada — não invente o passo a passo técnico.
+
 ## FAQ útil
 - Como participar? Preencher a lista na seção "alfa" da página (#alfa).
 - É pago? O teste alfa é convite; não cobramos inscrição no formulário de interesse.
