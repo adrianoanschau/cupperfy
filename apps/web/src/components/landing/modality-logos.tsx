@@ -76,15 +76,78 @@ export const UPCOMING_VIRTUAL_MODALITIES = [
 ] as const;
 
 export const UPCOMING_PHYSICAL_MODALITIES = [
-  { id: 'futebol-11', label: 'Futebol 11' },
-  { id: 'futebol-7', label: 'Futebol 7' },
-  { id: 'futsal', label: 'Futsal' },
-  { id: 'volei', label: 'Vôlei' },
-  { id: 'basquete', label: 'Basquete' },
-  { id: 'handebol', label: 'Handebol' },
-  { id: 'tenis', label: 'Tênis' },
-  { id: 'tenis-de-mesa', label: 'Tênis de Mesa' },
-  { id: 'paddle', label: 'Paddle' },
+  {
+    id: 'futebol-11',
+    label: 'Futebol 11',
+    src: '/brand/futebol-11.png',
+    width: 295,
+    height: 67,
+    artwork: 'light' as const,
+  },
+  {
+    id: 'futebol-7',
+    label: 'Futebol 7',
+    src: '/brand/futebol-7.png',
+    width: 285,
+    height: 90,
+    artwork: 'light' as const,
+  },
+  {
+    id: 'futsal',
+    label: 'Futsal',
+    src: '/brand/futsal.png',
+    width: 270,
+    height: 122,
+    artwork: 'light' as const,
+  },
+  {
+    id: 'volei',
+    label: 'Vôlei',
+    src: '/brand/volei.png',
+    width: 245,
+    height: 86,
+    artwork: 'light' as const,
+  },
+  {
+    id: 'basquete',
+    label: 'Basquete',
+    src: '/brand/basquete.png',
+    width: 286,
+    height: 102,
+    artwork: 'light' as const,
+  },
+  {
+    id: 'handebol',
+    label: 'Handebol',
+    src: '/brand/handebol.png',
+    width: 274,
+    height: 78,
+    artwork: 'light' as const,
+  },
+  {
+    id: 'tenis',
+    label: 'Tênis',
+    src: '/brand/tenis.png',
+    width: 246,
+    height: 106,
+    artwork: 'light' as const,
+  },
+  {
+    id: 'tenis-de-mesa',
+    label: 'Tênis de Mesa',
+    src: '/brand/tenis-de-mesa.png',
+    width: 249,
+    height: 114,
+    artwork: 'light' as const,
+  },
+  {
+    id: 'paddle',
+    label: 'Paddle',
+    src: '/brand/paddle.png',
+    width: 271,
+    height: 74,
+    artwork: 'light' as const,
+  },
 ] as const;
 
 export const VIRTUAL_MODALITIES = [
@@ -102,7 +165,11 @@ export const PHYSICAL_MODALITIES = UPCOMING_PHYSICAL_MODALITIES.map((logo) => ({
 
 export const MODALITY_LOGOS = [...VIRTUAL_MODALITIES, ...PHYSICAL_MODALITIES];
 
-const IMAGE_LOGOS = [...CURRENT_MODALITY_LOGOS, ...UPCOMING_VIRTUAL_MODALITIES];
+const IMAGE_LOGOS = [
+  ...CURRENT_MODALITY_LOGOS,
+  ...UPCOMING_VIRTUAL_MODALITIES,
+  ...UPCOMING_PHYSICAL_MODALITIES,
+];
 
 export type ModalityLogoId = (typeof IMAGE_LOGOS)[number]['id'];
 
@@ -114,7 +181,7 @@ export function ComingSoonBadge({ className }: { className?: string }) {
   return (
     <span
       className={cn(
-        'bg-primary text-primary-foreground font-heading pointer-events-none absolute bottom-[-10px] left-1/2 w-max -translate-x-1/2 rounded-[3px] px-1.5 py-px text-[9px] font-bold tracking-[0.16em] whitespace-nowrap uppercase shadow-sm',
+        'bg-primary text-primary-foreground font-heading pointer-events-none absolute bottom-[-20px] left-1/2 w-max -translate-x-1/2 rounded-[3px] px-1.5 py-px text-[9px] font-bold tracking-[0.16em] whitespace-nowrap uppercase shadow-sm',
         className,
       )}
     >

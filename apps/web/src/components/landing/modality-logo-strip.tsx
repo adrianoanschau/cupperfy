@@ -27,7 +27,7 @@ function LogoRow({ items, hidden }: { items: readonly ModalityItem[]; hidden?: b
 
   return (
     <ul
-      className="flex shrink-0 items-center gap-14 px-10 pb-4 md:gap-20 md:px-14"
+      className="flex shrink-0 items-center gap-14 px-10 pb-7 md:gap-20 md:px-14"
       aria-hidden={hidden || undefined}
     >
       {sequence.map((logo, index) => {
