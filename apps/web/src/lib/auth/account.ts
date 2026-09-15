@@ -2,6 +2,8 @@ import { redirect } from 'next/navigation';
 
 import { createSupabaseUserClient } from '@/lib/supabase/server';
 
+import type { User } from '@supabase/supabase-js';
+
 export type AccountProfile = {
   id: string;
   displayName: string;
@@ -14,6 +16,10 @@ export type AccountRoles = {
   playerIds: string[];
   organizerId: string | null;
 };
+
+export function needsPasswordSetup(user: User | null | undefined): boolean {
+  return user?.user_metadata?.must_set_password === true;
+}
 
 export async function getSessionUser() {
   const supabase = await createSupabaseUserClient();
@@ -65,6 +71,9 @@ export async function requireAccount() {
   if (!snapshot.user) {
     redirect('/login');
   }
+  if (needsPasswordSetup(snapshot.user)) {
+    redirect('/definir-senha');
+  }
   if (
     !snapshot.profile ||
     !snapshot.roles ||
@@ -85,8 +94,25 @@ export async function requireOnboardingUser() {
   if (!snapshot.user) {
     redirect('/login');
   }
+  if (needsPasswordSetup(snapshot.user)) {
+    redirect('/definir-senha');
+  }
   if (snapshot.roles && (snapshot.roles.isPlayer || snapshot.roles.isOrganizer)) {
     redirect('/conta');
+  }
+  return snapshot;
+}
+
+export async function requirePasswordSetupUser() {
+  const snapshot = await getAccountSnapshot();
+  if (!snapshot.user) {
+    redirect('/login');
+  }
+  if (!needsPasswordSetup(snapshot.user)) {
+    if (snapshot.roles && (snapshot.roles.isPlayer || snapshot.roles.isOrganizer)) {
+      redirect('/conta');
+    }
+    redirect('/onboarding');
   }
   return snapshot;
 }
@@ -94,6 +120,9 @@ export async function requireOnboardingUser() {
 export async function redirectIfAuthenticated() {
   const snapshot = await getAccountSnapshot();
   if (!snapshot.user) return;
+  if (needsPasswordSetup(snapshot.user)) {
+    redirect('/definir-senha');
+  }
   if (snapshot.roles && (snapshot.roles.isPlayer || snapshot.roles.isOrganizer)) {
     redirect('/conta');
   }

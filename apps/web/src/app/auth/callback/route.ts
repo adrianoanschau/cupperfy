@@ -1,22 +1,34 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
+import { needsPasswordSetup } from '@/lib/auth/account';
 import { getSupabaseAnonKey, getSupabaseUrl } from '@/lib/supabase/env';
+
+import type { EmailOtpType } from '@supabase/supabase-js';
 
 function nextPath(hasRoles: boolean) {
   return hasRoles ? '/conta' : '/onboarding';
 }
 
+function copyCookies(from: NextResponse, to: NextResponse) {
+  from.cookies.getAll().forEach((cookie) => {
+    to.cookies.set(cookie);
+  });
+  return to;
+}
+
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = request.nextUrl;
   const code = searchParams.get('code');
+  const tokenHash = searchParams.get('token_hash');
+  const otpType = searchParams.get('type');
   const oauthError = searchParams.get('error');
 
   if (oauthError === 'access_denied') {
     return NextResponse.redirect(new URL('/login?error=oauth_cancelado', origin));
   }
 
-  if (oauthError || !code) {
+  if (oauthError) {
     return NextResponse.redirect(new URL('/login?error=oauth', origin));
   }
 
@@ -34,8 +46,20 @@ export async function GET(request: NextRequest) {
     },
   });
 
-  const { error } = await supabase.auth.exchangeCodeForSession(code);
-  if (error) {
+  if (code) {
+    const { error } = await supabase.auth.exchangeCodeForSession(code);
+    if (error) {
+      return NextResponse.redirect(new URL('/login?error=oauth', origin));
+    }
+  } else if (tokenHash && otpType) {
+    const { error } = await supabase.auth.verifyOtp({
+      type: otpType as EmailOtpType,
+      token_hash: tokenHash,
+    });
+    if (error) {
+      return NextResponse.redirect(new URL('/login?error=session', origin));
+    }
+  } else {
     return NextResponse.redirect(new URL('/login?error=oauth', origin));
   }
 
@@ -45,6 +69,11 @@ export async function GET(request: NextRequest) {
 
   if (!user) {
     return NextResponse.redirect(new URL('/login?error=session', origin));
+  }
+
+  if (needsPasswordSetup(user)) {
+    const destination = NextResponse.redirect(new URL('/definir-senha', origin));
+    return copyCookies(pending, destination);
   }
 
   const { data: profile } = await supabase
@@ -70,8 +99,5 @@ export async function GET(request: NextRequest) {
 
   const hasRoles = (playerCount ?? 0) > 0 || (organizerCount ?? 0) > 0;
   const destination = NextResponse.redirect(new URL(nextPath(hasRoles), origin));
-  pending.cookies.getAll().forEach((cookie) => {
-    destination.cookies.set(cookie);
-  });
-  return destination;
+  return copyCookies(pending, destination);
 }

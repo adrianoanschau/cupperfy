@@ -25,7 +25,7 @@ export function mapAuthError(message: string): string {
     normalized.includes('provider is not enabled') ||
     normalized.includes('unsupported provider')
   ) {
-    return 'O acesso com Discord ainda não está configurado.';
+    return 'O acesso com Google ou Discord ainda não está configurado.';
   }
 
   return 'Não foi possível concluir agora. Tente de novo em instantes.';
@@ -33,8 +33,8 @@ export function mapAuthError(message: string): string {
 
 export function authPageErrorMessage(code: string | undefined): string | null {
   if (!code) return null;
-  if (code === 'oauth_cancelado') return 'Você cancelou o acesso com Discord.';
-  if (code === 'oauth') return 'Não foi possível entrar com Discord. Tente de novo.';
+  if (code === 'oauth_cancelado') return 'Você cancelou o acesso com a conta social.';
+  if (code === 'oauth') return 'Não foi possível entrar com Google ou Discord. Tente de novo.';
   if (code === 'session') return 'Sessão inválida. Entre de novo.';
   return 'Não foi possível entrar. Tente de novo.';
 }

@@ -12,30 +12,31 @@ function normalizeEmail(email: string): string {
   return email.trim().toLowerCase();
 }
 
-export async function signUpWithPassword(input: {
+export async function requestSignupEmail(input: {
   email: string;
-  password: string;
   name: string;
 }): Promise<AuthActionResult> {
   const email = normalizeEmail(input.email);
-  const password = input.password;
   const name = input.name.trim();
 
-  if (!email || !password) {
-    return { ok: false, error: 'Informe e-mail e senha.' };
+  if (!name) {
+    return { ok: false, error: 'Informe seu nome.' };
   }
 
-  if (password.length < 6) {
-    return { ok: false, error: 'A senha precisa ter pelo menos 6 caracteres.' };
+  if (!email) {
+    return { ok: false, error: 'Informe um e-mail válido.' };
   }
 
   const supabase = await createSupabaseUserClient();
   const origin = await getAppOrigin();
-  const { data, error } = await supabase.auth.signUp({
+  const { error } = await supabase.auth.signInWithOtp({
     email,
-    password,
     options: {
-      data: name ? { display_name: name.slice(0, 80) } : undefined,
+      shouldCreateUser: true,
+      data: {
+        display_name: name.slice(0, 80),
+        must_set_password: true,
+      },
       emailRedirectTo: `${origin}/auth/callback`,
     },
   });
@@ -44,11 +45,68 @@ export async function signUpWithPassword(input: {
     return { ok: false, error: mapAuthError(error.message) };
   }
 
-  if (!data.session) {
-    return {
-      ok: false,
-      error: 'Conta criada. Confirme o e-mail e depois entre.',
-    };
+  return { ok: true };
+}
+
+export async function setAccountPassword(input: {
+  password: string;
+  confirmPassword: string;
+}): Promise<AuthActionResult> {
+  const password = input.password;
+  const confirmPassword = input.confirmPassword;
+
+  if (password.length < 6) {
+    return { ok: false, error: 'A senha precisa ter pelo menos 6 caracteres.' };
+  }
+
+  if (password !== confirmPassword) {
+    return { ok: false, error: 'As senhas não coincidem.' };
+  }
+
+  const supabase = await createSupabaseUserClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    redirect('/login?error=session');
+  }
+
+  const { error } = await supabase.auth.updateUser({
+    password,
+    data: {
+      ...user.user_metadata,
+      must_set_password: false,
+    },
+  });
+
+  if (error) {
+    return { ok: false, error: mapAuthError(error.message) };
+  }
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('id')
+    .eq('user_id', user.id)
+    .maybeSingle();
+
+  if (!profile) {
+    redirect('/onboarding');
+  }
+
+  const [{ count: playerCount }, { count: organizerCount }] = await Promise.all([
+    supabase
+      .from('player_profiles')
+      .select('id', { count: 'exact', head: true })
+      .eq('profile_id', profile.id),
+    supabase
+      .from('organizer_profiles')
+      .select('id', { count: 'exact', head: true })
+      .eq('profile_id', profile.id),
+  ]);
+
+  if ((playerCount ?? 0) > 0 || (organizerCount ?? 0) > 0) {
+    redirect('/conta');
   }
 
   redirect('/onboarding');
@@ -105,11 +163,13 @@ export async function signInWithPassword(input: {
   redirect('/onboarding');
 }
 
-export async function signInWithDiscord(): Promise<AuthActionResult> {
+export async function signInWithOAuthProvider(
+  provider: 'discord' | 'google',
+): Promise<AuthActionResult> {
   const supabase = await createSupabaseUserClient();
   const origin = await getAppOrigin();
   const { data, error } = await supabase.auth.signInWithOAuth({
-    provider: 'discord',
+    provider,
     options: {
       redirectTo: `${origin}/auth/callback`,
     },
@@ -120,10 +180,18 @@ export async function signInWithDiscord(): Promise<AuthActionResult> {
   }
 
   if (!data.url) {
-    return { ok: false, error: 'Não foi possível iniciar o acesso com Discord.' };
+    return { ok: false, error: 'Não foi possível iniciar o acesso com essa conta.' };
   }
 
   redirect(data.url);
+}
+
+export async function signInWithDiscord(): Promise<AuthActionResult> {
+  return signInWithOAuthProvider('discord');
+}
+
+export async function signInWithGoogle(): Promise<AuthActionResult> {
+  return signInWithOAuthProvider('google');
 }
 
 export async function signOut() {

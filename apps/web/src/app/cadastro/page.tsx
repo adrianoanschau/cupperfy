@@ -16,7 +16,7 @@ export default async function SignUpPage() {
   return (
     <AuthPageShell
       title="Criar conta"
-      description="Cadastre-se com e-mail ou Discord. Depois você escolhe se joga, organiza, ou os dois."
+      description="Informe nome e e-mail. Enviamos um link para você criar a senha. Ou entre com Google ou Discord."
     >
       <SignUpForm />
       <p className="text-muted-foreground text-sm">
