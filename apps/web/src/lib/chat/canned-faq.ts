@@ -39,7 +39,7 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
     ],
     keywords: ['o que e', 'cupperfy', 'plataforma'],
     answer: () =>
-      'A Cupperfy é uma plataforma para criar e organizar competições — inscrição, chaveamento, resultados e perfil de jogador no mesmo lugar. O lançamento começa pelo alfa de dois x1: Copa Cupperfy FC (EA FC) e Copa Cupperfy eFootball. Rede social e transferências ficam para depois.',
+      'A Cupperfy é uma plataforma para criar e organizar competições — inscrição, chaveamento, resultados e perfil de jogador no mesmo lugar. O diferencial é o resultado auditável (live + VOD) e um histórico que continua depois da copa. A temporada 0 abre com a Copa Cupperfy FC (EA FC) e a Copa Cupperfy eFootball. Quem entra agora é da leva fundadora.',
   },
   {
     id: 'how-x1-works',
@@ -53,7 +53,7 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
     ],
     keywords: ['torneio', 'x1', 'chave', 'eliminacao'],
     answer: () =>
-      'São dois x1 de futebol e-sports: a Copa Cupperfy FC (EA FC) e a Copa Cupperfy eFootball. Eliminação simples, inscrição individual (sem time). O padrão é chave de 8 jogadores (também 4 ou 16 se precisar). Melhor de 1, seeding manual. Toda partida precisa ir ao vivo no YouTube e ficar salva para consulta. Esses números podem ser levemente ajustados conforme a lista e a disponibilidade dos interessados.',
+      'São dois x1 de futebol e-sports: a Copa Cupperfy FC (EA FC) e a Copa Cupperfy eFootball. Eliminação simples, inscrição individual (sem time). O padrão é chave de 8 jogadores (também 4 ou 16 se precisar). Melhor de 1, seeding manual. Toda partida precisa ir ao vivo no YouTube e ficar salva — o resultado fica provado, não só registrado. Esses números podem ser levemente ajustados conforme a leva fundadora.',
   },
   {
     id: 'youtube-stream',
@@ -72,16 +72,19 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
   },
   {
     id: 'how-join-alpha',
-    question: 'Como participo do alfa?',
+    question: 'Como entro na leva fundadora?',
     aliases: [
       'como participar do alfa',
       'como entro no alfa',
       'quero participar do alfa',
       'lista de interesse',
+      'lista de espera',
+      'como ser jogador fundador',
+      'leva fundadora',
     ],
-    keywords: ['alfa', 'particip', 'lista', 'interesse', 'vaga'],
+    keywords: ['alfa', 'particip', 'leva', 'fundador', 'temporada'],
     answer: () =>
-      'Entre na lista de interesse na seção Alfa da página (#alfa), com seu e-mail. Liberamos acesso em ondas. Depois você cria conta, monta o perfil de jogador, se inscreve no x1 de EA FC e/ou no de eFootball e nos dá feedback. Sem compromisso na lista.',
+      'Entre na leva fundadora na seção da página (#alfa), com seu e-mail. Você recebe o convite para criar conta, montar o perfil de jogador e se inscrever na Copa Cupperfy FC e/ou na de eFootball. Sem compromisso. Quem entra agora carrega o selo de jogador fundador — temporada 0.',
   },
   {
     id: 'need-team',
@@ -89,11 +92,11 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
     aliases: ['preciso de time', 'precisa de equipe', 'e em time', 'posso jogar sozinho'],
     keywords: ['time', 'equipe', 'sozinho', 'individual'],
     answer: () =>
-      'Não. O alfa e os torneios de lançamento são x1 individual — você se inscreve sozinho no EA FC, no eFootball, ou nos dois, sem precisar de equipe.',
+      'Não. As copas da temporada 0 são x1 individual — você se inscreve sozinho no EA FC, no eFootball, ou nos dois, sem precisar de equipe.',
   },
   {
     id: 'which-games',
-    question: 'Quais jogos entram no alfa?',
+    question: 'Quais jogos entram na temporada 0?',
     aliases: [
       'quais jogos',
       'qual jogo',
@@ -105,7 +108,7 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
     ],
     keywords: ['jogo', 'jogos', 'ea', 'fifa', 'efootball', 'pes'],
     answer: () =>
-      'O alfa abre com dois x1 de futebol e-sports: a Copa Cupperfy FC (EA FC) e a Copa Cupperfy eFootball. Você pode entrar em um deles ou nos dois.',
+      'A temporada 0 abre com dois x1 de futebol e-sports: a Copa Cupperfy FC (EA FC) e a Copa Cupperfy eFootball. Você pode entrar em um deles ou nos dois.',
   },
   {
     id: 'eafc-edition',
@@ -123,7 +126,7 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
     ],
     keywords: ['26', '27', 'versao', 'edicao'],
     answer: () =>
-      'A Copa Cupperfy FC ainda não fecha se será no EA FC 26 ou no 27 — isso depende do interesse de quem entrar na lista. Se houver demanda e capacidade, dá para abrir os dois, cada um na sua chave. Não está garantido. Inscreva-se no alfa; avisamos a edição quando a onda de convite sair.',
+      'A Copa Cupperfy FC ainda não fecha se será no EA FC 26 ou no 27 — isso depende do interesse de quem entrar na leva fundadora. Se houver demanda e capacidade, dá para abrir os dois, cada um na sua chave. Não está garantido. Entre na leva; avisamos a edição quando o convite sair.',
   },
   {
     id: 'talk-to-human',
@@ -160,11 +163,11 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
   },
   {
     id: 'is-paid',
-    question: 'O alfa é pago?',
-    aliases: ['e pago', 'tem custo', 'quanto custa', 'e gratis'],
+    question: 'A leva fundadora é paga?',
+    aliases: ['e pago', 'tem custo', 'quanto custa', 'e gratis', 'o alfa e pago'],
     keywords: ['pago', 'custa', 'gratis', 'preco'],
     answer: () =>
-      'A lista de interesse do alfa não cobra inscrição. O acesso é por convite em ondas. Se houver qualquer custo no futuro, avisamos com clareza — não inventamos taxa aqui.',
+      'A leva fundadora não cobra inscrição. O acesso é por convite. Se houver qualquer custo no futuro, avisamos com clareza — não inventamos taxa aqui.',
   },
 ];
 

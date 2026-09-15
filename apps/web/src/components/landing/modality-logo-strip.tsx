@@ -1,12 +1,12 @@
 import {
   ComingSoonBadge,
-  MODALITY_LOGOS,
   PHYSICAL_MODALITIES,
   VIRTUAL_MODALITIES,
   ModalityLogoImage,
 } from '@/components/landing/modality-logos';
-
 import { cn } from '@/lib/utils';
+
+import type { MODALITY_LOGOS } from '@/components/landing/modality-logos';
 
 type ModalityItem = (typeof MODALITY_LOGOS)[number];
 
@@ -62,7 +62,10 @@ function LogoMarquee({ items, reverse }: { items: readonly ModalityItem[]; rever
   return (
     <div className="cf-logo-mask">
       <div
-        className={cn('cf-logo-marquee flex w-max items-center', reverse && 'cf-logo-marquee-reverse')}
+        className={cn(
+          'cf-logo-marquee flex w-max items-center',
+          reverse && 'cf-logo-marquee-reverse',
+        )}
       >
         <LogoRow items={items} />
         <LogoRow items={items} hidden />

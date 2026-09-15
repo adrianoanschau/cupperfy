@@ -36,10 +36,12 @@ export function AlphaWaitlistForm() {
   if (status === 'done') {
     return (
       <div className="border-border space-y-2 border-t pt-8">
-        <p className="font-heading text-foreground text-xl font-semibold">Você está na lista.</p>
+        <p className="font-heading text-foreground text-xl font-semibold">
+          Você entrou na leva fundadora.
+        </p>
         <p className="text-muted-foreground">
           Obrigado{name.trim() ? `, ${name.trim()}` : ''}. Avisamos em{' '}
-          <span className="text-foreground">{email}</span> quando o acesso alfa abrir.
+          <span className="text-foreground">{email}</span> quando o acesso da temporada 0 abrir.
         </p>
       </div>
     );
@@ -82,9 +84,11 @@ export function AlphaWaitlistForm() {
       ) : null}
       <div className="flex flex-wrap items-center gap-4">
         <Button type="submit" size="lg" disabled={status === 'submitting'}>
-          {status === 'submitting' ? 'Enviando…' : 'Quero participar do alfa'}
+          {status === 'submitting' ? 'Enviando…' : 'Entrar na leva fundadora'}
         </Button>
-        <p className="text-muted-foreground text-sm">Vagas limitadas · sem spam</p>
+        <p className="text-muted-foreground text-sm">
+          Primeira leva de jogadores fundadores · sem spam
+        </p>
       </div>
     </form>
   );

@@ -19,7 +19,8 @@ export function SocialFollowSection() {
             Nos siga nas nossas redes
           </h2>
           <p className="text-muted-foreground text-lg">
-            Bastidores do alfa, avisos de ondas e conteúdo de competição no Instagram e no YouTube.
+            Bastidores da temporada 0, avisos da leva fundadora e conteúdo de competição no
+            Instagram e no YouTube.
           </p>
         </div>
         <ul className="flex flex-wrap items-center justify-center gap-6">

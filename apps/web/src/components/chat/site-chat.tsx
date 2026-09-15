@@ -2,14 +2,7 @@
 
 import { useChat } from '@ai-sdk/react';
 import { Send, X } from 'lucide-react';
-import {
-  Component,
-  useEffect,
-  useRef,
-  useState,
-  type FormEvent,
-  type ReactNode,
-} from 'react';
+import { Component, useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
 
 import { BrandIcon, BrandMark } from '@/components/brand-mark';
 import { Button, buttonVariants } from '@/components/ui/button';
@@ -18,10 +11,7 @@ import { SUGGESTED_QUESTIONS } from '@/lib/chat/canned-faq';
 import { getSupportContacts } from '@/lib/support/config';
 import { cn } from '@/lib/utils';
 
-class ChatPanelErrorBoundary extends Component<
-  { children: ReactNode },
-  { failed: boolean }
-> {
+class ChatPanelErrorBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false };
 
   static getDerivedStateFromError() {
@@ -148,7 +138,7 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
         <div>
           <BrandMark className="text-foreground text-sm font-semibold" />
           <p className="text-muted-foreground mt-0.5 text-xs">
-            {busy ? `${statusLabel}…` : 'Assistente · alfa · FAQ'}
+            {busy ? `${statusLabel}…` : 'Assistente · temporada 0'}
           </p>
         </div>
         <Button
@@ -166,9 +156,8 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
         {messages.length === 0 && !busy ? (
           <div className="space-y-4">
             <p className="text-muted-foreground text-sm">
-              Pergunte sobre o alfa, o que é a Cupperfy ou como funcionam os x1 de EA FC e
-              eFootball. Ou escolha
-              uma pergunta:
+              Pergunte sobre a leva fundadora, o que é a Cupperfy ou como funcionam os x1 de EA FC e
+              eFootball. Ou escolha uma pergunta:
             </p>
             <ul className="space-y-2">
               {SUGGESTED_QUESTIONS.map((question) => (

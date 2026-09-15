@@ -38,7 +38,7 @@ export function BrandMark({ className, withIcon = true }: BrandMarkProps) {
   return (
     <span
       className={cn(
-        'inline-flex items-center gap-2 font-heading font-bold tracking-tight',
+        'font-heading inline-flex items-center gap-2 font-bold tracking-tight',
         className,
       )}
     >
