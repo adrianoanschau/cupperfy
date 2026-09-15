@@ -28,7 +28,7 @@ export function SiteHeader({ brandAsLink = false, links }: SiteHeaderProps) {
         ) : (
           <p className="text-white">{brand}</p>
         )}
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center justify-end gap-2">
           {links.map((link) => (
             <Button
               key={link.href + link.label}

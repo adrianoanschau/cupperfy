@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { BrandMark } from '@/components/brand-mark';
 import { AlphaWaitlistForm } from '@/components/landing/alpha-waitlist-form';
@@ -15,6 +16,7 @@ export default function Home() {
       <SiteHeader
         links={[
           { href: '/apoiadores', label: 'Apoiar' },
+          { href: '/preview', label: 'Prévia' },
           { href: '#alfa', label: 'Fundadores' },
           { href: '/login', label: 'Entrar' },
         ]}
@@ -49,8 +51,8 @@ export default function Home() {
             </h1>
             <p className="max-w-xl text-lg text-white/80 md:text-xl">
               Toda partida vai ao vivo e fica salva. E o que você abre aqui não é só uma copa: é o
-              começo de uma comunidade — perfil, pessoas e, no caminho, rede social. Quem entra agora
-              é da leva fundadora.
+              começo de uma comunidade — perfil, pessoas e, no caminho, rede social. Quem entra
+              agora é da leva fundadora.
             </p>
             <div className="cf-fade-up-delay-2 flex flex-wrap gap-3">
               <Button size="lg" asChild>
@@ -344,6 +346,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* —— Veja como vai ficar —— */}
+      <section
+        id="preview"
+        className="border-border relative scroll-mt-8 overflow-hidden border-b px-6 py-20 md:px-10"
+      >
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_80%_at_80%_20%,var(--brand-200),transparent_50%)] dark:bg-[radial-gradient(ellipse_70%_80%_at_80%_20%,var(--brand-900),transparent_55%)]"
+        />
+        <div className="relative mx-auto flex w-full max-w-5xl flex-col gap-10">
+          <div className="max-w-2xl space-y-4">
+            <p className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
+              Demonstração
+            </p>
+            <h2 className="font-heading text-foreground text-3xl font-bold md:text-4xl">
+              Veja como a Cupperfy vai ficar
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Páginas de uma copa de exemplo: chave, perfil, agenda e o rumo da comunidade.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Button size="lg" asChild>
+              <Link href="/preview">Abrir a demonstração</Link>
+            </Button>
+            <Button size="lg" variant="outline" asChild>
+              <Link href="/preview/competicao">Ver a chave x1</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* —— CTA / leva fundadora —— */}
       <section id="alfa" className="relative scroll-mt-8 overflow-hidden px-6 py-20 md:px-10">
         <div
@@ -368,6 +402,7 @@ export default function Home() {
       <SiteFooter
         links={[
           { href: '/apoiadores', label: 'Apoiar' },
+          { href: '/preview', label: 'Prévia' },
           { href: '/design-system', label: 'Design system' },
           { href: '#torneio', label: 'Torneios' },
           { href: '#operacao', label: 'Prova' },
