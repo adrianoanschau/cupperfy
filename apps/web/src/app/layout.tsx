@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: '%s · Cupperfy',
   },
   description:
-    'Entre no teste alfa da Cupperfy — plataforma de competições começando pelo x1 de futebol e-sports.',
+    'Entre no teste alfa da Cupperfy — dois x1 de futebol e-sports: EA FC e eFootball.',
 };
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {

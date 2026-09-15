@@ -81,7 +81,7 @@ const THINKING_PHRASES = [
   'Verificando o alfa',
   'Buscando no FAQ',
   'Montando a resposta',
-  'Checando o torneio x1',
+  'Checando os torneios x1',
 ] as const;
 
 const TYPING_PHRASES = ['Digitando', 'Escrevendo a resposta'] as const;
@@ -166,7 +166,8 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
         {messages.length === 0 && !busy ? (
           <div className="space-y-4">
             <p className="text-muted-foreground text-sm">
-              Pergunte sobre o alfa, o que é a Cupperfy ou como funciona o torneio x1. Ou escolha
+              Pergunte sobre o alfa, o que é a Cupperfy ou como funcionam os x1 de EA FC e
+              eFootball. Ou escolha
               uma pergunta:
             </p>
             <ul className="space-y-2">

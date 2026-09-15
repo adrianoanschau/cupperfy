@@ -12,9 +12,10 @@ export async function getAppOrigin(): Promise<string> {
 
   const headerStore = await headers();
   const host = headerStore.get('x-forwarded-host') ?? headerStore.get('host');
-  if (!host) return 'http://localhost:3000';
+  if (!host) return 'http://cupperfy.localhost';
 
   const proto =
-    headerStore.get('x-forwarded-proto') ?? (host.includes('localhost') ? 'http' : 'https');
+    headerStore.get('x-forwarded-proto') ??
+    (host.includes('localhost') || host.endsWith('.local') ? 'http' : 'https');
   return `${proto}://${host}`;
 }

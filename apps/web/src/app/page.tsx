@@ -45,9 +45,9 @@ export default function Home() {
               Entre no teste alfa e ajude a moldar a arena.
             </h1>
             <p className="max-w-xl text-lg text-white/80 md:text-xl">
-              A plataforma de competições abre as portas em alfa — começando pelo x1 de futebol
-              e-sports. Poucas vagas para quem quer jogar, organizar e opinar desde o primeiro
-              round.
+              A plataforma de competições abre as portas em alfa — começando por dois x1 de futebol
+              e-sports: EA FC e eFootball. Poucas vagas para quem quer jogar, organizar e opinar
+              desde o primeiro round.
             </p>
             <div className="cf-fade-up-delay-2 flex flex-wrap gap-3">
               <Button size="lg" asChild>
@@ -59,7 +59,7 @@ export default function Home() {
                 className="border-white/25 bg-white/5 text-white backdrop-blur-sm hover:bg-white/12 hover:text-white"
                 asChild
               >
-                <a href="#torneio">Como será o torneio</a>
+                <a href="#torneio">Como serão os torneios</a>
               </Button>
             </div>
           </div>
@@ -78,8 +78,8 @@ export default function Home() {
           </h2>
           <p className="text-muted-foreground max-w-prose text-lg">
             Cupperfy reúne inscrição, chaveamento, resultados e perfil de jogador. O alfa valida o
-            fluxo real do lançamento: um torneio x1, eliminação simples, com você dentro da
-            experiência.
+            fluxo real do lançamento: dois torneios x1 (EA FC e eFootball), eliminação simples, com
+            você dentro da experiência.
           </p>
         </div>
       </section>
@@ -115,7 +115,7 @@ export default function Home() {
               </h3>
               <p className="text-muted-foreground">
                 Você recebe o link para criar conta, montar perfil de jogador e se inscrever no x1
-                de futebol e-sports.
+                de EA FC, no de eFootball, ou nos dois.
               </p>
             </li>
             <li className="cf-glass space-y-3 rounded-2xl p-6">
@@ -144,14 +144,35 @@ export default function Home() {
         <div className="relative mx-auto flex w-full max-w-5xl flex-col gap-10">
           <div className="max-w-2xl space-y-4">
             <h2 className="font-heading text-foreground text-3xl font-bold md:text-4xl">
-              O torneio do teste alfa
+              Os torneios do teste alfa
             </h2>
             <p className="text-muted-foreground text-lg">
-              Plano base do primeiro campeonato na plataforma. Números e detalhes podem ser
-              levemente ajustados conforme a lista de interesse e a disponibilidade de quem
+              São dois campeonatos x1 de futebol e-sports. O formato abaixo vale para os dois.
+              Números e detalhes podem ser levemente ajustados conforme a lista de interesse e quem
               confirmar presença.
             </p>
           </div>
+
+          <ul className="grid gap-5 md:grid-cols-2">
+            <li className="cf-glass space-y-2 rounded-2xl p-6 md:p-8">
+              <p className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
+                Torneio 1
+              </p>
+              <h3 className="font-heading text-foreground text-2xl font-bold">EA FC</h3>
+              <p className="text-muted-foreground">
+                x1 no título da EA Sports. Inscrição individual.
+              </p>
+            </li>
+            <li className="cf-glass space-y-2 rounded-2xl p-6 md:p-8">
+              <p className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
+                Torneio 2
+              </p>
+              <h3 className="font-heading text-foreground text-2xl font-bold">eFootball</h3>
+              <p className="text-muted-foreground">
+                x1 no título da Konami. Inscrição individual.
+              </p>
+            </li>
+          </ul>
 
           <dl className="cf-glass grid gap-8 rounded-3xl p-8 md:grid-cols-2 md:p-10">
             <div className="space-y-2">
@@ -160,7 +181,7 @@ export default function Home() {
               </dt>
               <dd className="text-foreground text-lg font-medium">Futebol e-sports · x1</dd>
               <p className="text-muted-foreground text-sm">
-                Confrontos jogador vs jogador. Inscrição individual — sem times neste alfa.
+                Confrontos jogador vs jogador. Inscrição individual.
               </p>
             </div>
             <div className="space-y-2">
@@ -178,7 +199,7 @@ export default function Home() {
               </dt>
               <dd className="text-foreground text-lg font-medium">8 jogadores (padrão)</dd>
               <p className="text-muted-foreground text-sm">
-                Também consideramos 4 ou 16 se a lista e a agenda pedirem um ajuste leve.
+                Também consideramos 4 ou 16 se a lista e a agenda pedirem um ajuste.
               </p>
             </div>
             <div className="space-y-2">
@@ -187,7 +208,7 @@ export default function Home() {
               </dt>
               <dd className="text-foreground text-lg font-medium">Melhor de 1 · seeding manual</dd>
               <p className="text-muted-foreground text-sm">
-                Cada confronto decide em um jogo. A ordem na chave é definida pela organização.
+                Cada confronto decide em uma partida. A ordem na chave é definida pela organização.
               </p>
             </div>
           </dl>
@@ -195,7 +216,7 @@ export default function Home() {
           <p className="text-muted-foreground max-w-3xl text-sm leading-relaxed md:text-base">
             <span className="text-foreground font-medium">Importante:</span> o desenho acima é a
             referência do alfa, não um contrato rígido. Se houver mais (ou menos) interessados
-            disponíveis na janela do evento, podemos recalibrar o tamanho da chave, horários ou
+            disponíveis na janela do evento, podemos recalibrar o tamanho de cada chave, horários ou
             ondas de convite — sempre avisando quem estiver na lista.
           </p>
 
@@ -219,7 +240,7 @@ export default function Home() {
           </h2>
           <p className="text-muted-foreground text-lg">
             Sem compromisso. Avisamos só quando houver acesso — e priorizamos quem estiver pronto
-            para disputar o primeiro campeonato.
+            para disputar os x1 de EA FC e eFootball.
           </p>
           <AlphaWaitlistForm />
         </div>
@@ -231,7 +252,7 @@ export default function Home() {
         links={[
           { href: '/apoiadores', label: 'Apoiar' },
           { href: '/design-system', label: 'Design system' },
-          { href: '#torneio', label: 'Torneio' },
+          { href: '#torneio', label: 'Torneios' },
           { href: '#alfa', label: 'Alfa' },
           { href: '#redes', label: 'Redes' },
         ]}

@@ -42,7 +42,7 @@ Containers: `docker ps --filter "name=supabase"`
 ## App web
 
 ```bash
-yarn dev       # Next.js em apps/web
+yarn dev       # Next.js em apps/web — http://cupperfy.localhost (porta 80)
 yarn lint
 yarn format
 ```
@@ -124,7 +124,7 @@ SMTP_HOST=127.0.0.1
 SMTP_PORT=54325
 EMAIL_FROM=Cupperfy <noreply@cupperfy.local>
 EMAIL_REPLY_TO=contato@cupperfy.com
-NEXT_PUBLIC_APP_URL=http://localhost:3000
+NEXT_PUBLIC_APP_URL=http://cupperfy.localhost
 ```
 
 Também no Vercel (Production): as mesmas vars + `SUPABASE_SERVICE_ROLE_KEY`.

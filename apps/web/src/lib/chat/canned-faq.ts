@@ -39,20 +39,21 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
     ],
     keywords: ['o que e', 'cupperfy', 'plataforma'],
     answer: () =>
-      'A Cupperfy é uma plataforma para criar e organizar competições — inscrição, chaveamento, resultados e perfil de jogador no mesmo lugar. O lançamento começa pelo alfa de um torneio x1 de futebol e-sports. Rede social e transferências ficam para depois.',
+      'A Cupperfy é uma plataforma para criar e organizar competições — inscrição, chaveamento, resultados e perfil de jogador no mesmo lugar. O lançamento começa pelo alfa de dois torneios x1 de futebol e-sports: EA FC e eFootball. Rede social e transferências ficam para depois.',
   },
   {
     id: 'how-x1-works',
-    question: 'Como funciona o torneio x1?',
+    question: 'Como funcionam os torneios x1?',
     aliases: [
       'como funciona o torneio',
+      'como funcionam os torneios',
       'como funciona o x1',
       'como e o chaveamento',
       'formato do torneio',
     ],
     keywords: ['torneio', 'x1', 'chave', 'eliminacao'],
     answer: () =>
-      'O torneio do alfa é x1 de futebol e-sports, eliminação simples, inscrição individual (sem time). O padrão é chave de 8 jogadores (também 4 ou 16 se precisar). Melhor de 1, seeding manual. Esses números podem ser levemente ajustados conforme a lista e a disponibilidade dos interessados.',
+      'São dois x1 de futebol e-sports: um de EA FC e outro de eFootball. Eliminação simples, inscrição individual (sem time). O padrão é chave de 8 jogadores (também 4 ou 16 se precisar). Melhor de 1, seeding manual. Esses números podem ser levemente ajustados conforme a lista e a disponibilidade dos interessados.',
   },
   {
     id: 'how-join-alpha',
@@ -65,7 +66,7 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
     ],
     keywords: ['alfa', 'particip', 'lista', 'interesse', 'vaga'],
     answer: () =>
-      'Entre na lista de interesse na seção Alfa da página (#alfa), com seu e-mail. Liberamos acesso em ondas. Depois você cria conta, monta o perfil de jogador, se inscreve no x1 e nos dá feedback. Sem compromisso na lista.',
+      'Entre na lista de interesse na seção Alfa da página (#alfa), com seu e-mail. Liberamos acesso em ondas. Depois você cria conta, monta o perfil de jogador, se inscreve no x1 de EA FC e/ou no de eFootball e nos dá feedback. Sem compromisso na lista.',
   },
   {
     id: 'need-team',
@@ -73,7 +74,23 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
     aliases: ['preciso de time', 'precisa de equipe', 'e em time', 'posso jogar sozinho'],
     keywords: ['time', 'equipe', 'sozinho', 'individual'],
     answer: () =>
-      'Não. O alfa e o torneio de lançamento são x1 individual — você se inscreve sozinho, sem precisar de equipe.',
+      'Não. O alfa e os torneios de lançamento são x1 individual — você se inscreve sozinho no EA FC, no eFootball, ou nos dois, sem precisar de equipe.',
+  },
+  {
+    id: 'which-games',
+    question: 'Quais jogos entram no alfa?',
+    aliases: [
+      'quais jogos',
+      'qual jogo',
+      'ea fc',
+      'fifa',
+      'efootball',
+      'pes',
+      'e ea fc ou efootball',
+    ],
+    keywords: ['jogo', 'jogos', 'ea', 'fifa', 'efootball', 'pes'],
+    answer: () =>
+      'O alfa abre com dois torneios x1 de futebol e-sports: um de EA FC e outro de eFootball. Você pode entrar em um deles ou nos dois.',
   },
   {
     id: 'talk-to-human',
@@ -119,7 +136,7 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
 ];
 
 export const SUGGESTED_QUESTIONS = CANNED_FAQ.filter((entry) =>
-  ['what-is-cupperfy', 'how-x1-works', 'how-join-alpha', 'need-team', 'talk-to-human'].includes(
+  ['what-is-cupperfy', 'how-x1-works', 'which-games', 'how-join-alpha', 'talk-to-human'].includes(
     entry.id,
   ),
 ).map((entry) => entry.question);
