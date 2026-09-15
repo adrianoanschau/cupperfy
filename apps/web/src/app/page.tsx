@@ -16,6 +16,7 @@ export default function Home() {
         links={[
           { href: '/apoiadores', label: 'Apoiar' },
           { href: '#alfa', label: 'Fundadores' },
+          { href: '/login', label: 'Entrar' },
         ]}
       />
 
@@ -47,9 +48,9 @@ export default function Home() {
               Seu resultado fica provado, não só registrado.
             </h1>
             <p className="max-w-xl text-lg text-white/80 md:text-xl">
-              Toda partida vai ao vivo e fica salva. Você começa um histórico de jogador que
-              continua depois desta copa. Quem entra agora faz parte da leva fundadora — a temporada
-              0 da Cupperfy.
+              Toda partida vai ao vivo e fica salva. E o que você abre aqui não é só uma copa: é o
+              começo de uma comunidade — perfil, pessoas e, no caminho, rede social. Quem entra agora
+              é da leva fundadora.
             </p>
             <div className="cf-fade-up-delay-2 flex flex-wrap gap-3">
               <Button size="lg" asChild>
@@ -83,8 +84,8 @@ export default function Home() {
               Por que competir aqui, e não em outro lugar.
             </h2>
             <p className="text-muted-foreground text-lg">
-              Um x1 informal resolve o jogo. A Cupperfy resolve o que fica depois: prova, histórico
-              e um selo que só existe na primeira temporada.
+              Um x1 informal resolve o jogo. A Cupperfy constrói o que fica: resultado com prova e
+              uma comunidade — não um evento que some no dia seguinte.
             </p>
           </div>
           <ul className="grid gap-5 md:grid-cols-3">
@@ -102,14 +103,15 @@ export default function Home() {
             </li>
             <li className="cf-glass space-y-3 rounded-2xl p-6">
               <p className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
-                Histórico
+                Comunidade
               </p>
               <h3 className="font-heading text-foreground text-xl font-semibold">
-                Perfil que persiste
+                Mais que uma plataforma de copas
               </h3>
               <p className="text-muted-foreground">
-                Quem se inscreve começa um histórico competitivo. Estatísticas e perfil de jogador
-                continuam valendo depois desta copa — não é jogue um x1 e acabou.
+                Estamos criando um lugar para quem compete se encontrar de novo. Perfil que
+                permanece, pessoas em volta das copas e, no caminho, recursos de rede social. Esta
+                temporada é o ponto de partida, não o produto inteiro.
               </p>
             </li>
             <li className="cf-glass space-y-3 rounded-2xl p-6">
@@ -331,11 +333,11 @@ export default function Home() {
             <li className="cf-glass space-y-3 rounded-2xl p-6">
               <p className="font-heading text-primary text-4xl font-bold">03</p>
               <h3 className="font-heading text-foreground text-xl font-semibold">
-                Comece seu histórico
+                Entre na comunidade
               </h3>
               <p className="text-muted-foreground">
-                Dispute com prova, acumule o perfil e ajude a definir o formato. O que você
-                construir aqui não some quando a copa acaba.
+                Dispute com prova, abra seu lugar entre os fundadores e ajude a definir o formato.
+                Copas são o começo — perfil, pessoas e rede social vêm no mesmo caminho.
               </p>
             </li>
           </ol>
@@ -353,8 +355,9 @@ export default function Home() {
             Entre na leva fundadora.
           </h2>
           <p className="text-muted-foreground text-lg">
-            Temporada 0. Você ajuda a definir o formato e carrega o selo de jogador fundador.
-            Avisamos quando o acesso abrir — sem compromisso.
+            Temporada 0 da comunidade. Você ajuda a definir o formato, carrega o selo de fundador e
+            entra no que a Cupperfy vai ser — copas, pessoas e rede social no caminho. Avisamos
+            quando o acesso abrir — sem compromisso.
           </p>
           <AlphaWaitlistForm />
         </div>
@@ -369,6 +372,7 @@ export default function Home() {
           { href: '#torneio', label: 'Torneios' },
           { href: '#operacao', label: 'Prova' },
           { href: '#alfa', label: 'Leva' },
+          { href: '/login', label: 'Entrar' },
           { href: '#redes', label: 'Redes' },
         ]}
       />

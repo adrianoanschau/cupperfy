@@ -30,6 +30,7 @@ export default async function ApoiadoresPage() {
         links={[
           { href: '#doar', label: 'Doar' },
           { href: '#parcerias', label: 'Parcerias' },
+          { href: '/login', label: 'Entrar' },
         ]}
       />
 

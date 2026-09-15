@@ -1,6 +1,6 @@
 'use server';
 
-import { createSupabaseServerClient } from '@/lib/supabase/server';
+import { createSupabaseAnonClient } from '@/lib/supabase/server';
 
 export type JoinAlphaWaitlistResult =
   | { ok: true }
@@ -31,7 +31,7 @@ export async function joinAlphaWaitlist(input: {
   }
 
   try {
-    const supabase = createSupabaseServerClient();
+    const supabase = createSupabaseAnonClient();
     const { error } = await supabase.from('alpha_waitlist').insert({ email, name });
 
     if (error) {

@@ -39,7 +39,7 @@ export const CANNED_FAQ: CannedFaqEntry[] = [
     ],
     keywords: ['o que e', 'cupperfy', 'plataforma'],
     answer: () =>
-      'A Cupperfy é uma plataforma para criar e organizar competições — inscrição, chaveamento, resultados e perfil de jogador no mesmo lugar. O diferencial é o resultado auditável (live + VOD) e um histórico que continua depois da copa. A temporada 0 abre com a Copa Cupperfy FC (EA FC) e a Copa Cupperfy eFootball. Quem entra agora é da leva fundadora.',
+      'A Cupperfy é uma comunidade de competição — copas com resultado auditável (live + VOD) e um perfil que permanece. A visão inclui rede social e outros recursos; na temporada 0 o foco é abrir as copas e o lugar de cada um. Começa com a Copa Cupperfy FC (EA FC) e a Copa Cupperfy eFootball. Quem entra agora é da leva fundadora.',
   },
   {
     id: 'how-x1-works',

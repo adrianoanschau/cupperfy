@@ -1,0 +1,101 @@
+import { redirect } from 'next/navigation';
+
+import { createSupabaseUserClient } from '@/lib/supabase/server';
+
+export type AccountProfile = {
+  id: string;
+  displayName: string;
+  avatarUrl: string | null;
+};
+
+export type AccountRoles = {
+  isPlayer: boolean;
+  isOrganizer: boolean;
+  playerIds: string[];
+  organizerId: string | null;
+};
+
+export async function getSessionUser() {
+  const supabase = await createSupabaseUserClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  return { supabase, user };
+}
+
+export async function getAccountSnapshot() {
+  const { supabase, user } = await getSessionUser();
+  if (!user) {
+    return { supabase, user: null, profile: null, roles: null };
+  }
+
+  const { data: profileRow } = await supabase
+    .from('profiles')
+    .select('id, display_name, avatar_url')
+    .eq('user_id', user.id)
+    .maybeSingle();
+
+  if (!profileRow) {
+    return { supabase, user, profile: null, roles: null };
+  }
+
+  const profile: AccountProfile = {
+    id: profileRow.id,
+    displayName: profileRow.display_name,
+    avatarUrl: profileRow.avatar_url,
+  };
+
+  const [{ data: players }, { data: organizer }] = await Promise.all([
+    supabase.from('player_profiles').select('id').eq('profile_id', profile.id),
+    supabase.from('organizer_profiles').select('id').eq('profile_id', profile.id).maybeSingle(),
+  ]);
+
+  const roles: AccountRoles = {
+    isPlayer: (players ?? []).length > 0,
+    isOrganizer: Boolean(organizer?.id),
+    playerIds: (players ?? []).map((row) => row.id),
+    organizerId: organizer?.id ?? null,
+  };
+
+  return { supabase, user, profile, roles };
+}
+
+export async function requireAccount() {
+  const snapshot = await getAccountSnapshot();
+  if (!snapshot.user) {
+    redirect('/login');
+  }
+  if (
+    !snapshot.profile ||
+    !snapshot.roles ||
+    (!snapshot.roles.isPlayer && !snapshot.roles.isOrganizer)
+  ) {
+    redirect('/onboarding');
+  }
+  return {
+    supabase: snapshot.supabase,
+    user: snapshot.user,
+    profile: snapshot.profile,
+    roles: snapshot.roles,
+  };
+}
+
+export async function requireOnboardingUser() {
+  const snapshot = await getAccountSnapshot();
+  if (!snapshot.user) {
+    redirect('/login');
+  }
+  if (snapshot.roles && (snapshot.roles.isPlayer || snapshot.roles.isOrganizer)) {
+    redirect('/conta');
+  }
+  return snapshot;
+}
+
+export async function redirectIfAuthenticated() {
+  const snapshot = await getAccountSnapshot();
+  if (!snapshot.user) return;
+  if (snapshot.roles && (snapshot.roles.isPlayer || snapshot.roles.isOrganizer)) {
+    redirect('/conta');
+  }
+  redirect('/onboarding');
+}
