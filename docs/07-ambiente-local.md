@@ -43,6 +43,9 @@ Containers: `docker ps --filter "name=supabase"`
 
 ```bash
 yarn dev       # Next.js em apps/web — http://cupperfy.localhost (porta 80)
+yarn test
+yarn build
+yarn verify    # testes + build; o Husky roda o mesmo no pre-commit
 yarn lint
 yarn format
 ```

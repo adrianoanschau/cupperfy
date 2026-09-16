@@ -45,6 +45,9 @@ yarn install
 yarn supabase:start     # Docker via Supabase CLI
 yarn supabase:status
 yarn dev                # apps/web — Next.js
+yarn test
+yarn build
+yarn verify             # testes + build (Husky no pre-commit)
 yarn lint
 yarn format
 ```

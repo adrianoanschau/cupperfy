@@ -10,14 +10,18 @@
   "scripts": {
     "dev": "yarn workspace @cupperfy/web dev",
     "build": "yarn workspace @cupperfy/web build",
+    "test": "yarn workspace @cupperfy/web test",
     "lint": "yarn workspace @cupperfy/web lint",
     "format": "yarn workspace @cupperfy/web format",
+    "verify": "yarn test && yarn build",
+    "prepare": "husky",
     "supabase:start": "supabase start",
     "supabase:stop": "supabase stop",
     "supabase:status": "supabase status",
     "supabase:reset": "supabase db reset"
   },
   "devDependencies": {
+    "husky": "^9.1.7",
     "supabase": "^2.76.15"
   },
   "engines": {
