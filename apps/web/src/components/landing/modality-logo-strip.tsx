@@ -10,18 +10,6 @@ import type { MODALITY_LOGOS } from '@/components/landing/modality-logos';
 
 type ModalityItem = (typeof MODALITY_LOGOS)[number];
 
-function LogoMark({ logo }: { logo: ModalityItem }) {
-  if ('src' in logo) {
-    return <ModalityLogoImage id={logo.id} height={36} />;
-  }
-
-  return (
-    <span className="font-heading text-foreground text-xl font-bold tracking-tight whitespace-nowrap md:text-2xl">
-      {logo.label}
-    </span>
-  );
-}
-
 function LogoRow({ items, hidden }: { items: readonly ModalityItem[]; hidden?: boolean }) {
   const sequence = [...items, ...items];
 
@@ -33,7 +21,7 @@ function LogoRow({ items, hidden }: { items: readonly ModalityItem[]; hidden?: b
       {sequence.map((logo, index) => {
         const content = (
           <span className="relative inline-flex items-center">
-            <LogoMark logo={logo} />
+            <ModalityLogoImage id={logo.id} height={36} />
             {logo.comingSoon ? <ComingSoonBadge /> : null}
           </span>
         );
