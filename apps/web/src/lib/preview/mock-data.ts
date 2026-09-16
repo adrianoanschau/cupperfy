@@ -54,10 +54,11 @@ export type PreviewCareerMatch = {
 
 export type PreviewCommunityPost = {
   id: string;
-  kind: 'match' | 'achievement' | 'text';
+  kind: 'match' | 'achievement' | 'text' | 'competition';
   authorId: string;
   body: string;
   createdAt: string;
+  href: string;
 };
 
 export type PreviewStandingRow = {
@@ -87,14 +88,14 @@ export const PREVIEW_ROUNDS = [
 export const PREVIEW_COMPETITION = {
   id: 'comp-copa-fc',
   name: 'Copa Cupperfy FC',
-  sport: 'Futebol e-sports',
+  sport: 'EA FC',
   status: 'in_progress',
   organizerName: 'Cupperfy',
   format: {
     type: 'single_elimination' as const,
     participantType: 'player' as const,
     participantCount: 8 as const,
-    bestOf: 1 as const,
+    bestOf: 3 as const,
     seeding: 'manual' as const,
   },
 };
@@ -106,7 +107,7 @@ export const PREVIEW_PLAYERS: PreviewPlayer[] = [
     displayName: 'Lucas Ferreira',
     tag: 'Nexus',
     initials: 'LF',
-    sport: 'Futebol e-sports',
+    sport: 'EA FC',
     bio: 'Armador de posse curta. Fundador da temporada 0 — joga EA FC no x1 desde as primeiras copas amistosas.',
   },
   {
@@ -115,7 +116,7 @@ export const PREVIEW_PLAYERS: PreviewPlayer[] = [
     displayName: 'Rafael Almeida',
     tag: 'Kite',
     initials: 'RA',
-    sport: 'Futebol e-sports',
+    sport: 'EA FC',
     bio: 'Finalização de primeira. Caiu nas quartas desta chave, mas segue no circuito da comunidade.',
   },
   {
@@ -124,7 +125,7 @@ export const PREVIEW_PLAYERS: PreviewPlayer[] = [
     displayName: 'Bruno Costa',
     tag: 'Velo',
     initials: 'BC',
-    sport: 'Futebol e-sports',
+    sport: 'EA FC',
     bio: 'Marca a saída e troca o jogo. Avançou às semis com uma vitória limpa nas quartas.',
   },
   {
@@ -133,7 +134,7 @@ export const PREVIEW_PLAYERS: PreviewPlayer[] = [
     displayName: 'Diego Santos',
     tag: 'Shade',
     initials: 'DS',
-    sport: 'Futebol e-sports',
+    sport: 'EA FC',
     bio: 'Primeira copa oficial na Cupperfy. Jogo seguro, poucas aberturas.',
   },
   {
@@ -142,7 +143,7 @@ export const PREVIEW_PLAYERS: PreviewPlayer[] = [
     displayName: 'Felipe Rocha',
     tag: 'Orbit',
     initials: 'FR',
-    sport: 'Futebol e-sports',
+    sport: 'EA FC',
     bio: 'Controle de ritmo. Quartas ainda em aberto contra Pulse.',
   },
   {
@@ -151,7 +152,7 @@ export const PREVIEW_PLAYERS: PreviewPlayer[] = [
     displayName: 'André Lima',
     tag: 'Pulse',
     initials: 'AL',
-    sport: 'Futebol e-sports',
+    sport: 'EA FC',
     bio: 'Pressão alta e transições. Joga a quarta-feira à noite na chave de baixo.',
   },
   {
@@ -160,7 +161,7 @@ export const PREVIEW_PLAYERS: PreviewPlayer[] = [
     displayName: 'Thiago Mendes',
     tag: 'Apex',
     initials: 'TM',
-    sport: 'Futebol e-sports',
+    sport: 'EA FC',
     bio: 'Um contra um e chute de fora. Enfrenta Drift nas quartas.',
   },
   {
@@ -169,7 +170,7 @@ export const PREVIEW_PLAYERS: PreviewPlayer[] = [
     displayName: 'Caio Oliveira',
     tag: 'Drift',
     initials: 'CO',
-    sport: 'Futebol e-sports',
+    sport: 'EA FC',
     bio: 'Corte para dentro e chute de média. Fecha as quartas contra Apex.',
   },
 ];
@@ -451,20 +452,39 @@ export const PREVIEW_POSTS: PreviewCommunityPost[] = [
     authorId: 'p1',
     body: 'Nexus avançou às semifinais da Copa Cupperfy FC. 3 a 1 sobre Kite, com VOD no ar.',
     createdAt: '2026-09-12T22:40:00-03:00',
+    href: '/preview/jogador/lucas-nexus',
   },
   {
     id: 'post-2',
     kind: 'match',
     authorId: 'p3',
-    body: 'Velo fecha as quartas com 2 a 0. Semifinal contra Nexus na sexta, 21h.',
+    body: 'Velo venceu Shade por 2×0 nas quartas. Semifinal contra Nexus na sexta, 21h.',
     createdAt: '2026-09-12T23:10:00-03:00',
+    href: '/preview/competicao',
+  },
+  {
+    id: 'post-5',
+    kind: 'competition',
+    authorId: 'p1',
+    body: 'Copa Cupperfy FC (EA FC) em andamento — chave x1 de 8 jogadores, eliminação simples.',
+    createdAt: '2026-09-15T12:00:00-03:00',
+    href: '/preview/competicao',
   },
   {
     id: 'post-3',
-    kind: 'text',
+    kind: 'match',
     authorId: 'p6',
-    body: 'Quartas amanhã contra Orbit. Live no YouTube obrigatória — placar só vale com prova.',
+    body: 'Pulse enfrenta Orbit nas quartas. Live no YouTube — placar só vale com prova.',
     createdAt: '2026-09-15T18:05:00-03:00',
+    href: '/preview/agenda',
+  },
+  {
+    id: 'post-6',
+    kind: 'match',
+    authorId: 'p7',
+    body: 'Apex × Drift fecha as quartas hoje à noite. Quem avança joga a semifinal de baixo.',
+    createdAt: '2026-09-15T19:30:00-03:00',
+    href: '/preview/agenda',
   },
   {
     id: 'post-4',
@@ -472,10 +492,9 @@ export const PREVIEW_POSTS: PreviewCommunityPost[] = [
     authorId: 'p5',
     body: 'Treino de posse feito. Quem vai assistir a chave de baixo?',
     createdAt: '2026-09-15T16:20:00-03:00',
+    href: '/preview/jogador/felipe-orbit',
   },
 ];
-
-export const PREVIEW_SUGGESTED_PLAYER_IDS = ['p1', 'p3', 'p6'] as const;
 
 export const PREVIEW_STANDINGS: PreviewStandingRow[] = [
   {
@@ -568,37 +587,13 @@ export const PREVIEW_STANDINGS: PreviewStandingRow[] = [
   },
 ];
 
-export const PREVIEW_INDEX_LINKS = [
-  {
-    href: '/preview/competicao',
-    title: 'Copa',
-    summary: 'Chave, placar e inscritos da Copa Cupperfy FC.',
-    phase2: false,
-  },
-  {
-    href: '/preview/jogador/lucas-nexus',
-    title: 'Perfil',
-    summary: 'Página pública de Nexus — histórico e saldo de gols.',
-    phase2: false,
-  },
-  {
-    href: '/preview/agenda',
-    title: 'Agenda',
-    summary: 'Próximos confrontos, em ordem de horário.',
-    phase2: false,
-  },
-  {
-    href: '/preview/comunidade',
-    title: 'Comunidade',
-    summary: 'Feed, conquistas e quem está por perto.',
-    phase2: true,
-  },
-  {
-    href: '/preview/classificacao',
-    title: 'Classificação',
-    summary: 'Circuito com pontos corridos.',
-    phase2: true,
-  },
+export const PREVIEW_SESSION_PLAYER_ID = 'p1';
+
+export const PREVIEW_NAV = [
+  { href: '/preview', label: 'Feed' },
+  { href: '/preview/competicao', label: 'Competições' },
+  { href: '/preview/agenda', label: 'Agenda' },
+  { href: '/preview/classificacao', label: 'Classificação' },
 ] as const;
 
 const playerById = new Map(PREVIEW_PLAYERS.map((player) => [player.id, player]));
@@ -659,6 +654,14 @@ export function careerToPreviewMatch(match: PreviewCareerMatch): PreviewMatch {
     nextMatchId: null,
     scheduledAt: match.playedAt,
   };
+}
+
+export function getTopStandings(count: number): PreviewStandingRow[] {
+  return PREVIEW_STANDINGS.slice(0, count);
+}
+
+export function getSortedFeedPosts(): PreviewCommunityPost[] {
+  return [...PREVIEW_POSTS].sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 }
 
 export function getUpcomingMatches(): PreviewMatch[] {

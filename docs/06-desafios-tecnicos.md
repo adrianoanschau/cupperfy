@@ -44,7 +44,7 @@ Stats de um jogo ≠ de outro.
 | 2 | Contrato `single_elimination` + `participant_type: player` | [02](./02-modelagem-de-dados.md) |
 | 3 | Unique `(competition_id, player_id)` em entries | [02](./02-modelagem-de-dados.md) |
 | 4 | Matriz RLS MVP + negativos | [04](./04-autenticacao-e-rls.md) |
-| 5 | Freeze futebol e-sports / x1 / 8 jogadores / um org | [05](./05-roadmap.md) |
+| 5 | Freeze futebol e-sports (EA FC) / x1 / 8 jogadores / um org / uma competição por vez | [05](./05-roadmap.md) |
 | 6 | Critério de sucesso ponta a ponta | [01](./01-visao-geral.md) |
 
 ---

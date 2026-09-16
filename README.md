@@ -2,8 +2,6 @@
 
 Monorepo da plataforma de gestão de competições.
 
-Produção: [cupperfy.com](https://cupperfy.com) · contato: [contato@cupperfy.com](mailto:contato@cupperfy.com)
-
 **Documentação (fonte da verdade do desenho):** [`docs/`](./docs/) · **Relatórios de etapa:** [`reports/`](./reports/)
 
 ## Estrutura
@@ -28,7 +26,9 @@ Cupperfy/
 | Item | Valor |
 |---|---|
 | Modalidade | Futebol e-sports (`futebol-esports`) |
+| Jogo do 1º campeonato | **EA FC** |
 | Formato | **x1** eliminação simples, 8 jogadores (4/16 ok) |
+| Estratégia | Uma competição por vez, em sábados, final transmitida ao vivo no YouTube (narração de Adriano Anschau) |
 | Escopo | Contas, inscrição individual, chave, placar público |
 | Fora do crítico | Times no fluxo, social, transfers, standings |
 

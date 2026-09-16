@@ -19,7 +19,7 @@ export function SocialFollowSection() {
             Nos siga nas nossas redes
           </h2>
           <p className="text-muted-foreground text-lg">
-            Bastidores da temporada 0, avisos da leva fundadora e conteúdo de competição no
+            Bastidores da temporada 0, avisos da lista de interesse e conteúdo de competição no
             Instagram e no YouTube.
           </p>
         </div>

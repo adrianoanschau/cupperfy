@@ -4,18 +4,17 @@ import { SiteHeader } from '@/components/site-header';
 import type { ReactNode } from 'react';
 
 const HEADER_LINKS = [
-  { href: '/preview', label: 'Prévia' },
+  { href: '/preview', label: 'Feed' },
   { href: '/preview/competicao', label: 'Copa' },
   { href: '/preview/agenda', label: 'Agenda' },
-  { href: '/#alfa', label: 'Leva' },
+  { href: '/preview/classificacao', label: 'Tabela' },
 ];
 
 const FOOTER_LINKS = [
   { href: '/', label: 'Início' },
-  { href: '/preview', label: 'Prévia' },
+  { href: '/preview', label: 'Feed' },
   { href: '/preview/competicao', label: 'Copa' },
   { href: '/preview/agenda', label: 'Agenda' },
-  { href: '/preview/comunidade', label: 'Comunidade' },
   { href: '/preview/classificacao', label: 'Classificação' },
   { href: '/#alfa', label: 'Leva' },
 ];

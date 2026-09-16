@@ -227,7 +227,7 @@ Contrato por `sport_id` na app. Seed lançamento (`futebol-esports`), exemplo:
 { "preferred_platform": null, "fifa_id": null, "record": { "wins": 0, "losses": 0 } }
 ```
 
-(Campos ilustrativos — ajustar ao jogo concreto, ex. EA FC.)
+(Campos ilustrativos. Jogo concreto do lançamento: **EA FC** — ver freeze em [05-roadmap.md](./05-roadmap.md).)
 
 ---
 
@@ -250,7 +250,7 @@ Contrato por `sport_id` na app. Seed lançamento (`futebol-esports`), exemplo:
 | `sports` | `name`: Futebol e-sports, `category`: esports, `slug`: `futebol-esports` |
 | `competition_formats` | `type`: `single_elimination`, `params`: `{ "participant_type": "player", "participant_count": 8, "best_of": 1, "seeding": "manual" }` |
 
-O título do jogo (EA FC, etc.) pode ser detalhe de copy/UX; a modalidade no banco é `futebol-esports`.
+O título do jogo do lançamento é **EA FC** (detalhe de copy/UX); a modalidade no banco é `futebol-esports`.
 
 ---
 

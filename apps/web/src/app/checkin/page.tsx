@@ -8,7 +8,7 @@ import { getSupportContacts } from '@/lib/support/config';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Check-in do torneio alfa',
+  title: 'Check-in · Copa EA FC',
   description: 'Use o link pessoal enviado pelo time Cupperfy para confirmar sua disponibilidade.',
   robots: { index: false, follow: false },
 };
@@ -41,8 +41,8 @@ export default function CheckinIndexPage() {
             Link pessoal necessário
           </h1>
           <p className="text-muted-foreground text-lg">
-            O check-in do torneio alfa abre só pelo convite individual (com token). Se você está na
-            lista, use o link que enviamos — ou peça um novo no WhatsApp, Telegram ou e-mail.
+            O check-in abre só pelo convite pessoal (com token). Se você está na lista de interesse,
+            use o link que enviamos — ou peça um novo no WhatsApp, Telegram ou e-mail.
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
             <Button asChild>

@@ -156,8 +156,8 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
         {messages.length === 0 && !busy ? (
           <div className="space-y-4">
             <p className="text-muted-foreground text-sm">
-              Pergunte sobre a leva fundadora, o que é a Cupperfy ou como funcionam os x1 de EA FC e
-              eFootball. Ou escolha uma pergunta:
+              Pergunte sobre a lista de interesse, o que é a Cupperfy ou como funciona o primeiro
+              campeonato de EA FC. Ou escolha uma pergunta:
             </p>
             <ul className="space-y-2">
               {SUGGESTED_QUESTIONS.map((question) => (

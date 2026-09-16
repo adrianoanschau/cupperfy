@@ -1,3 +1,4 @@
+import { PreviewFeedCrumb } from '@/components/preview/preview-feed-crumb';
 import { Badge } from '@/components/ui/badge';
 
 type PreviewHeroProps = {
@@ -5,9 +6,16 @@ type PreviewHeroProps = {
   title: string;
   description: string;
   phase2?: boolean;
+  backToFeed?: boolean;
 };
 
-export function PreviewHero({ kicker, title, description, phase2 = false }: PreviewHeroProps) {
+export function PreviewHero({
+  kicker,
+  title,
+  description,
+  phase2 = false,
+  backToFeed = false,
+}: PreviewHeroProps) {
   return (
     <section className="relative overflow-hidden px-4 pt-24 pb-10 md:px-8 md:pt-28 md:pb-14">
       <div
@@ -16,6 +24,7 @@ export function PreviewHero({ kicker, title, description, phase2 = false }: Prev
       />
       <div className="relative z-10 mx-auto w-full max-w-5xl">
         <div className="cf-glass-hero max-w-3xl space-y-4 rounded-3xl p-6 md:p-8">
+          {backToFeed ? <PreviewFeedCrumb /> : null}
           <div className="flex flex-wrap items-center gap-2">
             <Badge variant="outline" className="border-white/30 text-white">
               Demonstração

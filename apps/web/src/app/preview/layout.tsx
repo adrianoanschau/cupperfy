@@ -4,8 +4,8 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Prévia do produto',
-  description: 'Demonstração da Cupperfy: chave x1, perfil, agenda e o rumo da comunidade.',
+  title: 'Feed',
+  description: 'Demonstração da Cupperfy: feed, chave x1, perfil, agenda e classificação.',
   robots: { index: false, follow: true },
 };
 

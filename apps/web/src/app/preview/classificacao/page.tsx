@@ -26,6 +26,7 @@ export default function PreviewStandingsPage() {
   return (
     <>
       <PreviewHero
+        backToFeed
         phase2
         kicker="Circuito"
         title="Classificação geral"
@@ -101,7 +102,7 @@ export default function PreviewStandingsPage() {
             <Link href="/preview/competicao">Ver a chave x1</Link>
           </Button>
           <Button variant="outline" asChild>
-            <Link href="/preview">Voltar ao painel</Link>
+            <Link href="/preview">Voltar ao feed</Link>
           </Button>
         </div>
       </PreviewSection>

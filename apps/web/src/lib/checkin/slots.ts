@@ -14,8 +14,8 @@ export type CheckinSlot = {
 };
 
 export const CHECKIN_EVENT = {
-  title: 'Torneio alfa · check-in de agenda',
-  subtitle: 'Escolha a janela em que você consegue jogar o x1 de teste.',
+  title: 'Copa Cupperfy FC · EA FC',
+  subtitle: 'Convite pessoal. Confirme as janelas em que você consegue jogar o x1.',
   timezoneNote: 'Horários em Brasília (BRT, UTC−3).',
   /** Quando false, o form recusa novos envios (página continua no ar). */
   submissionsOpen: true,

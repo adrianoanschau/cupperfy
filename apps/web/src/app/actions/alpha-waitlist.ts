@@ -38,7 +38,7 @@ export async function joinAlphaWaitlist(input: {
       if (error.code === '23505') {
         return {
           ok: false,
-          error: 'Este e-mail já está na leva fundadora.',
+          error: 'Este e-mail já está na lista. O convite pessoal chega neste endereço.',
           code: 'duplicate',
         };
       }

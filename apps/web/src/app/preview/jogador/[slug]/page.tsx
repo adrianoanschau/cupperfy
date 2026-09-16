@@ -44,6 +44,7 @@ export default async function PreviewPlayerPage({ params }: PlayerPageProps) {
   return (
     <>
       <PreviewHero
+        backToFeed
         kicker={player.sport}
         title={player.tag}
         description={`${player.displayName} · perfil público.`}
@@ -74,9 +75,14 @@ export default async function PreviewPlayerPage({ params }: PlayerPageProps) {
               Confrontos desta chave. Toque para ver o detalhe.
             </p>
           </div>
-          <Button variant="outline" asChild>
-            <Link href="/preview/competicao">Ver chave</Link>
-          </Button>
+          <div className="flex flex-wrap gap-2">
+            <Button variant="outline" asChild>
+              <Link href="/preview">Feed</Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link href="/preview/competicao">Ver chave</Link>
+            </Button>
+          </div>
         </div>
         <ul className="space-y-3">
           {bracketMatches.map((match) => (

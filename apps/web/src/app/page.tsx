@@ -1,23 +1,27 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { BrandMark } from '@/components/brand-mark';
 import { AlphaWaitlistForm } from '@/components/landing/alpha-waitlist-form';
 import { ModalityLogoStrip } from '@/components/landing/modality-logo-strip';
-import { ModalityLogoImage } from '@/components/landing/modality-logos';
+import { SeasonCupTabs } from '@/components/landing/season-cup-tabs';
 import { SocialFollowSection } from '@/components/landing/social-follow-section';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
+import { YoutubeIcon } from '@/components/social-icons';
 import { Button } from '@/components/ui/button';
+import { FOUNDER_NAME } from '@/lib/site-config';
+import { getBrandSocialLinks } from '@/lib/support/social';
 
 export default function Home() {
+  const { youtubeUrl } = getBrandSocialLinks();
+
   return (
     <div className="bg-background flex flex-1 flex-col">
       <SiteHeader
         links={[
           { href: '/apoiadores', label: 'Apoiar' },
           { href: '/preview', label: 'Prévia' },
-          { href: '#alfa', label: 'Fundadores' },
+          { href: '#alfa', label: 'Lista' },
           { href: '/login', label: 'Entrar' },
         ]}
       />
@@ -43,20 +47,17 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-1 flex-col justify-end px-4 pt-12 pb-10 md:px-8 md:pb-16">
           <div className="cf-glass-hero cf-fade-up max-w-3xl space-y-6 rounded-3xl p-6 md:p-10">
-            <p className="cf-brand-mark">
-              <BrandMark className="text-primary text-sm font-semibold" />
-            </p>
             <h1 className="font-heading text-4xl leading-[1.05] font-bold text-white md:text-6xl lg:text-7xl">
-              Seu resultado fica provado, não só registrado.
+              Você disputa um campeonato.{' '}
+              <span className="text-primary">Você entra numa comunidade.</span>
             </h1>
             <p className="max-w-xl text-lg text-white/80 md:text-xl">
               Toda partida vai ao vivo e fica salva. E o que você abre aqui não é só uma copa: é o
-              começo de uma comunidade — perfil, pessoas e, no caminho, rede social. Quem entra
-              agora é da leva fundadora.
+              começo de uma comunidade — perfil, pessoas e, no caminho, rede social.
             </p>
             <div className="cf-fade-up-delay-2 flex flex-wrap gap-3">
               <Button size="lg" asChild>
-                <a href="#alfa">Quero ser jogador fundador</a>
+                <a href="#alfa">Entrar na lista de interesse</a>
               </Button>
               <Button
                 size="lg"
@@ -217,90 +218,30 @@ export default function Home() {
               Os torneios da temporada 0
             </h2>
             <p className="text-muted-foreground text-lg">
-              São dois campeonatos x1 de futebol e-sports: a Copa Cupperfy FC e a Copa Cupperfy
-              eFootball. O formato abaixo vale para os dois. Números e detalhes podem ser levemente
-              ajustados conforme a leva fundadora e quem confirmar presença.
+              Os campeonatos acontecem um de cada vez. O primeiro é a Copa Cupperfy FC, no EA FC.
+              Depois, em sequência, entra a Copa Cupperfy eFootball. Clique na copa para ver o
+              formato.
             </p>
           </div>
 
-          <ul className="grid gap-5 md:grid-cols-2">
-            <li className="cf-glass space-y-3 rounded-2xl p-6 md:p-8">
-              <h3 className="font-heading text-foreground text-xl font-semibold md:text-2xl">
-                Copa Cupperfy FC
-              </h3>
-              <div className="flex h-10 items-center">
-                <ModalityLogoImage id="eafc" />
-              </div>
-              <p className="text-muted-foreground">
-                x1 no título da EA Sports. Inscrição individual.
-              </p>
-            </li>
-            <li className="cf-glass space-y-3 rounded-2xl p-6 md:p-8">
-              <h3 className="font-heading text-foreground text-xl font-semibold md:text-2xl">
-                Copa Cupperfy eFootball
-              </h3>
-              <div className="flex h-10 items-center">
-                <ModalityLogoImage id="efootball" />
-              </div>
-              <p className="text-muted-foreground">x1 no título da Konami. Inscrição individual.</p>
-            </li>
-          </ul>
-
-          <dl className="cf-glass grid gap-8 rounded-3xl p-8 md:grid-cols-2 md:p-10">
-            <div className="space-y-2">
-              <dt className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
-                Modalidade
-              </dt>
-              <dd className="text-foreground text-lg font-medium">Futebol e-sports · x1</dd>
-              <p className="text-muted-foreground text-sm">
-                Confrontos jogador vs jogador. Inscrição individual.
-              </p>
-            </div>
-            <div className="space-y-2">
-              <dt className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
-                Formato
-              </dt>
-              <dd className="text-foreground text-lg font-medium">Eliminação simples</dd>
-              <p className="text-muted-foreground text-sm">
-                Chave até a final. Perdeu, está fora. Placares e avanço na própria Cupperfy.
-              </p>
-            </div>
-            <div className="space-y-2">
-              <dt className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
-                Tamanho da chave
-              </dt>
-              <dd className="text-foreground text-lg font-medium">8 jogadores (padrão)</dd>
-              <p className="text-muted-foreground text-sm">
-                Também consideramos 4 ou 16 se a leva e a agenda pedirem um ajuste.
-              </p>
-            </div>
-            <div className="space-y-2">
-              <dt className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
-                Partidas
-              </dt>
-              <dd className="text-foreground text-lg font-medium">Melhor de 1 · seeding manual</dd>
-              <p className="text-muted-foreground text-sm">
-                Cada confronto decide em uma partida. A ordem na chave é definida pela organização.
-              </p>
-            </div>
-          </dl>
+          <SeasonCupTabs />
 
           <p className="text-muted-foreground max-w-3xl text-sm leading-relaxed md:text-base">
             <span className="text-foreground font-medium">Importante:</span> o desenho acima é a
-            referência da temporada 0, não um contrato rígido. Se houver mais (ou menos) fundadores
-            disponíveis na janela do evento, podemos recalibrar o tamanho de cada chave ou horários
-            — sempre avisando quem estiver na leva.
+            referência da temporada 0, não um contrato rígido. Se houver mais (ou menos) pessoas
+            disponíveis na janela do evento, podemos recalibrar o tamanho da chave ou os horários —
+            sempre avisando quem estiver na lista.
           </p>
 
           <div>
             <Button size="lg" asChild>
-              <a href="#alfa">Garantir vaga na leva fundadora</a>
+              <a href="#alfa">Entrar na lista de interesse</a>
             </Button>
           </div>
         </div>
       </section>
 
-      {/* —— Como entrar na leva —— */}
+      {/* —— Como entrar —— */}
       <section
         id="como-funciona"
         className="border-border relative scroll-mt-8 overflow-hidden border-b px-6 py-20 md:px-10"
@@ -311,35 +252,40 @@ export default function Home() {
         />
         <div className="relative mx-auto flex w-full max-w-5xl flex-col gap-12">
           <h2 className="font-heading text-foreground max-w-xl text-3xl font-bold md:text-4xl">
-            Três passos para entrar na leva fundadora.
+            Da lista ao dia do campeonato.
           </h2>
-          <ol className="grid gap-5 md:grid-cols-3">
+          <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             <li className="cf-glass space-y-3 rounded-2xl p-6">
               <p className="font-heading text-primary text-4xl font-bold">01</p>
-              <h3 className="font-heading text-foreground text-xl font-semibold">Leva fundadora</h3>
+              <h3 className="font-heading text-foreground text-xl font-semibold">Cadastro</h3>
               <p className="text-muted-foreground">
-                Deixe seu e-mail. Você entra na temporada 0 — a primeira leva de jogadores
-                fundadores.
+                Deixe seu e-mail na lista de interesse. Você fica aguardando — sem compromisso.
               </p>
             </li>
             <li className="cf-glass space-y-3 rounded-2xl p-6">
               <p className="font-heading text-primary text-4xl font-bold">02</p>
               <h3 className="font-heading text-foreground text-xl font-semibold">
-                Convite de acesso
+                Convite pessoal
               </h3>
               <p className="text-muted-foreground">
-                Você recebe o link para criar conta, montar o perfil de jogador e se inscrever na
-                Copa Cupperfy FC, na de eFootball, ou nas duas.
+                Enviamos um link exclusivo para você confirmar presença. Só quem recebe o convite
+                entra no fluxo.
               </p>
             </li>
             <li className="cf-glass space-y-3 rounded-2xl p-6">
               <p className="font-heading text-primary text-4xl font-bold">03</p>
               <h3 className="font-heading text-foreground text-xl font-semibold">
-                Entre na comunidade
+                Dia do campeonato
               </h3>
               <p className="text-muted-foreground">
-                Dispute com prova, abra seu lugar entre os fundadores e ajude a definir o formato.
-                Copas são o começo — perfil, pessoas e rede social vêm no mesmo caminho.
+                O primeiro é de EA FC. Neste lançamento o campeonato inteiro acontece num único dia.
+              </p>
+            </li>
+            <li className="cf-glass space-y-3 rounded-2xl p-6">
+              <p className="font-heading text-primary text-4xl font-bold">04</p>
+              <h3 className="font-heading text-foreground text-xl font-semibold">Final ao vivo</h3>
+              <p className="text-muted-foreground">
+                Transmissão no YouTube da Cupperfy, narrada por {FOUNDER_NAME}.
               </p>
             </li>
           </ol>
@@ -378,22 +324,75 @@ export default function Home() {
         </div>
       </section>
 
-      {/* —— CTA / leva fundadora —— */}
+      {/* —— CTA / lista de interesse —— */}
       <section id="alfa" className="relative scroll-mt-8 overflow-hidden px-6 py-20 md:px-10">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,var(--brand-200),transparent_55%)] dark:bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,var(--brand-800),transparent_55%)]"
         />
-        <div className="cf-glass-strong relative mx-auto flex w-full max-w-2xl flex-col gap-6 rounded-3xl p-8 md:p-10">
-          <h2 className="font-heading text-foreground text-3xl font-bold md:text-4xl">
-            Entre na leva fundadora.
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            Temporada 0 da comunidade. Você ajuda a definir o formato, carrega o selo de fundador e
-            entra no que a Cupperfy vai ser — copas, pessoas e rede social no caminho. Avisamos
-            quando o acesso abrir — sem compromisso.
-          </p>
-          <AlphaWaitlistForm />
+        <div className="relative mx-auto flex w-full max-w-5xl flex-col gap-10">
+          <div className="max-w-3xl space-y-4">
+            <h2 className="font-heading text-foreground text-3xl font-bold md:text-4xl">
+              Entre na lista de interesse.
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              O primeiro campeonato é de EA FC e acontece todo em um único dia. Quem se cadastra
+              entra numa lista de espera e recebe um convite pessoal — um link exclusivo para
+              confirmar presença. A data será discutida e comunicada com antecedência. A final vai
+              ao vivo no canal da Cupperfy no YouTube, com narração de {FOUNDER_NAME}.
+            </p>
+            <div>
+              <Button size="lg" variant="outline" asChild>
+                <a href={youtubeUrl} target="_blank" rel="noreferrer">
+                  <YoutubeIcon className="size-5" />
+                  Canal da Cupperfy no YouTube
+                </a>
+              </Button>
+            </div>
+          </div>
+
+          <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <li className="cf-glass space-y-2 rounded-2xl p-5">
+              <p className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
+                01 · Cadastro
+              </p>
+              <p className="text-muted-foreground text-sm">
+                Deixe o e-mail. Você fica na lista, aguardando o convite.
+              </p>
+            </li>
+            <li className="cf-glass space-y-2 rounded-2xl p-5">
+              <p className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
+                02 · Convite pessoal
+              </p>
+              <p className="text-muted-foreground text-sm">
+                Um link só seu chega no e-mail para confirmar presença.
+              </p>
+            </li>
+            <li className="cf-glass space-y-2 rounded-2xl p-5">
+              <p className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
+                03 · Um único dia
+              </p>
+              <p className="text-muted-foreground text-sm">
+                Campeonato de EA FC, um de cada vez. A data chega com antecedência para quem está na
+                lista.
+              </p>
+            </li>
+            <li className="cf-glass space-y-2 rounded-2xl p-5">
+              <p className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
+                04 · Final ao vivo
+              </p>
+              <p className="text-muted-foreground text-sm">
+                YouTube da Cupperfy, narrada por {FOUNDER_NAME}.
+              </p>
+            </li>
+          </ol>
+
+          <div className="cf-glass-strong mx-auto flex w-full max-w-2xl flex-col gap-6 rounded-3xl p-8 md:p-10">
+            <p className="font-heading text-foreground text-xl font-semibold">
+              Deixe seu e-mail para o convite.
+            </p>
+            <AlphaWaitlistForm />
+          </div>
         </div>
       </section>
 
@@ -406,7 +405,7 @@ export default function Home() {
           { href: '/design-system', label: 'Design system' },
           { href: '#torneio', label: 'Torneios' },
           { href: '#operacao', label: 'Prova' },
-          { href: '#alfa', label: 'Leva' },
+          { href: '#alfa', label: 'Lista' },
           { href: '/login', label: 'Entrar' },
           { href: '#redes', label: 'Redes' },
         ]}

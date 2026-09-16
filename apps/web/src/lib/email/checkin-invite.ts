@@ -1,19 +1,22 @@
+import { FOUNDER_NAME } from '@/lib/site-config';
+
 export function buildCheckinInviteEmail(input: {
   name: string | null;
   checkinUrl: string;
   iconUrl?: string;
 }) {
   const greeting = input.name?.trim() ? `Olá, ${input.name.trim()}!` : 'Olá!';
-  const subject = 'Cupperfy · confirme sua disponibilidade no torneio alfa';
+  const subject = 'Cupperfy · convite pessoal · Copa EA FC';
 
   const text = `${greeting}
 
-Você está na lista do teste alfa da Cupperfy.
-Confirme em quais janelas você pode jogar o torneio x1:
+Este é o seu convite pessoal para a Copa Cupperfy FC (EA FC).
+Neste lançamento o campeonato inteiro acontece em um único dia. Confirme em quais janelas você pode jogar o x1:
 
 ${input.checkinUrl}
 
-Este link é pessoal e já identifica você.
+O link é exclusivo e já identifica você.
+A final vai ao vivo no YouTube da Cupperfy, com narração de ${FOUNDER_NAME}.
 Se não esperava este e-mail, ignore.
 
 — Equipe Cupperfy
@@ -32,11 +35,11 @@ Se não esperava este e-mail, ignore.
           <table role="presentation" width="100%" style="max-width:520px;background:#1a1512;border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:28px;">
             <tr>
               <td>
-                <p style="margin:0 0 8px;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#f97316;font-weight:700;">${iconImg}Cupperfy · alfa</p>
-                <h1 style="margin:0 0 16px;font-size:24px;line-height:1.2;color:#fff;">Confirme sua disponibilidade</h1>
+                <p style="margin:0 0 8px;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#f97316;font-weight:700;">${iconImg}Cupperfy · convite pessoal</p>
+                <h1 style="margin:0 0 16px;font-size:24px;line-height:1.2;color:#fff;">Copa Cupperfy FC · EA FC</h1>
                 <p style="margin:0 0 16px;font-size:16px;line-height:1.5;color:rgba(255,255,255,0.78);">${greeting}</p>
                 <p style="margin:0 0 24px;font-size:16px;line-height:1.5;color:rgba(255,255,255,0.78);">
-                  Escolha as janelas em que você consegue participar do torneio x1 de teste. O link é pessoal e já vem com seus dados.
+                  Neste lançamento o campeonato inteiro acontece em um único dia. Este link é pessoal: escolha as janelas em que você consegue jogar o x1. A final vai ao vivo no YouTube da Cupperfy, com narração de ${FOUNDER_NAME}.
                 </p>
                 <p style="margin:0 0 28px;">
                   <a href="${input.checkinUrl}" style="display:inline-block;background:#f97316;color:#111;text-decoration:none;font-weight:700;padding:12px 18px;border-radius:12px;">

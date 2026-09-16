@@ -20,6 +20,7 @@ export default function PreviewAgendaPage() {
   return (
     <>
       <PreviewHero
+        backToFeed
         kicker={PREVIEW_COMPETITION.name}
         title="Próximas partidas"
         description="Confrontos da Copa Cupperfy FC, em ordem de horário. Quartas em aberto, semis e final na fila."

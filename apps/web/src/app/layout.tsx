@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: '%s · Cupperfy',
   },
   description:
-    'Resultado com prova e uma comunidade que continua. Entre na leva fundadora da Cupperfy — Copa Cupperfy FC e Copa Cupperfy eFootball.',
+    'Resultado com prova e uma comunidade que continua. Lista de interesse da Cupperfy — o primeiro campeonato é de EA FC, em um único dia.',
 };
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {

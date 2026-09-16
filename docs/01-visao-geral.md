@@ -20,7 +20,14 @@ São **três módulos** ligados pela mesma identidade e permissões:
 | (2) Rede social de perfis esportivos | Fase 2 |
 | (3) Mercado de transferências | Fase 2 |
 
-**Torneio de lançamento do site:** campeonato **x1 de futebol e-sports** (eliminação simples, inscrição individual).
+**Torneio de lançamento do site:** campeonato **x1 de futebol e-sports** (eliminação simples, inscrição individual). Jogo do lançamento: **EA FC** (`sports.slug` permanece `futebol-esports`; EA FC é o título específico usado na copy/UX — ver [05-roadmap.md](./05-roadmap.md)).
+
+### Estratégia de lançamento (alfa)
+
+- Campeonatos rodam **um de cada vez**, nunca em simultâneo. O primeiro é o de **EA FC**.
+- Cada edição acontece em **um sábado**.
+- A **final** tem **transmissão ao vivo no canal da Cupperfy no YouTube**, narrada por **Adriano Anschau** (idealizador da plataforma).
+- Interessados se cadastram na lista de espera do site e aguardam **convite pessoal** (fluxo já existente via `alpha_waitlist` + `/checkin/<token>` — ver [07-ambiente-local.md](./07-ambiente-local.md)).
 
 ## Personas (MVP / lançamento)
 

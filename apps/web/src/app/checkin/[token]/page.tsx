@@ -16,8 +16,8 @@ type CheckinTokenPageProps = {
 };
 
 export const metadata: Metadata = {
-  title: 'Check-in do torneio alfa',
-  description: 'Confirme as janelas em que você pode jogar o x1 de teste da Cupperfy.',
+  title: 'Check-in · Copa EA FC',
+  description: 'Convite pessoal para confirmar o horário do campeonato de EA FC.',
   robots: { index: false, follow: false },
 };
 
@@ -56,15 +56,15 @@ export default async function CheckinTokenPage({ params }: CheckinTokenPageProps
         <div className="cf-glass-strong relative z-10 mx-auto mt-10 w-full max-w-3xl rounded-3xl p-6 md:mt-14 md:p-10">
           <p className="inline-flex items-center gap-2">
             <BrandMark className="text-primary text-sm font-semibold" />
-            <span className="text-muted-foreground text-sm">· alfa</span>
+            <span className="text-muted-foreground text-sm">· convite pessoal</span>
           </p>
           <h1 className="font-heading text-foreground mt-3 text-3xl font-bold md:text-4xl">
             {CHECKIN_EVENT.title}
           </h1>
           <p className="text-muted-foreground mt-3 text-lg">{CHECKIN_EVENT.subtitle}</p>
           <p className="text-muted-foreground mt-4 text-sm leading-relaxed">
-            Convite pessoal de {invite.name?.trim() || invite.email}. A chave do torneio (em geral 8
-            jogadores, x1) pode ser levemente ajustada conforme quem confirmar disponibilidade.
+            Convite pessoal de {invite.name?.trim() || invite.email}. A chave (em geral 8 jogadores,
+            x1 de EA FC) pode ser levemente ajustada conforme quem confirmar disponibilidade.
           </p>
 
           <AlphaCheckinForm

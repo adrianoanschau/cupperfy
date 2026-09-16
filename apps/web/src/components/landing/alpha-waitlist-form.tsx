@@ -36,12 +36,11 @@ export function AlphaWaitlistForm() {
   if (status === 'done') {
     return (
       <div className="border-border space-y-2 border-t pt-8">
-        <p className="font-heading text-foreground text-xl font-semibold">
-          Você entrou na leva fundadora.
-        </p>
+        <p className="font-heading text-foreground text-xl font-semibold">Você está na lista.</p>
         <p className="text-muted-foreground">
-          Obrigado{name.trim() ? `, ${name.trim()}` : ''}. Avisamos em{' '}
-          <span className="text-foreground">{email}</span> quando o acesso da temporada 0 abrir.
+          {name.trim() ? `${name.trim()}, em` : 'Em'} breve enviamos um convite pessoal para{' '}
+          <span className="text-foreground">{email}</span> — um link exclusivo para você confirmar
+          presença no campeonato de EA FC. A data será comunicada com antecedência.
         </p>
       </div>
     );
@@ -84,10 +83,10 @@ export function AlphaWaitlistForm() {
       ) : null}
       <div className="flex flex-wrap items-center gap-4">
         <Button type="submit" size="lg" disabled={status === 'submitting'}>
-          {status === 'submitting' ? 'Enviando…' : 'Entrar na leva fundadora'}
+          {status === 'submitting' ? 'Enviando…' : 'Entrar na lista'}
         </Button>
         <p className="text-muted-foreground text-sm">
-          Primeira leva de jogadores fundadores · sem spam
+          Lista de espera · convite pessoal · sem spam
         </p>
       </div>
     </form>

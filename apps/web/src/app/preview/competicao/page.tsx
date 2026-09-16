@@ -16,6 +16,7 @@ export default function PreviewCompetitionPage() {
   return (
     <>
       <PreviewHero
+        backToFeed
         kicker={PREVIEW_COMPETITION.sport}
         title={PREVIEW_COMPETITION.name}
         description="Eliminação simples, 8 jogadores, inscrição individual. Placar e avanço na chave."
@@ -27,7 +28,7 @@ export default function PreviewCompetitionPage() {
             <dt className="font-heading text-primary text-sm font-semibold tracking-wide uppercase">
               Formato
             </dt>
-            <dd className="text-foreground font-medium">Eliminação simples · melhor de 1</dd>
+            <dd className="text-foreground font-medium">Eliminação simples · melhor de 3</dd>
             <p className="text-muted-foreground text-sm">
               {PREVIEW_COMPETITION.format.participantCount} jogadores · chave definida pela
               organização
@@ -65,8 +66,8 @@ export default function PreviewCompetitionPage() {
         <div className="mb-6 space-y-2">
           <h2 className="font-heading text-foreground text-2xl font-bold">Chave</h2>
           <p className="text-muted-foreground max-w-2xl text-sm">
-            Cada confronto decide em uma partida. Toque para abrir o detalhe — placar, status e
-            estatísticas. Em telas estreitas, deslize a chave para o lado.
+            Cada confronto é melhor de 3 — uma partida atrás da outra. Toque para abrir o detalhe —
+            placar, status e estatísticas. Em telas estreitas, deslize a chave para o lado.
           </p>
         </div>
         <PreviewBracket />

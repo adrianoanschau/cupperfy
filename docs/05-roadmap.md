@@ -7,6 +7,7 @@
 | Decisão | Valor congelado |
 |---|---|
 | Modalidade seed | **Futebol e-sports** (`sports.slug = futebol-esports`) |
+| Jogo do 1º campeonato | **EA FC** (título específico; detalhe de copy/UX, não muda o slug da modalidade) |
 | Formato do lançamento | **x1** — eliminação simples, inscrição **por jogador** |
 | Tipo de formato | `single_elimination` com `participant_type: "player"` |
 | Tamanho padrão | **8 jogadores** (`participant_count: 8`; também 4 e 16) |
@@ -17,6 +18,14 @@
 
 Critério de sucesso: [01-visao-geral.md](./01-visao-geral.md#critério-de-sucesso-do-mvp).  
 Schema: [02-modelagem-de-dados.md](./02-modelagem-de-dados.md).
+
+### Estratégia de lançamento (alfa)
+
+- **Um campeonato por vez** — sem rodar duas competições em simultâneo no lançamento. O primeiro é o de **EA FC**; próximos jogos/edições entram depois, em sequência.
+- Cada edição roda em **um sábado**.
+- **Final com transmissão ao vivo** no canal da Cupperfy no YouTube, narrada por **Adriano Anschau**.
+- Captação de interessados: cadastro na landing (`alpha_waitlist`) → **convite pessoal** via `/checkin/<token>` quando a próxima edição for aberta. Fluxo técnico em [07-ambiente-local.md](./07-ambiente-local.md).
+- Isso não exige mudança de schema: é sequenciamento operacional de quando cada `competitions` é criada/aberta, não uma regra de banco (multi-organizador/simultaneidade continuam fora do MVP conforme já congelado acima).
 
 ### Entregáveis da Fase 1 (lançamento)
 
