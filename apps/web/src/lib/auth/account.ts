@@ -102,6 +102,54 @@ export async function getAccountSnapshot() {
   return { supabase, user, profile, roles };
 }
 
+export type HeaderAccount = {
+  displayName: string;
+  email: string;
+  avatarUrl: string | null;
+  roleLabels: string[];
+  primaryHref: '/conta' | '/onboarding' | '/definir-senha';
+  primaryLabel: string;
+};
+
+export async function getHeaderAccount(): Promise<HeaderAccount | null> {
+  const snapshot = await getAccountSnapshot();
+  if (!snapshot.user) {
+    return null;
+  }
+
+  const metaName =
+    typeof snapshot.user.user_metadata?.display_name === 'string'
+      ? snapshot.user.user_metadata.display_name.trim()
+      : '';
+  const displayName =
+    snapshot.profile?.displayName || metaName || snapshot.user.email?.split('@')[0] || 'Conta';
+
+  const hasRoles = Boolean(snapshot.roles?.isPlayer || snapshot.roles?.isOrganizer);
+  const needsPassword = needsPasswordSetup(snapshot.user);
+
+  let primaryHref: HeaderAccount['primaryHref'] = '/onboarding';
+  let primaryLabel = 'Continuar cadastro';
+  if (needsPassword) {
+    primaryHref = '/definir-senha';
+    primaryLabel = 'Criar senha';
+  } else if (hasRoles) {
+    primaryHref = '/conta';
+    primaryLabel = 'Minha conta';
+  }
+
+  return {
+    displayName,
+    email: snapshot.user.email ?? '',
+    avatarUrl: snapshot.profile?.avatarUrl ?? null,
+    roleLabels: [
+      snapshot.roles?.isPlayer ? 'Jogador' : null,
+      snapshot.roles?.isOrganizer ? 'Organizador' : null,
+    ].filter((label): label is string => Boolean(label)),
+    primaryHref,
+    primaryLabel,
+  };
+}
+
 export async function requireAccount() {
   const snapshot = await getAccountSnapshot();
   if (!snapshot.user) {

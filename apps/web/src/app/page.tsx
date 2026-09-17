@@ -22,7 +22,6 @@ export default function Home() {
           { href: '/apoiadores', label: 'Apoiar' },
           { href: '/preview', label: 'Prévia' },
           { href: '#alfa', label: 'Lista' },
-          { href: '/login', label: 'Entrar' },
         ]}
       />
 
