@@ -1,10 +1,11 @@
 import { Manrope, Oxanium } from 'next/font/google';
 
 import { SiteChat } from '@/components/chat/site-chat';
+import { PwaRegister } from '@/components/pwa-register';
 import { ThemeProvider } from '@/components/theme-provider';
-import { APP_PRODUCTION_ORIGIN } from '@/lib/brand';
+import { APP_DESCRIPTION, APP_NAME, APP_PRODUCTION_ORIGIN, APP_THEME_COLOR } from '@/lib/brand';
 
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 /* Resolve via Node (monorepo/Vercel); @import no CSS quebra com package exports. */
 import 'shadcn/tailwind.css';
 import './globals.css';
@@ -23,12 +24,25 @@ const fontBody = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL?.trim() || APP_PRODUCTION_ORIGIN),
+  applicationName: APP_NAME,
   title: {
-    default: 'Cupperfy',
+    default: APP_NAME,
     template: '%s · Cupperfy',
   },
-  description:
-    'Resultado com prova e uma comunidade que continua. Lista de interesse da Cupperfy — o primeiro campeonato é de EA FC, em um único dia.',
+  description: APP_DESCRIPTION,
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: APP_NAME,
+  },
+  other: {
+    'apple-mobile-web-app-capable': 'yes',
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: APP_THEME_COLOR,
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
@@ -47,6 +61,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         >
           {children}
           <SiteChat />
+          <PwaRegister />
         </ThemeProvider>
       </body>
     </html>

@@ -136,10 +136,15 @@ def to_light_lockup(im: Image.Image) -> Image.Image:
     return Image.fromarray(np.dstack([rgb.astype(np.uint8), alpha]), "RGBA")
 
 
-def fit_square(im: Image.Image, size: int, fill: tuple[int, int, int, int] | None = None) -> Image.Image:
+def fit_square(
+    im: Image.Image,
+    size: int,
+    fill: tuple[int, int, int, int] | None = None,
+    scale: float = 0.78,
+) -> Image.Image:
     canvas = Image.new("RGBA", (size, size), fill or (0, 0, 0, 0))
-    scale = min((size * 0.78) / im.width, (size * 0.78) / im.height)
-    w, h = max(1, round(im.width * scale)), max(1, round(im.height * scale))
+    factor = min((size * scale) / im.width, (size * scale) / im.height)
+    w, h = max(1, round(im.width * factor)), max(1, round(im.height * factor))
     fitted = im.resize((w, h), Image.Resampling.LANCZOS)
     canvas.paste(fitted, ((size - w) // 2, (size - h) // 2), fitted)
     return canvas
@@ -184,6 +189,10 @@ def main() -> None:
         format="ICO",
         sizes=[(16, 16), (32, 32)],
     )
+
+    for size in (192, 512):
+        pwa = fit_square(trophy, size, fill=(*INK, 255), scale=0.72)
+        pwa.save(PUBLIC_BRAND / f"cupperfy-icon-{size}.png", "PNG", optimize=True)
 
     print("trophy", trophy.size)
     print("lockup", lockup.size)

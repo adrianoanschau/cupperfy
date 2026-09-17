@@ -83,6 +83,7 @@ Lockup: símbolo do troféu + wordmark **cupperfy**. No header usa o PNG extraí
 | Ícone branco (CTA laranja) | `apps/web/public/brand/cupperfy-icon-white.png` |
 | Lockup header (fundo escuro) | `apps/web/public/brand/cupperfy-lockup.png` |
 | Lockup fundo claro | `apps/web/public/brand/cupperfy-lockup-light.png` |
+| Ícone PWA (192 / 512, maskable) | `apps/web/public/brand/cupperfy-icon-192.png` · `cupperfy-icon-512.png` |
 | Favicon | `apps/web/src/app/icon.png` + `favicon.ico` + `apple-icon.png` |
 
 Uso na UI: header, footer, heros, chat, admin, check-in. Ícone isolado no launcher do chat e na aba do browser.
@@ -100,7 +101,9 @@ Uso na UI: header, footer, heros, chat, admin, check-in. Ícone isolado no launc
 | Path | Papel |
 |---|---|
 | `apps/web/src/app/globals.css` | Tokens + tema light/dark + `cf-glass*` |
-| `apps/web/src/app/layout.tsx` | Fontes |
+| `apps/web/src/app/layout.tsx` | Fontes + metadata PWA |
+| `apps/web/src/app/manifest.ts` | Web app manifest |
+| `apps/web/public/sw.js` | Service worker (produção; não cacheia HTML/API) |
 | `apps/web/src/components/brand-mark.tsx` | Lockup + símbolo |
 | `apps/web/src/app/design-system/page.tsx` | Catálogo visual |
 | `apps/web/components.json` | shadcn (CSS variables) |

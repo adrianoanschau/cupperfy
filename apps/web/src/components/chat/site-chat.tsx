@@ -275,7 +275,7 @@ export function SiteChat() {
   return (
     <details
       ref={detailsRef}
-      className="group/chat fixed right-4 bottom-4 z-[70] flex flex-col items-end gap-3 md:right-6 md:bottom-6"
+      className="group/chat fixed right-[max(1rem,env(safe-area-inset-right))] bottom-[max(1rem,env(safe-area-inset-bottom))] z-[70] flex flex-col items-end gap-3 md:right-[max(1.5rem,env(safe-area-inset-right))] md:bottom-[max(1.5rem,env(safe-area-inset-bottom))]"
     >
       <div className="hidden group-open/chat:block">
         <ChatPanelErrorBoundary>

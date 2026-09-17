@@ -19,7 +19,7 @@ export function SiteHeader({ brandAsLink = false, links }: SiteHeaderProps) {
   const brand = <BrandLockup className="h-7 md:h-8" priority />;
 
   return (
-    <header className="cf-glass-nav fixed inset-x-0 top-0 z-50 px-4 py-3 md:px-8">
+    <header className="cf-glass-nav fixed inset-x-0 top-0 z-50 px-4 py-3 pt-[max(0.75rem,env(safe-area-inset-top))] md:px-8">
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between">
         {brandAsLink ? (
           <Link href="/" className="inline-flex items-center">
