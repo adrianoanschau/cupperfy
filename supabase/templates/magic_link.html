@@ -10,7 +10,7 @@
             Clique no botão abaixo para confirmar este e-mail e definir a senha da sua conta.
           </p>
           <p style="margin:0 0 24px;">
-            <a href="{{ .ConfirmationURL }}" style="display:inline-block;background:#f97316;color:#111;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:10px;">
+            <a href="{{ .SiteURL }}/auth/callback?token_hash={{ .TokenHash }}&type=email" style="display:inline-block;background:#f97316;color:#111;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:10px;">
               Criar minha senha
             </a>
           </p>

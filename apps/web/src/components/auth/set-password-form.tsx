@@ -1,5 +1,6 @@
 'use client';
 
+import { unstable_rethrow } from 'next/navigation';
 import { useState, type FormEvent } from 'react';
 
 import { setAccountPassword } from '@/app/actions/auth';
@@ -17,9 +18,15 @@ export function SetPasswordForm() {
     event.preventDefault();
     setBusy(true);
     setError(null);
-    const result = await setAccountPassword({ password, confirmPassword });
-    if (result && !result.ok) {
-      setError(result.error);
+    try {
+      const result = await setAccountPassword({ password, confirmPassword });
+      if (result && !result.ok) {
+        setError(result.error);
+        setBusy(false);
+      }
+    } catch (caught) {
+      unstable_rethrow(caught);
+      setError('Não foi possível salvar a senha. Tente de novo.');
       setBusy(false);
     }
   }

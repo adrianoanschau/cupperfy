@@ -2,7 +2,8 @@
 
 import { redirect } from 'next/navigation';
 
-import { getAppOrigin } from '@/lib/app-origin';
+import { getRequestOrigin } from '@/lib/app-origin';
+import { resolvePostAuthPath } from '@/lib/auth/account';
 import { mapAuthError } from '@/lib/auth/errors';
 import { createSupabaseUserClient } from '@/lib/supabase/server';
 
@@ -28,7 +29,7 @@ export async function requestSignupEmail(input: {
   }
 
   const supabase = await createSupabaseUserClient();
-  const origin = await getAppOrigin();
+  const origin = await getRequestOrigin();
   const { error } = await supabase.auth.signInWithOtp({
     email,
     options: {
@@ -84,32 +85,14 @@ export async function setAccountPassword(input: {
     return { ok: false, error: mapAuthError(error.message) };
   }
 
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('id')
-    .eq('user_id', user.id)
-    .maybeSingle();
-
-  if (!profile) {
-    redirect('/onboarding');
-  }
-
-  const [{ count: playerCount }, { count: organizerCount }] = await Promise.all([
-    supabase
-      .from('player_profiles')
-      .select('id', { count: 'exact', head: true })
-      .eq('profile_id', profile.id),
-    supabase
-      .from('organizer_profiles')
-      .select('id', { count: 'exact', head: true })
-      .eq('profile_id', profile.id),
-  ]);
-
-  if ((playerCount ?? 0) > 0 || (organizerCount ?? 0) > 0) {
-    redirect('/conta');
-  }
-
-  redirect('/onboarding');
+  const { data: refreshed } = await supabase.auth.getUser();
+  const nextUser = refreshed.user ?? user;
+  redirect(
+    await resolvePostAuthPath(supabase, {
+      ...nextUser,
+      user_metadata: { ...nextUser.user_metadata, must_set_password: false },
+    }),
+  );
 }
 
 export async function signInWithPassword(input: {
@@ -135,39 +118,14 @@ export async function signInWithPassword(input: {
     redirect('/login?error=session');
   }
 
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('id')
-    .eq('user_id', userData.user.id)
-    .maybeSingle();
-
-  if (!profile) {
-    redirect('/onboarding');
-  }
-
-  const [{ count: playerCount }, { count: organizerCount }] = await Promise.all([
-    supabase
-      .from('player_profiles')
-      .select('id', { count: 'exact', head: true })
-      .eq('profile_id', profile.id),
-    supabase
-      .from('organizer_profiles')
-      .select('id', { count: 'exact', head: true })
-      .eq('profile_id', profile.id),
-  ]);
-
-  if ((playerCount ?? 0) > 0 || (organizerCount ?? 0) > 0) {
-    redirect('/conta');
-  }
-
-  redirect('/onboarding');
+  redirect(await resolvePostAuthPath(supabase, userData.user));
 }
 
 export async function signInWithOAuthProvider(
   provider: 'discord' | 'google',
 ): Promise<AuthActionResult> {
   const supabase = await createSupabaseUserClient();
-  const origin = await getAppOrigin();
+  const origin = await getRequestOrigin();
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider,
     options: {

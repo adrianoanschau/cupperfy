@@ -1,13 +1,25 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 
-import { needsPasswordSetup } from '@/lib/auth/account';
+import { resolvePostAuthPath } from '@/lib/auth/account';
 import { getSupabaseAnonKey, getSupabaseUrl } from '@/lib/supabase/env';
 
 import type { EmailOtpType } from '@supabase/supabase-js';
 
-function nextPath(hasRoles: boolean) {
-  return hasRoles ? '/conta' : '/onboarding';
+const EMAIL_OTP_TYPES = new Set<EmailOtpType>([
+  'signup',
+  'invite',
+  'magiclink',
+  'recovery',
+  'email_change',
+  'email',
+]);
+
+function asEmailOtpType(value: string | null): EmailOtpType {
+  if (value && EMAIL_OTP_TYPES.has(value as EmailOtpType)) {
+    return value as EmailOtpType;
+  }
+  return 'email';
 }
 
 function copyCookies(from: NextResponse, to: NextResponse) {
@@ -32,15 +44,19 @@ export async function GET(request: NextRequest) {
     return NextResponse.redirect(new URL('/login?error=oauth', origin));
   }
 
-  const pending = NextResponse.redirect(new URL('/onboarding', origin));
+  let response = NextResponse.next({ request });
   const supabase = createServerClient(getSupabaseUrl(), getSupabaseAnonKey(), {
     cookies: {
       getAll() {
         return request.cookies.getAll();
       },
       setAll(cookiesToSet) {
+        cookiesToSet.forEach(({ name, value }) => {
+          request.cookies.set(name, value);
+        });
+        response = NextResponse.next({ request });
         cookiesToSet.forEach(({ name, value, options }) => {
-          pending.cookies.set(name, value, options);
+          response.cookies.set(name, value, options);
         });
       },
     },
@@ -51,9 +67,9 @@ export async function GET(request: NextRequest) {
     if (error) {
       return NextResponse.redirect(new URL('/login?error=oauth', origin));
     }
-  } else if (tokenHash && otpType) {
+  } else if (tokenHash) {
     const { error } = await supabase.auth.verifyOtp({
-      type: otpType as EmailOtpType,
+      type: asEmailOtpType(otpType),
       token_hash: tokenHash,
     });
     if (error) {
@@ -68,36 +84,11 @@ export async function GET(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    return NextResponse.redirect(new URL('/login?error=session', origin));
+    const failed = NextResponse.redirect(new URL('/login?error=session', origin));
+    return copyCookies(response, failed);
   }
 
-  if (needsPasswordSetup(user)) {
-    const destination = NextResponse.redirect(new URL('/definir-senha', origin));
-    return copyCookies(pending, destination);
-  }
-
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('id')
-    .eq('user_id', user.id)
-    .maybeSingle();
-
-  if (!profile) {
-    return pending;
-  }
-
-  const [{ count: playerCount }, { count: organizerCount }] = await Promise.all([
-    supabase
-      .from('player_profiles')
-      .select('id', { count: 'exact', head: true })
-      .eq('profile_id', profile.id),
-    supabase
-      .from('organizer_profiles')
-      .select('id', { count: 'exact', head: true })
-      .eq('profile_id', profile.id),
-  ]);
-
-  const hasRoles = (playerCount ?? 0) > 0 || (organizerCount ?? 0) > 0;
-  const destination = NextResponse.redirect(new URL(nextPath(hasRoles), origin));
-  return copyCookies(pending, destination);
+  const path = await resolvePostAuthPath(supabase, user);
+  const destination = NextResponse.redirect(new URL(path, origin));
+  return copyCookies(response, destination);
 }

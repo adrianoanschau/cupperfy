@@ -21,6 +21,42 @@ export function needsPasswordSetup(user: User | null | undefined): boolean {
   return user?.user_metadata?.must_set_password === true;
 }
 
+type AuthQueryClient = Awaited<ReturnType<typeof createSupabaseUserClient>>;
+
+/** Destino depois de sessão válida (magic link, OAuth ou senha). */
+export async function resolvePostAuthPath(supabase: AuthQueryClient, user: User): Promise<string> {
+  if (needsPasswordSetup(user)) {
+    return '/definir-senha';
+  }
+
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('id')
+    .eq('user_id', user.id)
+    .maybeSingle();
+
+  if (!profile) {
+    return '/onboarding';
+  }
+
+  const [{ count: playerCount }, { count: organizerCount }] = await Promise.all([
+    supabase
+      .from('player_profiles')
+      .select('id', { count: 'exact', head: true })
+      .eq('profile_id', profile.id),
+    supabase
+      .from('organizer_profiles')
+      .select('id', { count: 'exact', head: true })
+      .eq('profile_id', profile.id),
+  ]);
+
+  if ((playerCount ?? 0) > 0 || (organizerCount ?? 0) > 0) {
+    return '/conta';
+  }
+
+  return '/onboarding';
+}
+
 export async function getSessionUser() {
   const supabase = await createSupabaseUserClient();
   const {

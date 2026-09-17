@@ -1,5 +1,6 @@
 'use client';
 
+import { unstable_rethrow } from 'next/navigation';
 import { useState, type FormEvent } from 'react';
 
 import { requestSignupEmail, signInWithPassword } from '@/app/actions/auth';
@@ -18,9 +19,15 @@ export function LoginForm({ initialError }: { initialError?: string | null }) {
     event.preventDefault();
     setBusy(true);
     setError(null);
-    const result = await signInWithPassword({ email, password });
-    if (result && !result.ok) {
-      setError(result.error);
+    try {
+      const result = await signInWithPassword({ email, password });
+      if (result && !result.ok) {
+        setError(result.error);
+        setBusy(false);
+      }
+    } catch (caught) {
+      unstable_rethrow(caught);
+      setError('Não foi possível entrar. Tente de novo.');
       setBusy(false);
     }
   }
@@ -81,14 +88,20 @@ export function SignUpForm() {
     event.preventDefault();
     setBusy(true);
     setError(null);
-    const result = await requestSignupEmail({ email, name });
-    if (!result.ok) {
-      setError(result.error);
+    try {
+      const result = await requestSignupEmail({ email, name });
+      if (!result.ok) {
+        setError(result.error);
+        setBusy(false);
+        return;
+      }
+      setSentTo(email.trim().toLowerCase());
       setBusy(false);
-      return;
+    } catch (caught) {
+      unstable_rethrow(caught);
+      setError('Não foi possível enviar o e-mail. Tente de novo.');
+      setBusy(false);
     }
-    setSentTo(email.trim().toLowerCase());
-    setBusy(false);
   }
 
   if (sentTo) {
@@ -96,8 +109,8 @@ export function SignUpForm() {
       <div className="space-y-3">
         <p className="font-heading text-foreground text-xl font-semibold">Confira seu e-mail</p>
         <p className="text-muted-foreground text-sm">
-          Enviamos um link para <span className="text-foreground font-medium">{sentTo}</span>. Clique
-          nele para criar sua senha. O link vale por um tempo limitado.
+          Enviamos um link para <span className="text-foreground font-medium">{sentTo}</span>.
+          Clique nele para criar sua senha. O link vale por um tempo limitado.
         </p>
       </div>
     );

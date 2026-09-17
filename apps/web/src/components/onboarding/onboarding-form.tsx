@@ -1,5 +1,6 @@
 'use client';
 
+import { unstable_rethrow } from 'next/navigation';
 import { useState, type FormEvent } from 'react';
 
 import { completeOnboarding } from '@/app/actions/onboarding';
@@ -22,9 +23,15 @@ export function OnboardingForm({ sports }: { sports: SportOption[] }) {
     event.preventDefault();
     setBusy(true);
     setError(null);
-    const result = await completeOnboarding({ asPlayer, asOrganizer });
-    if (result && !result.ok) {
-      setError(result.error);
+    try {
+      const result = await completeOnboarding({ asPlayer, asOrganizer });
+      if (result && !result.ok) {
+        setError(result.error);
+        setBusy(false);
+      }
+    } catch (caught) {
+      unstable_rethrow(caught);
+      setError('Não foi possível concluir. Tente de novo.');
       setBusy(false);
     }
   }
@@ -70,8 +77,8 @@ export function OnboardingForm({ sports }: { sports: SportOption[] }) {
         <div className="border-border space-y-1 rounded-xl border p-3">
           <p className="font-heading text-foreground text-sm font-semibold">Modalidade</p>
           <p className="text-muted-foreground text-sm">
-            No lançamento há uma opção: <span className="text-foreground font-medium">{sportLabel}</span>
-            .
+            No lançamento há uma opção:{' '}
+            <span className="text-foreground font-medium">{sportLabel}</span>.
           </p>
         </div>
       ) : null}
@@ -82,7 +89,12 @@ export function OnboardingForm({ sports }: { sports: SportOption[] }) {
         </p>
       ) : null}
 
-      <Button type="submit" size="lg" className="w-full" disabled={busy || (!asPlayer && !asOrganizer)}>
+      <Button
+        type="submit"
+        size="lg"
+        className="w-full"
+        disabled={busy || (!asPlayer && !asOrganizer)}
+      >
         {busy ? 'Salvando…' : 'Continuar para a conta'}
       </Button>
     </form>

@@ -1,5 +1,6 @@
 'use client';
 
+import { unstable_rethrow } from 'next/navigation';
 import { useState } from 'react';
 
 import { signInWithDiscord, signInWithGoogle } from '@/app/actions/auth';
@@ -15,12 +16,18 @@ export function SocialAuthButtons({ disabled }: { disabled?: boolean }) {
     setError(null);
     setBusy(provider);
     const action = provider === 'google' ? signInWithGoogle : signInWithDiscord;
-    void action().then((result) => {
-      if (result && !result.ok) {
-        setError(result.error);
+    void action()
+      .then((result) => {
+        if (result && !result.ok) {
+          setError(result.error);
+          setBusy(null);
+        }
+      })
+      .catch((caught: unknown) => {
+        unstable_rethrow(caught);
+        setError('Não foi possível iniciar o acesso com essa conta.');
         setBusy(null);
-      }
-    });
+      });
   }
 
   return (

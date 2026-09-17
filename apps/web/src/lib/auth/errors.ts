@@ -35,6 +35,8 @@ export function authPageErrorMessage(code: string | undefined): string | null {
   if (!code) return null;
   if (code === 'oauth_cancelado') return 'Você cancelou o acesso com a conta social.';
   if (code === 'oauth') return 'Não foi possível entrar com Google ou Discord. Tente de novo.';
-  if (code === 'session') return 'Sessão inválida. Entre de novo.';
+  if (code === 'session') {
+    return 'O link expirou ou a sessão não pôde ser criada. Peça um novo e-mail ou entre de novo.';
+  }
   return 'Não foi possível entrar. Tente de novo.';
 }
