@@ -74,12 +74,15 @@ O vidro precisa de **fundo com textura/foto/gradiente** atrás — em seções c
 
 ## Marca
 
-Lockup: símbolo do troféu + wordmark **cupperfy** em Oxanium (`BrandMark`). O `fy` usa `text-primary`.
+Lockup: símbolo do troféu + wordmark **cupperfy**. No header usa o PNG extraído de `design/logo-base.png`. No restante da UI, `BrandMark` combina o ícone com Oxanium (`fy` em `text-primary`) para acompanhar o tema.
 
 | Peça | Onde |
 |---|---|
-| Fonte | `design/cupperfy-icon.png` |
-| UI | `apps/web/public/brand/cupperfy-icon.png` |
+| Fonte | `design/logo-base.png` (export: `design/export-brand-assets.py`) |
+| Ícone UI | `apps/web/public/brand/cupperfy-icon.png` |
+| Ícone branco (CTA laranja) | `apps/web/public/brand/cupperfy-icon-white.png` |
+| Lockup header (fundo escuro) | `apps/web/public/brand/cupperfy-lockup.png` |
+| Lockup fundo claro | `apps/web/public/brand/cupperfy-lockup-light.png` |
 | Favicon | `apps/web/src/app/icon.png` + `favicon.ico` + `apple-icon.png` |
 
 Uso na UI: header, footer, heros, chat, admin, check-in. Ícone isolado no launcher do chat e na aba do browser.

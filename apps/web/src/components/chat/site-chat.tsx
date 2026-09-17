@@ -288,7 +288,7 @@ export function SiteChat() {
           'relative z-10 cursor-pointer list-none rounded-full shadow-md marker:content-none [&::-webkit-details-marker]:hidden',
         )}
       >
-        <BrandIcon className="h-5 w-auto" />
+        <BrandIcon tone="white" className="h-5 w-auto" />
         <span className="group-open/chat:hidden">Dúvidas</span>
         <span className="hidden group-open/chat:inline">Fechar</span>
       </summary>

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { BrandIcon, BrandMark } from '@/components/brand-mark';
+import { BrandIcon, BrandLockup, BrandMark } from '@/components/brand-mark';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Button } from '@/components/ui/button';
 
@@ -69,10 +69,15 @@ export default function DesignSystemPage() {
         <h2 className="font-heading text-2xl">Marca</h2>
         <div className="bg-card grid gap-6 rounded-xl border p-6 md:grid-cols-2">
           <div className="space-y-3">
-            <p className="text-muted-foreground text-sm">Lockup (ícone + Oxanium)</p>
-            <BrandMark className="text-3xl" />
-            <BrandMark className="text-xl" />
-            <BrandMark className="text-sm" />
+            <p className="text-muted-foreground text-sm">Lockup do header</p>
+            <div className="flex flex-col gap-4">
+              <div className="bg-ink-950 flex items-center rounded-lg px-4 py-3">
+                <BrandLockup className="h-7" />
+              </div>
+              <div className="bg-background flex items-center rounded-lg border px-4 py-3">
+                <BrandLockup onLight className="h-7" />
+              </div>
+            </div>
           </div>
           <div className="space-y-3">
             <p className="text-muted-foreground text-sm">Símbolo (favicon / isolado)</p>
@@ -81,6 +86,13 @@ export default function DesignSystemPage() {
               <BrandIcon className="h-10 w-auto" alt="" />
               <BrandIcon className="h-6 w-auto" alt="" />
             </div>
+            <p className="text-muted-foreground text-sm">Símbolo branco (CTA laranja)</p>
+            <div className="bg-primary inline-flex items-center gap-2 rounded-full px-4 py-2">
+              <BrandIcon tone="white" className="h-6 w-auto" alt="" />
+              <span className="text-primary-foreground text-sm font-medium">Dúvidas</span>
+            </div>
+            <p className="text-muted-foreground text-sm">Wordmark adaptável ao tema</p>
+            <BrandMark className="text-3xl" />
           </div>
         </div>
       </section>

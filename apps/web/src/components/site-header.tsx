@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { BrandMark } from '@/components/brand-mark';
+import { BrandLockup } from '@/components/brand-mark';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { Button } from '@/components/ui/button';
 
@@ -16,17 +16,17 @@ type SiteHeaderProps = {
 };
 
 export function SiteHeader({ brandAsLink = false, links }: SiteHeaderProps) {
-  const brand = <BrandMark className="text-xl text-white" />;
+  const brand = <BrandLockup className="h-7 md:h-8" priority />;
 
   return (
     <header className="cf-glass-nav fixed inset-x-0 top-0 z-50 px-4 py-3 md:px-8">
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between">
         {brandAsLink ? (
-          <Link href="/" className="text-white">
+          <Link href="/" className="inline-flex items-center">
             {brand}
           </Link>
         ) : (
-          <p className="text-white">{brand}</p>
+          <span className="inline-flex items-center">{brand}</span>
         )}
         <div className="flex flex-wrap items-center justify-end gap-2">
           {links.map((link) => (
