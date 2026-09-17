@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRef } from 'react';
 
 import { signOut } from '@/app/actions/auth';
+import { HEADER_PANEL_CLASS } from '@/components/header-panel';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import {
@@ -14,6 +15,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { cn } from '@/lib/utils';
 
 import type { HeaderAccount } from '@/lib/auth/account';
 
@@ -48,26 +50,24 @@ export function UserMenu({ account }: { account: HeaderAccount }) {
             <span className="hidden max-w-28 truncate sm:inline">{account.displayName}</span>
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="cf-glass-strong min-w-56">
-          <DropdownMenuLabel className="font-normal">
-            <span className="text-foreground block truncate font-medium">
-              {account.displayName}
-            </span>
+        <DropdownMenuContent align="end" className={cn(HEADER_PANEL_CLASS, 'min-w-56')}>
+          <DropdownMenuLabel className="font-normal text-white">
+            <span className="block truncate font-medium text-white">{account.displayName}</span>
             {account.email ? (
-              <span className="text-muted-foreground block truncate text-xs">{account.email}</span>
+              <span className="block truncate text-xs text-white/70">{account.email}</span>
             ) : null}
             {account.roleLabels.length > 0 ? (
-              <span className="text-muted-foreground mt-1 block text-xs">
+              <span className="mt-1 block text-xs text-white/70">
                 {account.roleLabels.join(' · ')}
               </span>
             ) : null}
           </DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem asChild>
+          <DropdownMenuSeparator className="bg-white/15" />
+          <DropdownMenuItem asChild className="text-white focus:bg-white/10 focus:text-white">
             <Link href={account.primaryHref}>{account.primaryLabel}</Link>
           </DropdownMenuItem>
           <DropdownMenuItem
-            variant="destructive"
+            className="text-red-400 focus:bg-red-500/15 focus:text-red-300"
             onSelect={() => {
               formRef.current?.requestSubmit();
             }}

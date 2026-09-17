@@ -2,6 +2,7 @@
 
 import { MenuIcon, XIcon } from 'lucide-react';
 
+import { HEADER_PANEL_CLASS } from '@/components/header-panel';
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -31,7 +32,10 @@ export function SiteHeaderMobileNav({ children }: { children: ReactNode }) {
       </summary>
       <nav
         aria-label="Principal"
-        className="cf-glass-strong absolute top-[calc(100%+0.5rem)] right-0 z-50 flex min-w-48 flex-col gap-1 rounded-xl p-2"
+        className={cn(
+          HEADER_PANEL_CLASS,
+          'absolute top-[calc(100%+0.5rem)] right-0 z-50 flex min-w-48 flex-col gap-1 rounded-xl p-2',
+        )}
       >
         {children}
       </nav>

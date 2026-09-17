@@ -1,7 +1,7 @@
 import { Manrope, Oxanium } from 'next/font/google';
 
 import { SiteChat } from '@/components/chat/site-chat';
-import { PwaRegister } from '@/components/pwa-register';
+import { PwaShell } from '@/components/pwa/pwa-shell';
 import { ThemeProvider } from '@/components/theme-provider';
 import { APP_DESCRIPTION, APP_NAME, APP_PRODUCTION_ORIGIN, APP_THEME_COLOR } from '@/lib/brand';
 
@@ -61,7 +61,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         >
           {children}
           <SiteChat />
-          <PwaRegister />
+          <PwaShell />
         </ThemeProvider>
       </body>
     </html>

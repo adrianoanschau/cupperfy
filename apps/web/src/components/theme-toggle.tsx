@@ -4,6 +4,7 @@ import { MoonIcon, SunIcon } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useSyncExternalStore } from 'react';
 
+import { HEADER_PANEL_CLASS } from '@/components/header-panel';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -56,10 +57,25 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
           <MoonIcon className="absolute scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="cf-glass-strong">
-        <DropdownMenuItem onClick={() => setTheme('light')}>Claro</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('dark')}>Escuro</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('system')}>Sistema</DropdownMenuItem>
+      <DropdownMenuContent align="end" className={cn(HEADER_PANEL_CLASS, 'text-white')}>
+        <DropdownMenuItem
+          className="text-white focus:bg-white/10 focus:text-white"
+          onClick={() => setTheme('light')}
+        >
+          Claro
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          className="text-white focus:bg-white/10 focus:text-white"
+          onClick={() => setTheme('dark')}
+        >
+          Escuro
+        </DropdownMenuItem>
+        <DropdownMenuItem
+          className="text-white focus:bg-white/10 focus:text-white"
+          onClick={() => setTheme('system')}
+        >
+          Sistema
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
