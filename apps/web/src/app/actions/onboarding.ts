@@ -2,6 +2,7 @@
 
 import { redirect } from 'next/navigation';
 
+import { ensureAccountProfile } from '@/lib/auth/account';
 import { FOOTBALL_ESPORTS_SLUG } from '@/lib/auth/labels';
 import { createSupabaseUserClient } from '@/lib/supabase/server';
 
@@ -24,14 +25,9 @@ export async function completeOnboarding(input: {
     redirect('/login');
   }
 
-  const { data: profile, error: profileError } = await supabase
-    .from('profiles')
-    .select('id')
-    .eq('user_id', user.id)
-    .maybeSingle();
-
-  if (profileError || !profile) {
-    return { ok: false, error: 'Não encontramos seu perfil. Atualize a página e tente de novo.' };
+  const profile = await ensureAccountProfile(supabase, user);
+  if ('error' in profile) {
+    return { ok: false, error: profile.error };
   }
 
   if (input.asPlayer) {
@@ -42,7 +38,10 @@ export async function completeOnboarding(input: {
       .maybeSingle();
 
     if (sportError || !sport) {
-      return { ok: false, error: 'A modalidade ainda não está disponível. Tente de novo em instantes.' };
+      return {
+        ok: false,
+        error: 'A modalidade ainda não está disponível. Tente de novo em instantes.',
+      };
     }
 
     const { error: playerError } = await supabase.from('player_profiles').insert({

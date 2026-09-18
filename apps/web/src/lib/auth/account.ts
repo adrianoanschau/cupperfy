@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 
-import { createSupabaseUserClient } from '@/lib/supabase/server';
+import { createSupabaseServiceClient, createSupabaseUserClient } from '@/lib/supabase/server';
 
 import type { User } from '@supabase/supabase-js';
 
@@ -21,7 +21,59 @@ export function needsPasswordSetup(user: User | null | undefined): boolean {
   return user?.user_metadata?.must_set_password === true;
 }
 
+function metaString(user: User, key: string): string {
+  const value = user.user_metadata?.[key];
+  return typeof value === 'string' ? value.trim() : '';
+}
+
+export function displayNameFromUser(user: User): string {
+  const fromMeta =
+    metaString(user, 'display_name') || metaString(user, 'full_name') || metaString(user, 'name');
+  const fromEmail = user.email?.split('@')[0]?.trim() ?? '';
+  return (fromMeta || fromEmail || 'Jogador').slice(0, 80);
+}
+
 type AuthQueryClient = Awaited<ReturnType<typeof createSupabaseUserClient>>;
+
+/** Cria o `profiles` se o trigger de signup não rodou (usuário antigo / OTP). */
+export async function ensureAccountProfile(
+  supabase: AuthQueryClient,
+  user: User,
+): Promise<{ id: string } | { error: string }> {
+  const existing = await supabase
+    .from('profiles')
+    .select('id')
+    .eq('user_id', user.id)
+    .maybeSingle();
+  if (existing.data?.id) {
+    return { id: existing.data.id };
+  }
+
+  const admin = createSupabaseServiceClient();
+  const { data, error } = await admin
+    .from('profiles')
+    .upsert(
+      {
+        user_id: user.id,
+        display_name: displayNameFromUser(user),
+        avatar_url:
+          metaString(user, 'avatar_url') ||
+          metaString(user, 'picture') ||
+          metaString(user, 'avatar') ||
+          null,
+      },
+      { onConflict: 'user_id' },
+    )
+    .select('id')
+    .single();
+
+  if (error || !data) {
+    console.error('ensureAccountProfile', error ?? existing.error);
+    return { error: 'Não encontramos seu perfil. Atualize a página e tente de novo.' };
+  }
+
+  return { id: data.id };
+}
 
 /** Destino depois de sessão válida (magic link, OAuth ou senha). */
 export async function resolvePostAuthPath(supabase: AuthQueryClient, user: User): Promise<string> {
